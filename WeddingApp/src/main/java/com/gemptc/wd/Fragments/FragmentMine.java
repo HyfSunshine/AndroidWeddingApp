@@ -1,4 +1,4 @@
-package Fragments;
+package com.gemptc.wd.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,11 +12,11 @@ import com.android.FragmentApplication.R;
 /**
  * Created by Administrator on 2016/5/5.
  */
-public class FragmentSocial extends Fragment{
+public class FragmentMine extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_social,null);
+        View view=inflater.inflate(R.layout.fragment_mine,null);
 
         return view;
     }

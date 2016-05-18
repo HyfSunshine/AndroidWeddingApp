@@ -1,9 +1,8 @@
-package com.android.FragmentApplication;
+package com.gemptc.wd.activities;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.widget.RadioButton;
@@ -12,11 +11,12 @@ import android.widget.RadioGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import FragmentAdapter.FragmentAdapter;
-import Fragments.FragmentHome;
-import Fragments.FragmentKinds;
-import Fragments.FragmentMine;
-import Fragments.FragmentSocial;
+import com.android.FragmentApplication.R;
+import com.gemptc.wd.adapter.FragmentAdapter;
+import com.gemptc.wd.fragments.FragmentHome;
+import com.gemptc.wd.fragments.FragmentKinds;
+import com.gemptc.wd.fragments.FragmentMine;
+import com.gemptc.wd.fragments.FragmentSocial;
 
 public class MainActivity extends FragmentActivity {
 

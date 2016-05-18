@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.android.FragmentApplication.MainActivity">
+    tools:context="com.gemptc.wd.activities.MainActivity">
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
