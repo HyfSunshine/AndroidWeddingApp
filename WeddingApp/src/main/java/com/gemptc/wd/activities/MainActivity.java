@@ -48,6 +48,7 @@ public class MainActivity extends FragmentActivity {
         FragmentSocial fragmentSocial=new FragmentSocial();
         FragmentMine fragmentMine=new FragmentMine();
 
+        //加注释
         fragmentList.add(fragmentHome);
         fragmentList.add(fragmentKinds);
         fragmentList.add(fragmentSocial);
