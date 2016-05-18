@@ -5,19 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.gemptc.wd.activities.MainActivity">
-    <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:background="#ff705e">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="这是标题"
-            android:textSize="25sp"
-            android:textColor="#ffffff"/>
-    </LinearLayout>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_weight="10"
