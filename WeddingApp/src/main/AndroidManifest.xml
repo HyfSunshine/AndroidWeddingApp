@@ -15,12 +15,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.gemptc.wd.activities.HomeFindMerchantActivity">
+        <activity android:name="com.gemptc.wd.activities.HomeFindMerchantActivity"
+                  android:theme="@style/StyledIndicators"
+            >
+
         </activity>
         <activity android:name="com.gemptc.wd.activities.HomeWeddingTaskActivity">
         </activity>
         <activity android:name="com.gemptc.wd.activities.HomeWeixinCadActivity">
         </activity>
+
     </application>
 
 </manifest>

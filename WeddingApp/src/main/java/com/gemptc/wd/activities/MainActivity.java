@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.android.FragmentApplication.R;
 import com.gemptc.wd.adapter.FragmentAdapter;
 import com.gemptc.wd.fragments.FragmentHome;

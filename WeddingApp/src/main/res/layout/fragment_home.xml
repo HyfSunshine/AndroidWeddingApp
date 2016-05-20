@@ -16,25 +16,17 @@
 
         <ImageButton
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:background="#fff"
             android:src="@drawable/icon_location"/>
-
-        <EditText
-            android:id="@+id/search_et_input"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_weight="4"
-            android:background="@drawable/searchtext"
-            android:drawableRight="@drawable/icon_search_s"
-            android:hint="搜索商家"
-            android:inputType="text"
-            android:textColor="#999999"
-            android:textSize="16sp"/>
+        <include layout="@layout/search"
+                 android:layout_width="0dp"
+                 android:layout_weight="4"
+                 android:layout_gravity="center"
+                 android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
