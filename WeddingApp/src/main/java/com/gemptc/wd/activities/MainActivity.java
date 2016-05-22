@@ -102,4 +102,29 @@ public class MainActivity extends FragmentActivity {
         Intent intent = new Intent(MainActivity.this, HomeFindMerchantActivity.class);
         startActivity(intent);
     }
+
+
+
+    public void huiyilu(View view) {
+        Intent intent=new Intent(MainActivity.this, SocialHuiyiluActivity.class);
+        startActivity(intent);
+    }
+
+    public void jinxingce(View view) {
+        Intent intent=new Intent(MainActivity.this,SocialJinxingceActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void shenghuoji(View view) {
+        Intent intent=new Intent(MainActivity.this,SocialShenghuojiActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void fannaoji(View view) {
+        Intent intent=new Intent(MainActivity.this,SocialFannaojiActivity.class);
+        startActivity(intent);
+
+    }
 }

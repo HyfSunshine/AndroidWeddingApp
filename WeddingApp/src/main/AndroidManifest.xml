@@ -16,14 +16,21 @@
             </intent-filter>
         </activity>
         <activity android:name="com.gemptc.wd.activities.HomeFindMerchantActivity"
-                  android:theme="@style/StyledIndicators"
-            >
-
+                  android:theme="@style/StyledIndicators">
         </activity>
         <activity android:name="com.gemptc.wd.activities.HomeWeddingTaskActivity">
         </activity>
         <activity android:name="com.gemptc.wd.activities.HomeWeixinCadActivity">
         </activity>
+        <activity android:name="com.gemptc.wd.activities.SocialHuiyiluActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.SocialJinxingceActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.SocialShenghuojiActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.SocialFannaojiActivity">
+        </activity>
+
 
     </application>
 

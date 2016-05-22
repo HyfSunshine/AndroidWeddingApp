@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gemptc.wd.activities.SocialHuiyiluActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:background="#fff">
+
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:background="#ffff"
+        android:layout_gravity="center"
+        android:src="@drawable/btn_back_red"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="6"
+        android:text="话题"
+        android:textColor="#ff705e"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_height="match_parent"/>
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:layout_gravity="center"
+        android:src="@drawable/btn_edit_red"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/lv_huiyilu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>
