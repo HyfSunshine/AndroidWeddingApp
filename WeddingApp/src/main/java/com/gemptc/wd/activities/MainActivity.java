@@ -102,7 +102,10 @@ public class MainActivity extends FragmentActivity {
         Intent intent = new Intent(MainActivity.this, HomeFindMerchantActivity.class);
         startActivity(intent);
     }
-
+    public void jumpHomeWeddingTaskActivity(View view) {
+        Intent intent = new Intent(MainActivity.this, HomeWeddingTaskActivity.class);
+        startActivity(intent);
+    }
 
 
     public void huiyilu(View view) {
@@ -127,4 +130,6 @@ public class MainActivity extends FragmentActivity {
         startActivity(intent);
 
     }
+
+
 }

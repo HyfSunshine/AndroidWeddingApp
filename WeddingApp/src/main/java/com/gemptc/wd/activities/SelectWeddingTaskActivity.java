@@ -7,18 +7,18 @@ import android.view.View;
 
 import com.android.FragmentApplication.R;
 
-public class HomeWeddingTaskActivity extends AppCompatActivity {
+public class SelectWeddingTaskActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_wedding_task);
+        setContentView(R.layout.activity_select_wedding_task);
         Intent intent=getIntent();
     }
 
-    public void addTask(View view) {
-        Intent intent=new Intent(HomeWeddingTaskActivity.this,SelectWeddingTaskActivity.class);
+    public void setAddTask(View view) {
+        //调回
+        Intent intent=new Intent(SelectWeddingTaskActivity.this,HomeWeddingTaskActivity.class);
         startActivity(intent);
-        Intent intent1=getIntent();
     }
 }

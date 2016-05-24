@@ -20,7 +20,6 @@
     android:id="@+id/merchant_indicator"
     android:layout_width="match_parent"
    android:layout_height="wrap_content"
-
     >
     </com.viewpagerindicator.TabPageIndicator>
 
