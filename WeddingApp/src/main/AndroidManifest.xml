@@ -33,6 +33,8 @@
         </activity>
         <activity android:name="com.gemptc.wd.activities.SelectWeddingTaskActivity">
         </activity>
+        <activity android:name="com.gemptc.wd.activities.EditTaskActivity">
+        </activity>
     </application>
 
 </manifest>
