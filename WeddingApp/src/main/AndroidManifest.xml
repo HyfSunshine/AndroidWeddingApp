@@ -35,6 +35,8 @@
         </activity>
         <activity android:name="com.gemptc.wd.activities.EditTaskActivity">
         </activity>
+        <activity android:name="com.gemptc.wd.activities.KindsActivity">
+        </activity>
     </application>
 
 </manifest>

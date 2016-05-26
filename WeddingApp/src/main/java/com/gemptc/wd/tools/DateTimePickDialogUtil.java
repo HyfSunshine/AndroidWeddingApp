@@ -80,7 +80,7 @@ public class DateTimePickDialogUtil implements DatePicker.OnDateChangedListener,
                 .setIcon(R.drawable.icon_task_remind)
                 .setTitle(initDateTime)
                 .setView(dateTimeLayout)
-                .setPositiveButton("设置", new DialogInterface.OnClickListener() {
+                .setPositiveButton("设置提醒时间", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
                     }

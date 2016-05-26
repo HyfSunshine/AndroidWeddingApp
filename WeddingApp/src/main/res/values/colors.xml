@@ -7,5 +7,5 @@
     <color name="textUp">#999999</color>
     <color name="homebackgroudcolor">#e9e7e7</color>
     <color name="tab_indicator">#999999</color>
-    <color name="tab_indicator2">#f1efef</color>
+    <color name="viewpager_indicator">#fccbcb</color>
 </resources>

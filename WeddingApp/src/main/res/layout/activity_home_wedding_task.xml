@@ -13,13 +13,13 @@
     android:layout_weight="1"
     android:background="@color/textDown">
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="15dp"
+        android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:layout_alignParentLeft="true"
-        android:background="#00000000"
+        android:background="@drawable/btn_back_w"
         android:layout_marginRight="10dp"
-        android:src="@drawable/btn_back_w"
+
         />
     <TextView
         android:layout_width="wrap_content"
@@ -29,13 +29,13 @@
         android:textSize="25sp"
         android:text="结婚任务"/>
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="10dp"
+        android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
-        android:background="#00000000"
+        android:background="@drawable/icon_task_menu"
         android:layout_marginRight="10dp"
-        android:src="@drawable/icon_task_menu"/>
+        />
 </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -93,6 +93,7 @@
             android:gravity="center"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/feigexian"/>
+
 
             <TextView
                 android:id="@+id/weiwancheng"

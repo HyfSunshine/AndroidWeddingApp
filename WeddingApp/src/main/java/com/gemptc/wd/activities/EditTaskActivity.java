@@ -46,6 +46,7 @@ public class EditTaskActivity extends AppCompatActivity {
                         /*et1.setText(DateFormat.format("yyy-MM-dd", c));*/
                     }
                 }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+                dialog.setIcon(R.drawable.icon_task_remind);
                 dialog.show();
             }
         });
