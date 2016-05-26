@@ -132,4 +132,33 @@ public class MainActivity extends FragmentActivity {
     }
 
 
+    public void rentCar(View view) {
+        Intent intent=new Intent(MainActivity.this,KindRentCarActivity.class);
+        startActivity(intent);
+    }
+
+    public void travelkind(View view) {
+        Intent intent=new Intent(MainActivity.this,KindTravelActivity.class);
+        startActivity(intent);
+    }
+
+    public void clothesKind(View view) {
+        Intent intent=new Intent(MainActivity.this,KindClothesActivity.class);
+        startActivity(intent);
+    }
+
+    public void ringKind(View view) {
+        Intent intent=new Intent(MainActivity.this,KindRingActivity.class);
+        startActivity(intent);
+    }
+
+    public void shootKind(View view) {
+        Intent intent=new Intent(MainActivity.this,KindShootActivity.class);
+        startActivity(intent);
+    }
+
+    public void hotelKind(View view) {
+        Intent intent=new Intent(MainActivity.this,KindHotelActivity.class);
+        startActivity(intent);
+    }
 }

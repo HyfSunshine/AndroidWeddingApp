@@ -37,6 +37,18 @@
         </activity>
         <activity android:name="com.gemptc.wd.activities.KindsActivity">
         </activity>
+        <activity android:name="com.gemptc.wd.activities.KindRentCarActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.KindTravelActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.KindClothesActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.KindRingActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.KindShootActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.KindHotelActivity">
+        </activity>
     </application>
 
 </manifest>
