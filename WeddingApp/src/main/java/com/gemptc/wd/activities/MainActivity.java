@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -25,7 +26,7 @@ public class MainActivity extends FragmentActivity {
     private FragmentHome home;
     private RadioGroup radioGroup;
     private List<Fragment> fragmentList;
-
+    private  EditText mEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,7 @@ public class MainActivity extends FragmentActivity {
     public void initViews(){
         vp = (ViewPager) findViewById(R.id.viewPager);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroupBottom);
+        mEditText= (EditText) findViewById(R.id.search_et_input);
     }
     //初始化Fragment
     public void initFragments(){
@@ -161,4 +163,11 @@ public class MainActivity extends FragmentActivity {
         Intent intent=new Intent(MainActivity.this,KindHotelActivity.class);
         startActivity(intent);
     }
+
+    /*public void getFocusable(View view) {
+        mEditText.setFocusable(true);
+        mEditText.setFocusableInTouchMode(true);
+        mEditText.requestFocus();
+        mEditText.requestFocusFromTouch();
+    }*/
 }

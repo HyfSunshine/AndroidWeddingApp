@@ -8,10 +8,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="com.gemptc.wd.activities.MainActivity">
+        <activity android:name="com.gemptc.wd.activities.MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -34,8 +34,6 @@
         <activity android:name="com.gemptc.wd.activities.SelectWeddingTaskActivity">
         </activity>
         <activity android:name="com.gemptc.wd.activities.EditTaskActivity">
-        </activity>
-        <activity android:name="com.gemptc.wd.activities.KindsActivity">
         </activity>
         <activity android:name="com.gemptc.wd.activities.KindRentCarActivity">
         </activity>
