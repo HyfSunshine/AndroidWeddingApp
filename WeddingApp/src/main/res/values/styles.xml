@@ -16,9 +16,11 @@
         <item name="android:textColor">@drawable/bottom_textcolor</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="StyledIndicators" parent="@android:style/Theme.Light">
         <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
     </style>
+
     <style name="CustomTabPageIndicator" parent="Widget.TabPageIndicator">
         <item name="android:background">@drawable/tab_indicator</item>
         <item name="android:textAppearance">@style/CustomTabPageIndicator.Text</item>

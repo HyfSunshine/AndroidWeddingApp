@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 import com.gemptc.wd.adapter.FragmentAdapter;
 import com.gemptc.wd.fragments.FragmentHome;
 import com.gemptc.wd.fragments.FragmentKinds;

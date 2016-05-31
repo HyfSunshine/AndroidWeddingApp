@@ -1,17 +1,15 @@
 package com.gemptc.wd.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 import com.gemptc.wd.bean.TaskBean;
 
 import java.util.List;

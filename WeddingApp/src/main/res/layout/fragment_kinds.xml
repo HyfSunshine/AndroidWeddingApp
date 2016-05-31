@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#fff"
-            android:src="@drawable/btn_back_red"/>
+            android:src="@mipmap/btn_back_red"/>
 
         <include
             layout="@layout/search"
@@ -74,7 +74,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:onClick="rentCar"
-                        android:background="@drawable/image_car"/>
+                        android:background="@mipmap/image_car"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:onClick="travelkind"
-                        android:background="@drawable/image_travel"/>
+                        android:background="@mipmap/image_travel"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -114,7 +114,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:onClick="clothesKind"
-                        android:background="@drawable/image_clothes"/>
+                        android:background="@mipmap/image_clothes"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -143,7 +143,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:onClick="ringKind"
-                        android:background="@drawable/image_ring"/>
+                        android:background="@mipmap/image_ring"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -163,7 +163,7 @@
                         android:layout_width="63dp"
                         android:layout_height="63dp"
                         android:onClick="shootKind"
-                        android:background="@drawable/image_shoot"/>
+                        android:background="@mipmap/image_shoot"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -183,7 +183,7 @@
                         android:layout_width="63dp"
                         android:layout_height="63dp"
                         android:onClick="hotelKind"
-                        android:background="@drawable/image_hotel"/>
+                        android:background="@mipmap/image_hotel"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -206,7 +206,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/icon_collect_r2"/>
+                    android:src="@mipmap/icon_collect_r2"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -234,7 +234,7 @@
                         android:layout_height="80dp"
                         android:layout_marginLeft="10dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/image_tuijian1"/>
+                        android:src="@mipmap/image_tuijian1"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -256,7 +256,7 @@
                         android:layout_height="80dp"
                         android:layout_marginLeft="10dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/image_tuijian3"/>
+                        android:src="@mipmap/image_tuijian3"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -278,7 +278,7 @@
                         android:layout_height="80dp"
                         android:layout_marginLeft="10dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/image_tuijian4"/>
+                        android:src="@mipmap/image_tuijian4"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -300,7 +300,7 @@
                         android:layout_height="80dp"
                         android:layout_marginLeft="10dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/image_tuijian2"/>
+                        android:src="@mipmap/image_tuijian2"/>
 
                     <TextView
                         android:layout_width="wrap_content"

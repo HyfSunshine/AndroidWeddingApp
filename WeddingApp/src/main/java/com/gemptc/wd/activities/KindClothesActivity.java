@@ -3,7 +3,7 @@ package com.gemptc.wd.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 
 public class KindClothesActivity extends AppCompatActivity {
 

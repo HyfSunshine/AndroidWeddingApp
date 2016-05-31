@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 import com.gemptc.wd.adapter.TotalTaskAdapter;
 import com.gemptc.wd.bean.TaskBean;
 

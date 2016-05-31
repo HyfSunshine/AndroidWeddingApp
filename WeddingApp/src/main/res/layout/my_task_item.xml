@@ -33,7 +33,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/icon_task_undone"/>
+                android:background="@mipmap/icon_task_undone"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -55,7 +55,7 @@
                     android:id="@+id/task_img1"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/icon_task_edit"/>
+                    android:src="@mipmap/icon_task_edit"/>
                 <TextView
                     android:id="@+id/task_tv1"
                     android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
                     android:id="@+id/task_img2"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/icon_task_finish"/>
+                    android:src="@mipmap/icon_task_finish"/>
                 <TextView
                     android:id="@+id/task_tv2"
                     android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
                     android:id="@+id/task_img3"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/icon_task_delete"/>
+                    android:src="@mipmap/icon_task_delete"/>
                 <TextView
                     android:id="@+id/task_tv3"
                     android:layout_width="wrap_content"

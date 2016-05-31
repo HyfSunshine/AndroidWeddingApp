@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 
 /**
  * Created by Administrator on 2016/5/5.

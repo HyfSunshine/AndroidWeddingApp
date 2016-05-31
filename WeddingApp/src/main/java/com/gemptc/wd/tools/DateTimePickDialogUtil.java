@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TimePicker;
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -77,7 +76,7 @@ public class DateTimePickDialogUtil implements DatePicker.OnDateChangedListener,
         timePicker.setIs24HourView(true);
         timePicker.setOnTimeChangedListener(this);
         ad = new AlertDialog.Builder(activity)
-                .setIcon(R.drawable.icon_task_remind)
+                .setIcon(R.mipmap.icon_task_remind)
                 .setTitle(initDateTime)
                 .setView(dateTimeLayout)
                 .setPositiveButton("设置提醒时间", new DialogInterface.OnClickListener() {

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/searchtext"
-        android:drawableRight="@drawable/icon_search_s"
+        android:drawableRight="@mipmap/icon_search_s"
         android:hint="搜索商家"
         android:inputType="text"
         android:textColor="#999999"

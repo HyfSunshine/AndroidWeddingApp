@@ -12,7 +12,7 @@
         android:id="@+id/imgbtn_wedding_task"
         android:background="#fff"
         android:onClick="jumpHomeWeddingTaskActivity"
-        android:src="@drawable/btn_wedding_task"/>
+        android:src="@mipmap/btn_wedding_task"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

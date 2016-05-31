@@ -17,7 +17,7 @@
         android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:layout_alignParentLeft="true"
-        android:background="@drawable/btn_back_w"
+        android:background="@mipmap/btn_back_w"
         android:layout_marginRight="10dp"
 
         />
@@ -33,7 +33,7 @@
         android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
-        android:background="@drawable/icon_task_menu"
+        android:background="@mipmap/icon_task_menu"
         android:layout_marginRight="10dp"
         />
 </RelativeLayout>
@@ -88,7 +88,7 @@
             android:id="@+id/yuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/dot_normal"
+            android:src="@mipmap/dot_normal"
             android:background="#00000000"
             android:gravity="center"
             android:layout_centerVertical="true"
@@ -135,6 +135,6 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/icon_add_contact_name"/>
+        android:background="@mipmap/icon_add_contact_name"/>
     </RelativeLayout>
 </LinearLayout>

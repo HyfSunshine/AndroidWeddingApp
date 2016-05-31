@@ -8,4 +8,5 @@
     <color name="homebackgroudcolor">#e9e7e7</color>
     <color name="tab_indicator">#999999</color>
     <color name="viewpager_indicator">#fccbcb</color>
+    <color name="zhuColor">#FF705E</color>
 </resources>

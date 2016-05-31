@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         android:id="@+id/imgbtn_weixin_card"
         android:background="#fff"
-        android:src="@drawable/btn_weixin_card"/>
+        android:src="@mipmap/btn_weixin_card"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

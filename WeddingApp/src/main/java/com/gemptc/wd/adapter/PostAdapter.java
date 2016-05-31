@@ -1,7 +1,6 @@
 package com.gemptc.wd.adapter;
 
 import android.content.Context;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 import com.gemptc.wd.bean.Post;
 
 import java.util.List;

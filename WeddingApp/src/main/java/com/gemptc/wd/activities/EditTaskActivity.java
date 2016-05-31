@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 import com.gemptc.wd.tools.DateTimePickDialogUtil;
 
 import java.util.Calendar;
@@ -46,7 +46,7 @@ public class EditTaskActivity extends AppCompatActivity {
                         /*et1.setText(DateFormat.format("yyy-MM-dd", c));*/
                     }
                 }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
-                dialog.setIcon(R.drawable.icon_task_remind);
+                dialog.setIcon(R.mipmap.icon_task_remind);
                 dialog.show();
             }
         });

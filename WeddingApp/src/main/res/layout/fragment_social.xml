@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:background="#ffff"
         android:layout_gravity="center"
-        android:src="@drawable/icon_search_ss"/>
+        android:src="@mipmap/icon_search_ss"/>
     <TextView
         android:layout_width="0dp"
         android:layout_weight="2"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:background="#fff"
         android:layout_gravity="center"
-        android:src="@drawable/btn_edit_red"/>
+        android:src="@mipmap/btn_edit_red"/>
 </LinearLayout>
 
 <LinearLayout
@@ -47,7 +47,7 @@
          android:layout_weight="4"
          android:layout_height="0dp"
          android:scaleType="fitXY"
-         android:src="@drawable/eee"
+         android:src="@mipmap/eee"
          android:layout_marginBottom="5dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -173,7 +173,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:src="@drawable/socialuser1"/>
+                android:src="@mipmap/socialuser1"/>
          <TextView
             android:id="@+id/tv_huiyilu"
             android:background="#fff"
@@ -188,7 +188,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:src="@drawable/icon_more_arrow"/>
+                android:src="@mipmap/icon_more_arrow"/>
         </LinearLayout>
 
         <LinearLayout
@@ -205,7 +205,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:src="@drawable/socialuser3"/>
+                android:src="@mipmap/socialuser3"/>
             <TextView
                 android:id="@+id/tv_jinxingce"
                 android:background="#fff"
@@ -220,7 +220,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:src="@drawable/icon_more_arrow"/>
+                android:src="@mipmap/icon_more_arrow"/>
         </LinearLayout>
         <LinearLayout
             android:background="#fff"
@@ -236,7 +236,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:src="@drawable/socialuser4"/>
+                android:src="@mipmap/socialuser4"/>
             <TextView
                 android:id="@+id/tv_shenghuoji"
                 android:background="#fff"
@@ -251,7 +251,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:src="@drawable/icon_more_arrow"/>
+                android:src="@mipmap/icon_more_arrow"/>
         </LinearLayout>
         <LinearLayout
             android:background="#fff"
@@ -267,7 +267,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:src="@drawable/socialuser5"/>
+                android:src="@mipmap/socialuser5"/>
             <TextView
                 android:id="@+id/tv_fannaoji"
                 android:background="#fff"
@@ -282,7 +282,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:src="@drawable/icon_more_arrow"/>
+                android:src="@mipmap/icon_more_arrow"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

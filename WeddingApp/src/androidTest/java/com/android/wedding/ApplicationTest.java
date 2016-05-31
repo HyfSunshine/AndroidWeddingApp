@@ -1,4 +1,4 @@
-package com.android.FragmentApplication;
+package com.android.wedding;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

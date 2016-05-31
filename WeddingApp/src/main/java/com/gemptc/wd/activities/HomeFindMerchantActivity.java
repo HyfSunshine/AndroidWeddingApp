@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import android.view.Window;
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 import com.gemptc.wd.adapter.MerchantFragmentAdapter;
 import com.gemptc.wd.fragments.JiuDianFragment;
 import com.gemptc.wd.fragments.LvXingFragment;

@@ -1,18 +1,13 @@
 package com.gemptc.wd.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
-import com.android.FragmentApplication.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.android.wedding.R;
 
 /**
  * Created by Administrator on 2016/5/5.

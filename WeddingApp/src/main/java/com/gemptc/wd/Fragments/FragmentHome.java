@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 import com.gemptc.wd.adapter.LuoBoViewPagerAdapter;
 
 import java.util.ArrayList;
@@ -33,10 +33,10 @@ public class FragmentHome extends Fragment {
     private int oldPosition = 0;
     //存放图片的id
     private int[] imageIds = new int[]{
-            R.drawable.home_luoboa,
-            R.drawable.home_luoboac,
-            R.drawable.home_luobob,
-            R.drawable.home_luobod,
+            R.mipmap.home_luoboa,
+            R.mipmap.home_luoboac,
+            R.mipmap.home_luobob,
+            R.mipmap.home_luobod,
     };
     private LuoBoViewPagerAdapter adapter;
     private ScheduledExecutorService scheduledExecutorService;
@@ -63,8 +63,8 @@ public class FragmentHome extends Fragment {
         mViewPaper.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                dots.get(position).setBackgroundResource(R.drawable.dot_focused);
-                dots.get(oldPosition).setBackgroundResource(R.drawable.dot_normal);
+                dots.get(position).setBackgroundResource(R.mipmap.dot_focused);
+                dots.get(oldPosition).setBackgroundResource(R.mipmap.dot_normal);
                 oldPosition = position;
                 currentItem = position;
             }

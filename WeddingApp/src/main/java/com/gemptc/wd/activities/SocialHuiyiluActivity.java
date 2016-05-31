@@ -3,14 +3,9 @@ package com.gemptc.wd.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
-import com.android.FragmentApplication.R;
+import com.android.wedding.R;
 import com.gemptc.wd.adapter.PostAdapter;
 import com.gemptc.wd.bean.Post;
 
@@ -42,18 +37,18 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
     private void initData() {
         mList=new ArrayList<>();
         //先获取置顶部分的内容
-        Post post1=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",true);
-        Post post2=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",true);
+        Post post1=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",true);
+        Post post2=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",true);
 
         //先获取非置顶部分的内容
-        Post post3=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-        Post post4=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-        Post post5=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-        Post post6=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-        Post post7=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-        Post post8=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-        Post post9=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-        Post post10=new Post(R.drawable.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
+        Post post3=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
+        Post post4=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
+        Post post5=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
+        Post post6=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
+        Post post7=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
+        Post post8=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
+        Post post9=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
+        Post post10=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
 
         mList.add(post1);
         mList.add(post2);
