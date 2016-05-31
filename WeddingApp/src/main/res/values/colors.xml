@@ -9,4 +9,5 @@
     <color name="tab_indicator">#999999</color>
     <color name="viewpager_indicator">#fccbcb</color>
     <color name="zhuColor">#FF705E</color>
+    <color name="white">@android:color/white</color>
 </resources>

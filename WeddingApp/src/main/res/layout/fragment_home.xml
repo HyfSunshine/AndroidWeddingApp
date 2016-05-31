@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical">
+              android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     //搜索栏
 
     <LinearLayout
@@ -54,41 +55,14 @@
                     >
                 </android.support.v4.view.ViewPager>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <com.viewpagerindicator.CirclePageIndicator
+                    android:id="@+id/indicator"
+                    android:padding="10dip"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:gravity="center"
-                    >
-
-                    <ImageView
-                        android:id="@+id/dot_0"
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@mipmap/dot_focused"/>
-
-                    <ImageView
-                        android:id="@+id/dot_1"
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@mipmap/dot_normal"/>
-
-                    <ImageView
-                        android:id="@+id/dot_2"
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@mipmap/dot_normal"/>
-
-                    <ImageView
-                        android:id="@+id/dot_3"
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@mipmap/dot_normal"/>
-                </LinearLayout>
+                    android:layout_width="fill_parent"
+                    android:layout_alignBottom="@id/home_lunbo_viewpager"
+                    app:fillColor="#ff705e">
+                </com.viewpagerindicator.CirclePageIndicator>
             </RelativeLayout>
 
             <LinearLayout
