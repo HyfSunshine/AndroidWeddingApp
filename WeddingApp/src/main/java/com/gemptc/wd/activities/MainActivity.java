@@ -1,6 +1,8 @@
 package com.gemptc.wd.activities;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -27,6 +29,8 @@ public class MainActivity extends FragmentActivity {
     private RadioGroup radioGroup;
     private List<Fragment> fragmentList;
     private  EditText mEditText;
+    public static Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,45 @@ public class MainActivity extends FragmentActivity {
         initViews();
         initFragments();
         initListeners();
+
+        //初始化Handler，为的是实现图片轮播的速度不变，系统只创建一个Handler
+        initHandler();
+    }
+
+    private void initHandler() {
+        handler = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                if (msg.what==0){
+                    FragmentHome fragmentHome = (FragmentHome) fragmentList.get(0);
+                    ViewPager homeViewPager = fragmentHome.viewPager;
+                    List<String> imagesUrlList=fragmentHome.imagesUrlList;
+
+                    int currentPosition = homeViewPager.getCurrentItem();
+                    if (currentPosition<imagesUrlList.size()-1){
+                        currentPosition++;
+                    }else{
+                        currentPosition=0;
+                    }
+                    homeViewPager.setCurrentItem(currentPosition);
+                    handler.sendEmptyMessageDelayed(0,3000);
+                }
+                if (msg.what==1){
+                    FragmentSocial fragmentSocial = (FragmentSocial) fragmentList.get(2);
+                    ViewPager homeViewPager = fragmentSocial.viewPager;
+                    List<String> imagesUrlList=fragmentSocial.imagesUrlList;
+
+                    int currentPosition = homeViewPager.getCurrentItem();
+                    if (currentPosition<imagesUrlList.size()-1){
+                        currentPosition++;
+                    }else{
+                        currentPosition=0;
+                    }
+                    homeViewPager.setCurrentItem(currentPosition);
+                    handler.sendEmptyMessageDelayed(1,3000);
+                }
+            }
+        };
     }
 
     //初始化View对象的方法

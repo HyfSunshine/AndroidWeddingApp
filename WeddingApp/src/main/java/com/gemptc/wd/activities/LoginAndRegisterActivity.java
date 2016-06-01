@@ -77,7 +77,7 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
     //两个按钮的监听事件
     //1.跳转到登录的界面
     public void login(View view) {
-        //startActivity(new Intent(LoginAndRegisterActivity.this,LoginActivity.class));
+        startActivity(new Intent(LoginAndRegisterActivity.this,LoginActivity.class));
     }
     //2.跳转到注册的界面
     public void register(View view) {

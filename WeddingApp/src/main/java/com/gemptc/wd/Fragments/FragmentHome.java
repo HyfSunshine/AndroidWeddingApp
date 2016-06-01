@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.android.wedding.R;
+import com.gemptc.wd.activities.MainActivity;
 import com.gemptc.wd.utils.UrlAddress;
 import com.viewpagerindicator.PageIndicator;
 
@@ -26,10 +27,16 @@ import java.util.List;
  * Created by Administrator on 2016/5/5.
  */
 public class FragmentHome extends Fragment{
-    private ViewPager viewPager;
+    public ViewPager viewPager;
     private PageIndicator indicator;
-    private List<String> imagesUrlList;
-    private Handler handler;
+    public List<String> imagesUrlList;
+    //private Handler handler;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        MainActivity.handler.sendEmptyMessageDelayed(0,3000);
+    }
 
     @Nullable
     @Override
@@ -44,27 +51,30 @@ public class FragmentHome extends Fragment{
         viewPager.setAdapter(new MyViewPagerAdapter());
         indicator.setViewPager(viewPager);
 
-        //自动轮播
-        handler = new Handler(){
-            @Override
-            public void handleMessage(Message msg) {
-                if (msg.what==0){
-                    int currentPosition = viewPager.getCurrentItem();
-                    if (currentPosition<imagesUrlList.size()-1){
-                        currentPosition++;
-                    }else{
-                        currentPosition=0;
-                    }
-                    viewPager.setCurrentItem(currentPosition);
-                    handler.sendEmptyMessageDelayed(0,3000);
-                }
-            }
-        };
+//        //自动轮播
+//        handler = new Handler(){
+//            @Override
+//            public void handleMessage(Message msg) {
+//                if (msg.what==0){
+//                    int currentPosition = viewPager.getCurrentItem();
+//                    if (currentPosition<imagesUrlList.size()-1){
+//                        currentPosition++;
+//                    }else{
+//                        currentPosition=0;
+//                    }
+//                    viewPager.setCurrentItem(currentPosition);
+//                    handler.sendEmptyMessageDelayed(0,3000);
+//                }
+//            }
+//        };
+//
+//        handler.sendEmptyMessageDelayed(0,3000);
 
-        handler.sendEmptyMessageDelayed(0,3000);
+
         return view;
     }
 
+    //初始化图片地址
     private void initImagesURL() {
         imagesUrlList=new ArrayList<>();
         imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo1.jpg");

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.wedding">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name="com.gemptc.wd.application.MyApplication"
         android:allowBackup="true"
@@ -13,7 +15,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name="com.gemptc.wd.activities.MainActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="com.gemptc.wd.activities.HomeFindMerchantActivity"
             android:theme="@style/StyledIndicators" />
@@ -38,7 +40,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.gemptc.wd.activities.LoginAndRegisterActivity"></activity>
+        <activity android:name="com.gemptc.wd.activities.LoginAndRegisterActivity" />
+        <activity android:name="com.gemptc.wd.activities.LoginActivity"></activity>
     </application>
 
 </manifest>
