@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gemptc.wd.activities.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/zhuColor">
+
+        <RelativeLayout
+            android:id="@+id/fanhuiButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:onClick="fanhui">
+            <ImageView
+                android:id="@+id/fanhui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/btn_back_w" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="返回"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:layout_toRightOf="@id/fanhui" />
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <!--应用图像-->
+    <com.gemptc.wd.view.CircleImageView
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/icon_logo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_account_red"
+            android:paddingLeft="5dp"/>
+        <EditText
+            style="@style/ZhuCeDengLuInput"
+
+            android:id="@+id/userPhone"
+            android:hint="请输入手机号码"
+            />
+    </LinearLayout>
+
+    <ImageView style="@style/HuiSeXianTiao"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_password_red"
+            android:paddingLeft="5dp"/>
+        <EditText
+            style="@style/ZhuCeDengLuInput"
+            android:id="@+id/userPass"
+            android:hint="请输入您的密码"
+            />
+    </LinearLayout>
+    <ImageView style="@style/HuiSeXianTiao"/>
+
+    <!--登录按钮-->
+    <Button
+        android:id="@+id/login"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_red_shixin_kuang"
+        android:text="登 录"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+
+    <!--合作账号登录的布局-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center">
+        <ImageView
+            style="@style/HuiSeXianTiao"
+            android:layout_width="50dp"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  合作账号登录  "
+            android:textSize="15sp"/>
+        <ImageView
+            style="@style/HuiSeXianTiao"
+            android:layout_width="50dp"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <!--两个第三方登录的布局-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp">
+        <ImageView
+            android:id="@+id/qqLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_login_qq"/>
+        <ImageView
+            android:id="@+id/weiboLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/icon_login_weibo"/>
+    </LinearLayout>
+</LinearLayout>

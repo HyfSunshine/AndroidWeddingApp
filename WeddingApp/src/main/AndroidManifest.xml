@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
           package="com.android.wedding">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+=======
+    package="com.android.wedding">
+
+    <!--XUtils权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--短信验证权限-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
 
     <application
         android:name="com.gemptc.wd.application.MyApplication"
@@ -15,7 +32,11 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name="com.gemptc.wd.activities.MainActivity"
+<<<<<<< HEAD
             android:windowSoftInputMode="stateHidden|adjustPan"/>
+=======
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
         <activity
             android:name="com.gemptc.wd.activities.HomeFindMerchantActivity"
             android:theme="@style/StyledIndicators"/>
@@ -40,6 +61,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name="com.gemptc.wd.activities.LoginAndRegisterActivity"/>
         <activity android:name="com.gemptc.wd.activities.EditPostActivity">
         </activity>
@@ -47,6 +69,12 @@
                   android:windowSoftInputMode="adjustPan"
             >
         </activity>
+=======
+        <activity android:name="com.gemptc.wd.activities.LoginAndRegisterActivity" />
+        <activity android:name="com.gemptc.wd.activities.LoginActivity" />
+        <activity android:name="com.gemptc.wd.activities.RegisterActivity" />
+        <activity android:name="com.gemptc.wd.activities.RegisterXieYiActivity"></activity>
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
     </application>
 
 </manifest>

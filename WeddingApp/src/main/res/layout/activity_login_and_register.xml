@@ -34,7 +34,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_red_kongxin_kuang"
-            android:text="登录"
+            android:text="登 录"
             android:textColor="@color/zhuColor"
             android:textSize="15sp"
             android:onClick="login"/>
@@ -42,7 +42,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_red_shixin_kuang"
-            android:text="注册"
+            android:text="注 册"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_marginLeft="20dp"

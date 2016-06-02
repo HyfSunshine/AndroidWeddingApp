@@ -63,7 +63,11 @@ public class FragmentHome extends Fragment {
         String result = PrefUtils.getString(getContext(), "home_product_lunbo", null);
         if (result != null) {
             parseData(result);
+<<<<<<< HEAD
             Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
+=======
+            Toast.makeText(getContext(), "从缓存中获取", Toast.LENGTH_SHORT).show();
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
         } else
             getDatas();
         return view;
@@ -79,11 +83,19 @@ public class FragmentHome extends Fragment {
 
     //获取网络数据
     private void getDatas() {
+<<<<<<< HEAD
         RequestParams params = new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"ProductController");
+=======
+        RequestParams params = new RequestParams("http://10.201.1.9:8080/WeddingJson/ProductController");
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
         params.addBodyParameter("productop", "homesheying");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+<<<<<<< HEAD
+=======
+                Log.e("数据", result);
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
                 PrefUtils.setString(getContext(), "home_product_lunbo", result);
                 parseData(result);
             }

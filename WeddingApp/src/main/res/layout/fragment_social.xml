@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
@@ -39,14 +40,46 @@
         android:src="@mipmap/btn_edit_red"
         android:onClick="editPost"/>
 </LinearLayout>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="12"
+=======
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:gravity="center">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e9e7e7">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="#fff">
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
 
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#ffff"
+            android:layout_gravity="center"
+            android:src="@mipmap/icon_search_ss"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text="婚礼说"
+            android:textColor="#ff705e"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_height="match_parent"/>
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:layout_gravity="center"
+            android:src="@mipmap/btn_edit_red"
+            android:onClick="editPost"/>
+    </LinearLayout>
+
+<<<<<<< HEAD
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -69,105 +102,211 @@
             app:fillColor="#ff705e">
         </com.viewpagerindicator.CirclePageIndicator>
     </RelativeLayout>
+=======
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="12"
         android:orientation="vertical"
-        android:background="#e9e7e7"
-        android:layout_marginBottom="3dp">
+        android:gravity="center">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:layout_marginBottom="3dp">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/social_lunbo_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                >
+            </android.support.v4.view.ViewPager>
+
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
+                android:padding="10dip"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_alignBottom="@id/social_lunbo_viewpager"
+                app:fillColor="#ff705e">
+            </com.viewpagerindicator.CirclePageIndicator>
+        </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:background="#e9e7e7"
+            android:layout_marginBottom="3dp">
 
-        <LinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-           <TextView
-                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="那年"
-                android:textColor="#fff"
-                android:gravity="center"
-               android:background="#a80de7d9"/>
-           <TextView
-               android:layout_width="0dp"
-               android:layout_height="match_parent"
-               android:layout_weight="8"
-               android:background="#fff"
-               android:text="我们的爱情故事，那一年我们19岁"
-               android:layout_marginBottom="1dp"/>
-        </LinearLayout>
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="那年"
+                        android:textColor="#fff"
+                        android:gravity="center"
+                        android:background="#a80de7d9"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:background="#fff"
+                        android:text="我们的爱情故事，那一年我们19岁"
+                        android:layout_marginBottom="1dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="婚礼"
+                        android:textColor="#fff"
+                        android:gravity="center"
+                        android:background="#d2f7030f"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:background="#fff"
+                        android:text="这些年的喜糖盒真的都好美..."
+                        android:layout_marginBottom="1dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="婚礼"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:background="#d2f7030f"/>
-                <TextView
-                    android:layout_width="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="甜蜜"
+                        android:textColor="#fff"
+                        android:gravity="center"
+                        android:background="#a8f44308"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:background="#fff"
+                        android:text="两人世界到三口之家"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="8"
-                    android:background="#fff"
-                    android:text="这些年的喜糖盒真的都好美..."
-                    android:layout_marginBottom="1dp"/>
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="倾诉"
+                        android:textColor="#fff"
+                        android:gravity="center"
+                        android:background="#a8303631"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:background="#fff"
+                        android:text="大家来聊聊前女友的事"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:orientation="vertical">
+
             <LinearLayout
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="1dp"
+                android:onClick="huiyilu">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:text="甜蜜"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:background="#a8f44308"/>
+                    android:src="@mipmap/socialuser1"/>
                 <TextView
+                    android:id="@+id/tv_huiyilu"
+                    android:background="#fff"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="8"
-                    android:background="#fff"
-                    android:text="两人世界到三口之家"/>
+                    android:layout_weight="7"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:text="那年·回忆录"
+                    android:layout_marginBottom="3dp"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:src="@mipmap/icon_more_arrow"/>
             </LinearLayout>
+
             <LinearLayout
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="1dp"
+                android:onClick="jinxingce">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:text="倾诉"
-                    android:textColor="#fff"
-                    android:gravity="center"
-                    android:background="#a8303631"/>
+                    android:src="@mipmap/socialuser3"/>
                 <TextView
+                    android:id="@+id/tv_jinxingce"
+                    android:background="#fff"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="8"
-                    android:background="#fff"
-                    android:text="大家来聊聊前女友的事"/>
+                    android:layout_weight="7"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:text="婚礼·进行册"
+                    android:layout_marginBottom="3dp"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:src="@mipmap/icon_more_arrow"/>
             </LinearLayout>
+<<<<<<< HEAD
         </LinearLayout>
     </LinearLayout>
 
@@ -255,16 +394,16 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:src="@mipmap/socialuser4"/>
-            <TextView
-                android:id="@+id/tv_shenghuoji"
+=======
+            <LinearLayout
                 android:background="#fff"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:textSize="25sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
+                android:layout_weight="1"
+                android:orientation="horizontal"
                 android:gravity="center"
+<<<<<<< HEAD
                 android:text="甜蜜·生活季"
                 android:layout_marginBottom="3dp"/>
             <ImageView
@@ -282,28 +421,63 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginBottom="1dp">
+=======
+                android:layout_marginBottom="1dp"
+                android:onClick="shenghuoji">
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:src="@mipmap/socialuser5"/>
-            <TextView
-                android:id="@+id/tv_fannaoji"
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:src="@mipmap/socialuser4"/>
+                <TextView
+                    android:id="@+id/tv_shenghuoji"
+                    android:background="#fff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:text="甜蜜·生活季"
+                    android:layout_marginBottom="3dp"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:src="@mipmap/icon_more_arrow"/>
+            </LinearLayout>
+            <LinearLayout
                 android:background="#fff"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:textSize="25sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
                 android:gravity="center"
-                android:text="倾诉·烦恼集"
-                android:layout_marginBottom="3dp"/>
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:src="@mipmap/icon_more_arrow"/>
+                android:layout_marginBottom="1dp"
+                android:onClick="fannaoji">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:src="@mipmap/socialuser5"/>
+                <TextView
+                    android:id="@+id/tv_fannaoji"
+                    android:background="#fff"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:text="倾诉·烦恼集"
+                    android:layout_marginBottom="3dp"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:src="@mipmap/icon_more_arrow"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 </LinearLayout>

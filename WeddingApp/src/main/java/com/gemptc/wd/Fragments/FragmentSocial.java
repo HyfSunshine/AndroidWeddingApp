@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,6 +24,12 @@ import com.gemptc.wd.activities.SocialFannaojiActivity;
 import com.gemptc.wd.activities.SocialHuiyiluActivity;
 import com.gemptc.wd.activities.SocialJinxingceActivity;
 import com.gemptc.wd.activities.SocialShenghuojiActivity;
+=======
+import android.widget.ImageView;
+
+import com.android.wedding.R;
+import com.gemptc.wd.activities.MainActivity;
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
 import com.gemptc.wd.utils.UrlAddress;
 import com.viewpagerindicator.PageIndicator;
 
@@ -38,12 +45,16 @@ public class FragmentSocial extends Fragment{
     public ViewPager viewPager;
     private PageIndicator indicator;
     public List<String> imagesUrlList;
+<<<<<<< HEAD
     private View view;
 
     private ImageButton social_search,social_editpost;
 
     private LinearLayout social_huiyilu,social_jinxingce,social_shenghuoji,social_fannaoji;
 
+=======
+    //private Handler handler;
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,10 +65,14 @@ public class FragmentSocial extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+<<<<<<< HEAD
         view = inflater.inflate(R.layout.fragment_social,null);
         initView();
         initListeners();
 
+=======
+        View view=inflater.inflate(R.layout.fragment_social,null);
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
         viewPager= (ViewPager) view.findViewById(R.id.social_lunbo_viewpager);
         indicator= (PageIndicator) view.findViewById(R.id.indicator);
 
@@ -66,6 +81,7 @@ public class FragmentSocial extends Fragment{
 
         viewPager.setAdapter(new MyViewPagerAdapter());
         indicator.setViewPager(viewPager);
+<<<<<<< HEAD
         return view;
     }
 
@@ -92,6 +108,29 @@ public class FragmentSocial extends Fragment{
 
     }
 
+=======
+
+//        //自动轮播
+//        handler=new Handler(){
+//            @Override
+//            public void handleMessage(Message msg) {
+//                if (msg.what==100){
+//                    int currentPosition=viewPager.getCurrentItem();
+//                    if (currentPosition<imagesUrlList.size()-1){
+//                        currentPosition++;
+//                    }else{
+//                        currentPosition=0;
+//                    }
+//                    viewPager.setCurrentItem(currentPosition);
+//                    handler.sendEmptyMessageDelayed(100,3000);
+//                }
+//            }
+//        };
+//        handler.sendEmptyMessageDelayed(100,3000);
+        return view;
+    }
+
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
     private void initImagesURL() {
         imagesUrlList=new ArrayList<>();
         imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo1.jpg");
@@ -125,6 +164,7 @@ public class FragmentSocial extends Fragment{
         }
     }
 
+<<<<<<< HEAD
     class SocialListener implements View.OnClickListener{
 
         @Override
@@ -156,5 +196,7 @@ public class FragmentSocial extends Fragment{
         }
     }
 
+=======
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
 
 }

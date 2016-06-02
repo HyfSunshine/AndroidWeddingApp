@@ -161,4 +161,15 @@ public class MainActivity extends FragmentActivity {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+    /*public void getFocusable(View view) {
+        mEditText.setFocusable(true);
+        mEditText.setFocusableInTouchMode(true);
+        mEditText.requestFocus();
+        mEditText.requestFocusFromTouch();
+    }*/
+>>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
 }
