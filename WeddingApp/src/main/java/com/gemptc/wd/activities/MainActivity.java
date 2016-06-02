@@ -8,19 +8,28 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import com.android.wedding.R;
 import com.gemptc.wd.adapter.FragmentAdapter;
+import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.fragments.FragmentHome;
 import com.gemptc.wd.fragments.FragmentKinds;
 import com.gemptc.wd.fragments.FragmentMine;
 import com.gemptc.wd.fragments.FragmentSocial;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 public class MainActivity extends FragmentActivity {
 
@@ -35,7 +44,9 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         initViews();
+
         initFragments();
         initListeners();
 
@@ -59,21 +70,25 @@ public class MainActivity extends FragmentActivity {
                         currentPosition=0;
                     }
                     homeViewPager.setCurrentItem(currentPosition);
+                    if (!isFinishing()){
                     handler.sendEmptyMessageDelayed(0,3000);
+                    }
                 }
                 if (msg.what==1){
                     FragmentSocial fragmentSocial = (FragmentSocial) fragmentList.get(2);
-                    ViewPager homeViewPager = fragmentSocial.viewPager;
+                    ViewPager socialViewPager = fragmentSocial.viewPager;
                     List<String> imagesUrlList=fragmentSocial.imagesUrlList;
 
-                    int currentPosition = homeViewPager.getCurrentItem();
+                    int currentPosition = socialViewPager.getCurrentItem();
                     if (currentPosition<imagesUrlList.size()-1){
                         currentPosition++;
                     }else{
                         currentPosition=0;
                     }
-                    homeViewPager.setCurrentItem(currentPosition);
-                    handler.sendEmptyMessageDelayed(1,3000);
+                    socialViewPager.setCurrentItem(currentPosition);
+                    if (!isFinishing()) {
+                        handler.sendEmptyMessageDelayed(1, 3000);
+                    }
                 }
             }
         };
@@ -206,6 +221,8 @@ public class MainActivity extends FragmentActivity {
         Intent intent=new Intent(MainActivity.this,KindHotelActivity.class);
         startActivity(intent);
     }
+
+
 
     /*public void getFocusable(View view) {
         mEditText.setFocusable(true);

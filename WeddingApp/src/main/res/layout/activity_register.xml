@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.gemptc.wd.activities.LoginActivity">
-
+    tools:context="com.gemptc.wd.activities.RegisterActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,64 +33,130 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="登录"
+            android:text="注册"
             android:textSize="25sp"
             android:textColor="#ffffff"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
 
-    <!--应用图像-->
-    <com.gemptc.wd.view.CircleImageView
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:src="@drawable/icon_logo"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_account_red"
-            android:paddingLeft="5dp"/>
+            android:layout_marginLeft="5dp"/>
         <EditText
             style="@style/ZhuCeDengLuInput"
-
-            android:id="@+id/userPhone"
-            android:hint="请输入手机号码"
-            />
+            android:id="@+id/registerUserPhone"
+            android:hint="请输入手机号码"/>
     </LinearLayout>
 
-    <ImageView style="@style/HuiSeXianTiao"/>
+    <ImageView style="@style/HuiSeXianTiao" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/register_icon_yanzhengma"
+            android:layout_marginLeft="5dp"/>
+        <EditText
+            style="@style/ZhuCeDengLuInput"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:id="@+id/registerYanZhengMa"
+            android:hint="请输入验证码"/>
+        <Button
+            android:id="@+id/btn_YanZhengMa"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_red_shixin_kuang"
+            android:text="获取验证码"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <ImageView style="@style/HuiSeXianTiao" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/icon_password_red"
-            android:paddingLeft="5dp"/>
+            android:layout_marginLeft="5dp"/>
         <EditText
             style="@style/ZhuCeDengLuInput"
-            android:id="@+id/userPass"
-            android:hint="请输入您的密码"
-            />
+            android:id="@+id/registerPassWord"
+            android:hint="请输入密码"/>
     </LinearLayout>
-    <ImageView style="@style/HuiSeXianTiao"/>
 
-    <!--登录按钮-->
+    <ImageView style="@style/HuiSeXianTiao" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_password_red"
+            android:layout_marginLeft="5dp"/>
+        <EditText
+            style="@style/ZhuCeDengLuInput"
+            android:id="@+id/reRegisterPassWord"
+            android:hint="请重复输入密码"/>
+    </LinearLayout>
+
+    <ImageView style="@style/HuiSeXianTiao" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+        <CheckBox
+            android:id="@+id/XieYiCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同意"
+            android:textSize="16sp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/YongHuXieYi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户隐私协议"
+            android:textColor="#00f"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+
+    <!--注册按钮-->
     <Button
-        android:id="@+id/login"
+        android:id="@+id/register"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_red_shixin_kuang"
-        android:text="登 录"
+        android:text="注 册"
         android:textSize="20sp"
         android:textColor="@color/white"/>
 
@@ -100,7 +165,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center">
         <ImageView
             style="@style/HuiSeXianTiao"
@@ -109,7 +174,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  合作账号登录  "
+            android:text="  使用合作账号登录  "
             android:textSize="15sp"/>
         <ImageView
             style="@style/HuiSeXianTiao"

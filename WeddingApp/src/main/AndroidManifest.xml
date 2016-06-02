@@ -2,9 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.wedding">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--XUtils权限-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--短信验证权限-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name="com.gemptc.wd.application.MyApplication"
@@ -41,7 +50,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.gemptc.wd.activities.LoginAndRegisterActivity" />
-        <activity android:name="com.gemptc.wd.activities.LoginActivity"></activity>
+        <activity android:name="com.gemptc.wd.activities.LoginActivity" />
+        <activity android:name="com.gemptc.wd.activities.RegisterActivity" />
+        <activity android:name="com.gemptc.wd.activities.RegisterXieYiActivity"></activity>
     </application>
 
 </manifest>
