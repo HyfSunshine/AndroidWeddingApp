@@ -22,6 +22,7 @@ import java.util.TimerTask;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
+
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText registerUserPhone;

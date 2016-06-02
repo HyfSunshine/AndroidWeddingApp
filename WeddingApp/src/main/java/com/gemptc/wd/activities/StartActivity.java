@@ -18,11 +18,11 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //获取到用户是否登录的信息
-<<<<<<< HEAD
-                boolean isLogin= PrefUtils.getBoolean(StartActivity.this,PrefUtils.PREF_NAME,true);
-=======
+
+               // boolean isLogin= PrefUtils.getBoolean(StartActivity.this,PrefUtils.PREF_NAME,true);
+
                 boolean isLogin= PrefUtils.getBoolean(StartActivity.this,"isLogin",false);
->>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
+
                 if (!isLogin){
                     //说明用户没有登录，跳转到登录的界面
                     startActivity(new Intent(StartActivity.this,LoginAndRegisterActivity.class));

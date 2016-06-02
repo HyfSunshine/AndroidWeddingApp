@@ -1,1 +1,1 @@
-include ':WeddingApp', ':02_XUtils3'
+include ':WeddingApp', ':02_XUtils3', ':09_SMSSDK'

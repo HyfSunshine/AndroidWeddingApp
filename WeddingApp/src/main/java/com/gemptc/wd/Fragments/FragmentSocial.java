@@ -2,8 +2,6 @@ package com.gemptc.wd.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -11,7 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
+
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,12 +22,9 @@ import com.gemptc.wd.activities.SocialFannaojiActivity;
 import com.gemptc.wd.activities.SocialHuiyiluActivity;
 import com.gemptc.wd.activities.SocialJinxingceActivity;
 import com.gemptc.wd.activities.SocialShenghuojiActivity;
-=======
-import android.widget.ImageView;
 
-import com.android.wedding.R;
-import com.gemptc.wd.activities.MainActivity;
->>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
+
+
 import com.gemptc.wd.utils.UrlAddress;
 import com.viewpagerindicator.PageIndicator;
 
@@ -41,52 +36,43 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/5/5.
  */
-public class FragmentSocial extends Fragment{
+public class FragmentSocial extends Fragment {
     public ViewPager viewPager;
     private PageIndicator indicator;
     public List<String> imagesUrlList;
-<<<<<<< HEAD
+
     private View view;
 
-    private ImageButton social_search,social_editpost;
+    private ImageButton social_search, social_editpost;
 
-    private LinearLayout social_huiyilu,social_jinxingce,social_shenghuoji,social_fannaoji;
+    private LinearLayout social_huiyilu, social_jinxingce, social_shenghuoji, social_fannaoji;
 
-=======
-    //private Handler handler;
->>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MainActivity.handler.sendEmptyMessageDelayed(1,3000);
+        MainActivity.handler.sendEmptyMessageDelayed(1, 3000);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-<<<<<<< HEAD
-        view = inflater.inflate(R.layout.fragment_social,null);
+        view = inflater.inflate(R.layout.fragment_social, null);
         initView();
         initListeners();
-
-=======
-        View view=inflater.inflate(R.layout.fragment_social,null);
->>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
-        viewPager= (ViewPager) view.findViewById(R.id.social_lunbo_viewpager);
-        indicator= (PageIndicator) view.findViewById(R.id.indicator);
-
+        viewPager = (ViewPager) view.findViewById(R.id.social_lunbo_viewpager);
+        indicator = (PageIndicator) view.findViewById(R.id.indicator);
         //初始化图片地址
         initImagesURL();
 
         viewPager.setAdapter(new MyViewPagerAdapter());
         indicator.setViewPager(viewPager);
-<<<<<<< HEAD
+
         return view;
     }
 
     private void initListeners() {
-        SocialListener listener=new SocialListener();
+        SocialListener listener = new SocialListener();
         social_search.setOnClickListener(listener);
         social_editpost.setOnClickListener(listener);
 
@@ -98,44 +84,21 @@ public class FragmentSocial extends Fragment{
     }
 
     private void initView() {
-        social_search= (ImageButton) view.findViewById(R.id.social_search);
-        social_editpost= (ImageButton) view.findViewById(R.id.social_editpost);
+        social_search = (ImageButton) view.findViewById(R.id.social_search);
+        social_editpost = (ImageButton) view.findViewById(R.id.social_editpost);
 
-        social_huiyilu= (LinearLayout) view.findViewById(R.id.social_huiyilu);
-        social_jinxingce= (LinearLayout) view.findViewById(R.id.social_jinxingce);
-        social_shenghuoji= (LinearLayout) view.findViewById(R.id.social_shenghuoji);
-        social_fannaoji= (LinearLayout) view.findViewById(R.id.social_fannaoji);
-
+        social_huiyilu = (LinearLayout) view.findViewById(R.id.social_huiyilu);
+        social_jinxingce = (LinearLayout) view.findViewById(R.id.social_jinxingce);
+        social_shenghuoji = (LinearLayout) view.findViewById(R.id.social_shenghuoji);
+        social_fannaoji = (LinearLayout) view.findViewById(R.id.social_fannaoji);
     }
 
-=======
 
-//        //自动轮播
-//        handler=new Handler(){
-//            @Override
-//            public void handleMessage(Message msg) {
-//                if (msg.what==100){
-//                    int currentPosition=viewPager.getCurrentItem();
-//                    if (currentPosition<imagesUrlList.size()-1){
-//                        currentPosition++;
-//                    }else{
-//                        currentPosition=0;
-//                    }
-//                    viewPager.setCurrentItem(currentPosition);
-//                    handler.sendEmptyMessageDelayed(100,3000);
-//                }
-//            }
-//        };
-//        handler.sendEmptyMessageDelayed(100,3000);
-        return view;
-    }
-
->>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
     private void initImagesURL() {
-        imagesUrlList=new ArrayList<>();
-        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo1.jpg");
-        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo2.png");
-        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo3.jpg");
+        imagesUrlList = new ArrayList<>();
+        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS + "photo1.jpg");
+        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS + "photo2.png");
+        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS + "photo3.jpg");
     }
 
     private class MyViewPagerAdapter extends PagerAdapter {
@@ -146,14 +109,14 @@ public class FragmentSocial extends Fragment{
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return view==object;
+            return view == object;
         }
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            ImageView image=new ImageView(getContext());
+            ImageView image = new ImageView(getContext());
             image.setScaleType(ImageView.ScaleType.FIT_XY);
-            x.image().bind(image,imagesUrlList.get(position));
+            x.image().bind(image, imagesUrlList.get(position));
             container.addView(image);
             return image;
         }
@@ -164,15 +127,15 @@ public class FragmentSocial extends Fragment{
         }
     }
 
-<<<<<<< HEAD
-    class SocialListener implements View.OnClickListener{
+
+    class SocialListener implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.social_search:
-                    startActivity(new Intent(getContext(),SearchPostActivity.class));
-                break;
+                    startActivity(new Intent(getContext(), SearchPostActivity.class));
+                    break;
                 case R.id.social_editpost:
                     startActivity(new Intent(getContext(), EditPostActivity.class));
                     break;
@@ -195,8 +158,7 @@ public class FragmentSocial extends Fragment{
             }
         }
     }
-
-=======
->>>>>>> ed943569065f7e6e9ead2d6fca84a84a226944f5
-
 }
+
+
+
