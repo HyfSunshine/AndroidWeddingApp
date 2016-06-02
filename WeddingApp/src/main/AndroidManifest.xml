@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name="com.gemptc.wd.activities.MainActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
             android:name="com.gemptc.wd.activities.HomeFindMerchantActivity"
             android:theme="@style/StyledIndicators" />
         <activity android:name="com.gemptc.wd.activities.HomeWeddingTaskActivity" />

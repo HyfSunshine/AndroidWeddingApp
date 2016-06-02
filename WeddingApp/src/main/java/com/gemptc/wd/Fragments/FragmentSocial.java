@@ -1,8 +1,6 @@
 package com.gemptc.wd.fragments;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -13,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.android.wedding.R;
-import com.gemptc.wd.activities.MainActivity;
 import com.gemptc.wd.utils.UrlAddress;
 import com.viewpagerindicator.PageIndicator;
 

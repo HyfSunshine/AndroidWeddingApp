@@ -1,4 +1,4 @@
-package com.gemptc.wd.bean;
+package com.gemptc.wd.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.wedding.R;
+import com.gemptc.wd.bean.Seller;
 
 import java.util.List;
 
