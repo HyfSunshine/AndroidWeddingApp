@@ -65,7 +65,6 @@ public class MainActivity extends FragmentActivity {
                     FragmentSocial fragmentSocial = (FragmentSocial) fragmentList.get(2);
                     ViewPager homeViewPager = fragmentSocial.viewPager;
                     List<String> imagesUrlList=fragmentSocial.imagesUrlList;
-
                     int currentPosition = homeViewPager.getCurrentItem();
                     if (currentPosition<imagesUrlList.size()-1){
                         currentPosition++;

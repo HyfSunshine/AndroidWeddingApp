@@ -76,6 +76,7 @@ public class FragmentHome extends Fragment{
 
     //初始化图片地址
     private void initImagesURL() {
+        
         imagesUrlList=new ArrayList<>();
         imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo1.jpg");
         imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo2.png");
