@@ -1,24 +1,35 @@
 package com.gemptc.wd.activities;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import com.android.wedding.R;
 import com.gemptc.wd.adapter.FragmentAdapter;
+import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.fragments.FragmentHome;
 import com.gemptc.wd.fragments.FragmentKinds;
 import com.gemptc.wd.fragments.FragmentMine;
 import com.gemptc.wd.fragments.FragmentSocial;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 public class MainActivity extends FragmentActivity {
 
@@ -27,13 +38,60 @@ public class MainActivity extends FragmentActivity {
     private RadioGroup radioGroup;
     private List<Fragment> fragmentList;
     private  EditText mEditText;
+    public static Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         initViews();
+
         initFragments();
         initListeners();
+
+        //初始化Handler，为的是实现图片轮播的速度不变，系统只创建一个Handler
+        initHandler();
+    }
+
+    private void initHandler() {
+        handler = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                if (msg.what==0){
+                    FragmentHome fragmentHome = (FragmentHome) fragmentList.get(0);
+                    ViewPager homeViewPager = fragmentHome.viewPager;
+                    List<String> imagesUrlList=fragmentHome.imagesUrlList;
+
+                    int currentPosition = homeViewPager.getCurrentItem();
+                    if (currentPosition<imagesUrlList.size()-1){
+                        currentPosition++;
+                    }else{
+                        currentPosition=0;
+                    }
+                    homeViewPager.setCurrentItem(currentPosition);
+                    if (!isFinishing()){
+                    handler.sendEmptyMessageDelayed(0,3000);
+                    }
+                }
+                if (msg.what==1){
+                    FragmentSocial fragmentSocial = (FragmentSocial) fragmentList.get(2);
+                    ViewPager socialViewPager = fragmentSocial.viewPager;
+                    List<String> imagesUrlList=fragmentSocial.imagesUrlList;
+
+                    int currentPosition = socialViewPager.getCurrentItem();
+                    if (currentPosition<imagesUrlList.size()-1){
+                        currentPosition++;
+                    }else{
+                        currentPosition=0;
+                    }
+                    socialViewPager.setCurrentItem(currentPosition);
+                    if (!isFinishing()) {
+                        handler.sendEmptyMessageDelayed(1, 3000);
+                    }
+                }
+            }
+        };
     }
 
     //初始化View对象的方法
@@ -100,74 +158,7 @@ public class MainActivity extends FragmentActivity {
         });
     }
 
-    public void jumpHomeFindMerchantActivity(View view) {
-        Intent intent = new Intent(MainActivity.this, HomeFindMerchantActivity.class);
-        startActivity(intent);
-    }
-    public void jumpHomeWeddingTaskActivity(View view) {
-        Intent intent = new Intent(MainActivity.this, HomeWeddingTaskActivity.class);
-        startActivity(intent);
-    }
 
 
-    public void huiyilu(View view) {
-        Intent intent=new Intent(MainActivity.this, SocialHuiyiluActivity.class);
-        startActivity(intent);
-    }
 
-    public void jinxingce(View view) {
-        Intent intent=new Intent(MainActivity.this,SocialJinxingceActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void shenghuoji(View view) {
-        Intent intent=new Intent(MainActivity.this,SocialShenghuojiActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void fannaoji(View view) {
-        Intent intent=new Intent(MainActivity.this,SocialFannaojiActivity.class);
-        startActivity(intent);
-
-    }
-
-
-    public void rentCar(View view) {
-        Intent intent=new Intent(MainActivity.this,KindRentCarActivity.class);
-        startActivity(intent);
-    }
-
-    public void travelkind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindTravelActivity.class);
-        startActivity(intent);
-    }
-
-    public void clothesKind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindClothesActivity.class);
-        startActivity(intent);
-    }
-
-    public void ringKind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindRingActivity.class);
-        startActivity(intent);
-    }
-
-    public void shootKind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindShootActivity.class);
-        startActivity(intent);
-    }
-
-    public void hotelKind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindHotelActivity.class);
-        startActivity(intent);
-    }
-
-    /*public void getFocusable(View view) {
-        mEditText.setFocusable(true);
-        mEditText.setFocusableInTouchMode(true);
-        mEditText.requestFocus();
-        mEditText.requestFocusFromTouch();
-    }*/
 }

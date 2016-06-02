@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -12,27 +13,31 @@
     android:background="#fff">
 
     <ImageButton
+        android:id="@+id/social_search"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:background="#ffff"
         android:layout_gravity="center"
-        android:src="@mipmap/icon_search_ss"/>
+        android:src="@mipmap/icon_search_ss"
+        android:onClick="search"/>
     <TextView
         android:layout_width="0dp"
-        android:layout_weight="2"
+        android:layout_weight="4"
         android:text="婚礼说"
         android:textColor="#ff705e"
         android:textSize="25sp"
        android:gravity="center"
         android:layout_height="match_parent"/>
     <ImageButton
+        android:id="@+id/social_editpost"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:background="#fff"
         android:layout_gravity="center"
-        android:src="@mipmap/btn_edit_red"/>
+        android:src="@mipmap/btn_edit_red"
+        android:onClick="editPost"/>
 </LinearLayout>
 
 <LinearLayout
@@ -42,13 +47,28 @@
     android:orientation="vertical"
     android:gravity="center">
 
-     <ImageView
-         android:layout_width="match_parent"
-         android:layout_weight="4"
-         android:layout_height="0dp"
-         android:scaleType="fitXY"
-         android:src="@mipmap/eee"
-         android:layout_marginBottom="5dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_marginBottom="3dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/social_lunbo_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            >
+        </android.support.v4.view.ViewPager>
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:padding="10dip"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_alignBottom="@id/social_lunbo_viewpager"
+            app:fillColor="#ff705e">
+        </com.viewpagerindicator.CirclePageIndicator>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -160,14 +180,14 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/social_huiyilu"
             android:background="#fff"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" 
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginBottom="1dp"
-            android:onClick="huiyilu">
+            android:layout_marginBottom="1dp">
             
             <ImageView
                 android:layout_width="50dp"
@@ -192,14 +212,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/social_jinxingce"
             android:background="#fff"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginBottom="1dp"
-            android:onClick="jinxingce">
+            android:layout_marginBottom="1dp">
 
             <ImageView
                 android:layout_width="50dp"
@@ -223,14 +243,14 @@
                 android:src="@mipmap/icon_more_arrow"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/social_shenghuoji"
             android:background="#fff"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginBottom="1dp"
-            android:onClick="shenghuoji">
+            android:layout_marginBottom="1dp">
 
             <ImageView
                 android:layout_width="50dp"
@@ -254,14 +274,14 @@
                 android:src="@mipmap/icon_more_arrow"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/social_fannaoji"
             android:background="#fff"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginBottom="1dp"
-            android:onClick="fannaoji">
+            android:layout_marginBottom="1dp">
 
             <ImageView
                 android:layout_width="50dp"
