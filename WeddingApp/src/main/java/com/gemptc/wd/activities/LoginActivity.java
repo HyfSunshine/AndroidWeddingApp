@@ -1,5 +1,6 @@
 package com.gemptc.wd.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.wedding.R;
+import com.gemptc.wd.utils.PrefUtils;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //点击返回按钮时
     public void fanhui(View view) {
+        startActivity(new Intent(this,LoginAndRegisterActivity.class));
         finish();
     }
 
@@ -58,10 +61,27 @@ public class LoginActivity extends AppCompatActivity {
     class MyOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
+            String userPhone = LoginActivity.this.userPhone.getText().toString();
+            String userPass = LoginActivity.this.userPass.getText().toString();
             switch (v.getId()){
                 //点击登录按钮
                 case R.id.login:
-                    Toast.makeText(LoginActivity.this, "点击了登录按钮", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "点击了登录按钮", Toast.LENGTH_SHORT).show();
+                    if (!"".equals(userPhone)&&!"".equals(userPass)){
+                        if (userPhone.equals("123")&&userPass.equals("456")){
+                            //存储用户是否进行了登录
+                            PrefUtils.setBoolean(LoginActivity.this,"isLogin",true);
+                            //吐司一个登陆成功
+                            Toast.makeText(LoginActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+
+                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                            LoginActivity.this.finish();
+                        }else{
+                            Toast.makeText(LoginActivity.this, "账号或者密码错误", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(LoginActivity.this, "账号或者密码不能为空", Toast.LENGTH_SHORT).show();
+                    }
                 break;
                 //点击第三方qq登录按钮
                 case R.id.qqLogin:

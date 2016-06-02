@@ -91,4 +91,19 @@ public class Seller implements Serializable {
     public void setTypeId(int typeId) {
         this.typeId = typeId;
     }
+
+    @Override
+    public String toString() {
+        return "Seller{" +
+                "id=" + id +
+                ", sellerAddress='" + sellerAddress + '\'' +
+                ", sellerFansNum=" + sellerFansNum +
+                ", sellerName='" + sellerName + '\'' +
+                ", sellerPhone='" + sellerPhone + '\'' +
+                ", sellerPicName='" + sellerPicName + '\'' +
+                ", sellerSign='" + sellerSign + '\'' +
+                ", sellerType='" + sellerType + '\'' +
+                ", typeId=" + typeId +
+                '}';
+    }
 }

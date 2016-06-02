@@ -13,19 +13,13 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#fff"
-            android:src="@mipmap/btn_back_red"/>
-
         <include
             layout="@layout/search"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_weight="4"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,11 +65,10 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/rentcar"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:onClick="rentCar"
                         android:background="@mipmap/image_car"/>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -91,9 +84,9 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/travel"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:onClick="travelkind"
                         android:background="@mipmap/image_travel"/>
 
                     <TextView
@@ -111,9 +104,9 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/clothes"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:onClick="clothesKind"
                         android:background="@mipmap/image_clothes"/>
 
                     <TextView
@@ -140,9 +133,9 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/ring"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:onClick="ringKind"
                         android:background="@mipmap/image_ring"/>
 
                     <TextView
@@ -160,9 +153,9 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/shoot"
                         android:layout_width="63dp"
                         android:layout_height="63dp"
-                        android:onClick="shootKind"
                         android:background="@mipmap/image_shoot"/>
 
                     <TextView
@@ -180,9 +173,9 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:id="@+id/hotel"
                         android:layout_width="63dp"
                         android:layout_height="63dp"
-                        android:onClick="hotelKind"
                         android:background="@mipmap/image_hotel"/>
 
                     <TextView
