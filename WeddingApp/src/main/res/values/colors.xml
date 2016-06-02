@@ -4,8 +4,14 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="textDown">#FF705E</color>
+    <color name="textColor">#FF705E</color>
+    <color name="searchtextColor">#fff</color>
+    <color name="searchColor">#FF705E</color>
     <color name="textUp">#999999</color>
+    <color name="searchbackground">#F2F2F2</color>
+    <color name="searchdivierline">#fff</color>
     <color name="homebackgroudcolor">#e9e7e7</color>
+    <color name="socialbackgroudcolor">#e9e7e7</color>
     <color name="tab_indicator">#999999</color>
     <color name="viewpager_indicator">#fccbcb</color>
     <color name="zhuColor">#FF705E</color>

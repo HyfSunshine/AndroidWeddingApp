@@ -71,7 +71,7 @@ private ImageButton mImgbtnMerchant,mImgbtnWeddingTask,mImgbtnWeixinCard;
         String result = PrefUtils.getString(getContext(), "home_product_lunbo", null);
         if (result != null) {
             parseData(result);
-            Toast.makeText(getContext(), "从缓存中获取", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
         } else
             getDatas();
         return view;
@@ -121,12 +121,11 @@ private ImageButton mImgbtnMerchant,mImgbtnWeddingTask,mImgbtnWeixinCard;
 
     //获取网络数据
     private void getDatas() {
-        RequestParams params = new RequestParams("http://10.201.1.9:8080/WeddingJson/ProductController");
+        RequestParams params = new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"ProductController");
         params.addBodyParameter("productop", "homesheying");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("数据", result);
                 PrefUtils.setString(getContext(), "home_product_lunbo", result);
                 parseData(result);
             }

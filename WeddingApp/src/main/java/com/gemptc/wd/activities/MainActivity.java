@@ -1,35 +1,25 @@
 package com.gemptc.wd.activities;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 import com.android.wedding.R;
 import com.gemptc.wd.adapter.FragmentAdapter;
-import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.fragments.FragmentHome;
 import com.gemptc.wd.fragments.FragmentKinds;
 import com.gemptc.wd.fragments.FragmentMine;
 import com.gemptc.wd.fragments.FragmentSocial;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends FragmentActivity {
 
@@ -156,11 +146,4 @@ public class MainActivity extends FragmentActivity {
             }
         });
     }
-
-    /*public void getFocusable(View view) {
-        mEditText.setFocusable(true);
-        mEditText.setFocusableInTouchMode(true);
-        mEditText.requestFocus();
-        mEditText.requestFocusFromTouch();
-    }*/
 }

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,13 +15,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.wedding.R;
+import com.gemptc.wd.utils.MD5Util;
 import com.gemptc.wd.utils.PrefUtils;
+import com.gemptc.wd.utils.UrlAddress;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
+
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -42,7 +50,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     //短信是否验证成功的标识,默认是验证失败的
     public boolean isSuccess=false;
+
+    //网络访问标识符，用来区分是用来进行什么操作的
+    public int InternetCode;
+    private RequestParams params;
     private Handler loginHandler;
+    private MyCommonCallback callback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +76,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
     private void inintSMSCode() {
-        String APPKEY="136ada2450f70";
-        String APPSECRET="3d0badd15f6d3ae88f5698a24a8ad74c";
+        //Wedding
+//        String APPKEY="136ada2450f70";
+//        String APPSECRET="3d0badd15f6d3ae88f5698a24a8ad74c";
+
+        //SMSCode
+//        String APPKEY="13504fa6f2ba8";
+//        String APPSECRET="7aaa84aeb776cfaa66c57f4bfe500e82";
+
+        //3
+        String APPKEY="134f2c0a441b1";
+        String APPSECRET="31ca2c1e67116779c9fbcf29d46d73c0";
+
+
         SMSSDK.initSDK(this,APPKEY,APPSECRET);
         EventHandler eh=new EventHandler(){
 
@@ -76,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                         //提交验证码成功
                         isSuccess=true;
-                        loginHandler.sendEmptyMessage(100);
+                        loginHandler.sendEmptyMessage(1000);
                     }else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE){
                         //获取验证码成功
 
@@ -86,8 +110,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }else{
                     //验证失败
                     isSuccess=false;
-                    loginHandler.sendEmptyMessage(100);
-                    //handler.sendEmptyMessage(1);
+                    loginHandler.sendEmptyMessage(2000);
                     ((Throwable)data).printStackTrace();
                 }
             }
@@ -174,13 +197,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         //手机号码
-        final String registerPhoneNum=registerUserPhone.getText().toString();
+        String registerPhoneNum=registerUserPhone.getText().toString();
         //验证码
-        final String yanZhengMa=registerYanZhengMa.getText().toString();
+        String yanZhengMa=registerYanZhengMa.getText().toString();
         //密码
-        final String passWord = registerUserPass.getText().toString();
+        String passWord = registerUserPass.getText().toString();
         //重复密码
-        final String rePassword = reRegisterUserPass.getText().toString();
+        String rePassword = reRegisterUserPass.getText().toString();
         
         switch (v.getId()){
             //点击获取验证码
@@ -220,25 +243,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             //点击注册按钮时
             case R.id.register:
                 //判断是否可以进行注册
-                if (!"".equals(registerPhoneNum)&&!"".equals(yanZhengMa)&&!"".equals(passWord)&&!"".equals(passWord)&&!"".equals(rePassword)){
+                if (!"".equals(registerPhoneNum)&&!"".equals(yanZhengMa)&&!"".equals(passWord)&&!"".equals(rePassword)){
                     if (xieYiCheckBox.isChecked()){
                         //判断两次密码是否一致
                         if (passWord.equals(rePassword)){
-                            //判断验证码是否通过
-                            loginHandler = new Handler(){
-                                @Override
-                                public void handleMessage(Message msg) {
-                                    if (msg.what==100){
-                                        if (isSuccess){
-                                            Toast.makeText(RegisterActivity.this, "正在注册.......", Toast.LENGTH_SHORT).show();
-                                        }else{
-                                            Toast.makeText(RegisterActivity.this, "验证码错误", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                }
-                            };
-                            //提交验证码，验证是否正确
-                            SMSSDK.submitVerificationCode("86",registerPhoneNum,yanZhengMa);
+                            userIsExist(registerPhoneNum);
                         }else{
                             Toast.makeText(RegisterActivity.this, "两次密码不一致", Toast.LENGTH_SHORT).show();
                         }
@@ -263,6 +272,77 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    //从网络上验证用户是否存在
+    private void userIsExist(String userPhoneNum){
+        String url = UrlAddress.HOST_ADDRESS_PROJECT+"UserController";
+        params = new RequestParams(url);
+        params.addQueryStringParameter("userop","userisexist");
+        params.addQueryStringParameter("userphonenum",userPhoneNum);
+        InternetCode=100;
+        callback = new MyCommonCallback();
+        x.http().post(params, callback);
+    }
+
+    class MyCommonCallback implements Callback.CommonCallback<String> {
+        private String registerPhoneNum=registerUserPhone.getText().toString();
+        private String yanZhengMa=registerYanZhengMa.getText().toString();
+        private String password=registerUserPass.getText().toString();
+
+        @Override
+        public void onSuccess(String result) {
+            if (InternetCode==100) {
+                if (result.startsWith("用户已存在")) {
+                    Toast.makeText(RegisterActivity.this, "用户已存在", Toast.LENGTH_SHORT).show();
+                } else if (result.startsWith("用户不存在")) {
+                    loginHandler = new Handler(){
+                        @Override
+                        public void handleMessage(Message msg) {
+                            super.handleMessage(msg);
+                            if (msg.what==1000){
+                                startRegister(registerPhoneNum,password);
+                            }else if (msg.what==2000){
+                                Toast.makeText(RegisterActivity.this, "手机号码验证失败", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    };
+                    //提交验证码，验证是否正确
+                    SMSSDK.submitVerificationCode("86", registerPhoneNum,yanZhengMa);
+                }
+            }
+            if (InternetCode==200){
+                if (result.startsWith("注册成功")) {
+                    Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+        @Override
+        public void onError(Throwable ex, boolean isOnCallback) {
+        }
+
+        @Override
+        public void onCancelled(CancelledException cex) {
+
+        }
+
+        @Override
+        public void onFinished() {
+        }
+    }
+
+
+    private void startRegister(String userPhoneNum,String password){
+        String url = UrlAddress.HOST_ADDRESS_PROJECT+"UserController";
+        params=new RequestParams(url);
+        params.addQueryStringParameter("userop","adduser");
+        params.addQueryStringParameter("userphonenum",userPhoneNum);
+        //MD5加密密码
+        params.addQueryStringParameter("userpassword", MD5Util.MD5(password));
+        //设置操作码
+        InternetCode=200;
+        callback = new MyCommonCallback();
+        x.http().post(params,callback);
+    }
 
     @Override
     protected void onDestroy() {

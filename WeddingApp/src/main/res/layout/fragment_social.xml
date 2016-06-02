@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#e9e7e7">
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#e9e7e7">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:background="#fff">
+    android:layout_weight="1"
+    android:layout_height="0dp"
+    android:orientation="horizontal"
+    android:background="#fff">
 
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:background="#ffff"
-            android:layout_gravity="center"
-            android:src="@mipmap/icon_search_ss"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:text="婚礼说"
-            android:textColor="#ff705e"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:layout_height="match_parent"/>
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:layout_gravity="center"
-            android:src="@mipmap/btn_edit_red"
-            android:onClick="editPost"/>
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/social_search"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:background="#ffff"
+        android:layout_gravity="center"
+        android:src="@mipmap/icon_search_ss"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:text="婚礼说"
+        android:textColor="#ff705e"
+        android:textSize="25sp"
+       android:gravity="center"
+        android:layout_height="match_parent"/>
+    <ImageButton
+        android:id="@+id/social_editpost"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:layout_gravity="center"
+        android:src="@mipmap/btn_edit_red"/>
+</LinearLayout>
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,8 +57,7 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/social_lunbo_viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                >
+                android:layout_height="200dp">
             </android.support.v4.view.ViewPager>
 
             <com.viewpagerindicator.CirclePageIndicator
@@ -168,139 +171,132 @@
             </LinearLayout>
         </LinearLayout>
 
-
-
         <LinearLayout
+            android:id="@+id/social_huiyilu"
+            android:background="#fff"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="6"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="1dp">
 
-            <LinearLayout
-                android:background="#fff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginBottom="1dp"
-                android:onClick="huiyilu">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/socialuser1"/>
-                <TextView
-                    android:id="@+id/tv_huiyilu"
-                    android:background="#fff"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7"
-                    android:textSize="25sp"
-                    android:gravity="center"
-                    android:text="那年·回忆录"
-                    android:layout_marginBottom="3dp"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:src="@mipmap/icon_more_arrow"/>
-            </LinearLayout>
-
-            <LinearLayout
+                android:src="@mipmap/socialuser1"/>
+            <TextView
+                android:id="@+id/tv_huiyilu"
                 android:background="#fff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:textSize="25sp"
                 android:gravity="center"
-                android:layout_marginBottom="1dp"
-                android:onClick="jinxingce">
+                android:text="那年·回忆录"
+                android:layout_marginBottom="3dp"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:src="@mipmap/icon_more_arrow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/social_jinxingce"
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="1dp">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/socialuser3"/>
-                <TextView
-                    android:id="@+id/tv_jinxingce"
-                    android:background="#fff"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7"
-                    android:textSize="25sp"
-                    android:gravity="center"
-                    android:text="婚礼·进行册"
-                    android:layout_marginBottom="3dp"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:src="@mipmap/icon_more_arrow"/>
-            </LinearLayout>
-            <LinearLayout
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@mipmap/socialuser3"/>
+            <TextView
+                android:id="@+id/tv_jinxingce"
                 android:background="#fff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:textSize="25sp"
                 android:gravity="center"
-                android:layout_marginBottom="1dp"
-                android:onClick="shenghuoji">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/socialuser4"/>
-                <TextView
-                    android:id="@+id/tv_shenghuoji"
-                    android:background="#fff"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7"
-                    android:textSize="25sp"
-                    android:gravity="center"
-                    android:text="甜蜜·生活季"
-                    android:layout_marginBottom="3dp"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:src="@mipmap/icon_more_arrow"/>
-            </LinearLayout>
-            <LinearLayout
+                android:text="婚礼·进行册"
+                android:layout_marginBottom="3dp"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:src="@mipmap/icon_more_arrow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/social_shenghuoji"
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="1dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@mipmap/socialuser4"/>
+            <TextView
+                android:id="@+id/tv_shenghuoji"
                 android:background="#fff"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:textSize="25sp"
                 android:gravity="center"
-                android:layout_marginBottom="1dp"
-                android:onClick="fannaoji">
+                android:text="甜蜜·生活季"
+                android:layout_marginBottom="3dp"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:src="@mipmap/icon_more_arrow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/social_fannaoji"
+            android:background="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="1dp"
+            android:onClick="fannaoji">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/socialuser5"/>
-                <TextView
-                    android:id="@+id/tv_fannaoji"
-                    android:background="#fff"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="7"
-                    android:textSize="25sp"
-                    android:gravity="center"
-                    android:text="倾诉·烦恼集"
-                    android:layout_marginBottom="3dp"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:src="@mipmap/icon_more_arrow"/>
-            </LinearLayout>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@mipmap/socialuser5"/>
+            <TextView
+                android:id="@+id/tv_fannaoji"
+                android:background="#fff"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:text="倾诉·烦恼集"
+                android:layout_marginBottom="3dp"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:src="@mipmap/icon_more_arrow"/>
+        </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+
+
