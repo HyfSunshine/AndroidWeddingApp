@@ -2,6 +2,8 @@ package com.gemptc.wd.bean;
 
 import java.io.Serializable;
 
+
+
 /**
  * Created by C5-0 on 2016/6/1.
  */
@@ -122,4 +124,5 @@ public class ProductBean implements Serializable {
                 ", sellerName='" + sellerName + '\'' +
                 '}';
     }
+
 }
