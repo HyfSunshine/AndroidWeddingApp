@@ -18,7 +18,21 @@ public class UrlAddress {
     //public static final String HOST_ADDRESS="http://104.224.132.169:8080/";
     //public static final String FILE_SAVE_ADDRESS="/var/MyProject/images/";
 
+    //工程地址
     public static final String HOST_ADDRESS_PROJECT=HOST_ADDRESS+"WeddingJson/";
+
+
+    /**
+     * 四个Controller
+     */
+    //用户
+    public static final String USER_Controller=HOST_ADDRESS_PROJECT+"UserController";
+    //商家
+    public static final String SELLER_Controller=HOST_ADDRESS_PROJECT+"SellerController";
+    //案例
+    public static final String PRODUCT_Controller=HOST_ADDRESS_PROJECT+"ProductController";
+    //帖子
+    public static final String POST_Controller=HOST_ADDRESS_PROJECT+"PostController";
 
     public static final String USER_IMAGE_ADDRESS=HOST_ADDRESS+"images/userImages/";
     public static final String SELLER_IMAGE_ADDRESS=HOST_ADDRESS+"images/sellerImages/";

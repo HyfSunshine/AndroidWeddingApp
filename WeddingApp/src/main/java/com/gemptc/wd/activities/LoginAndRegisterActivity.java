@@ -1,6 +1,8 @@
 package com.gemptc.wd.activities;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -24,10 +26,13 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private PageIndicator indicator;
     private List<String> imageUrlList;
+
+    static LoginAndRegisterActivity loginAndRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_and_register);
+        loginAndRegister=this;
 
         viewPager= (ViewPager) this.findViewById(R.id.viewPager);
         indicator= (PageIndicator) this.findViewById(R.id.indicator);
@@ -78,7 +83,6 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
     //1.跳转到登录的界面
     public void login(View view) {
         startActivity(new Intent(LoginAndRegisterActivity.this,LoginActivity.class));
-        finish();
     }
     //2.跳转到注册的界面
     public void register(View view) {

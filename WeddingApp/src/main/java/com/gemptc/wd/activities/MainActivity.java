@@ -1,35 +1,25 @@
 package com.gemptc.wd.activities;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 import com.android.wedding.R;
 import com.gemptc.wd.adapter.FragmentAdapter;
-import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.fragments.FragmentHome;
 import com.gemptc.wd.fragments.FragmentKinds;
 import com.gemptc.wd.fragments.FragmentMine;
 import com.gemptc.wd.fragments.FragmentSocial;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends FragmentActivity {
 
@@ -126,16 +116,16 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId==R.id.radioButtonHome){
-                    vp.setCurrentItem(0);
+                    vp.setCurrentItem(0,false);
                 }
                 if (checkedId==R.id.radioButtonKinds){
-                    vp.setCurrentItem(1);
+                    vp.setCurrentItem(1,false);
                 }
                 if (checkedId==R.id.radioButtonSocial){
-                    vp.setCurrentItem(2);
+                    vp.setCurrentItem(2,false);
                 }
                 if (checkedId==R.id.radioButtonMine){
-                    vp.setCurrentItem(3);
+                    vp.setCurrentItem(3,false);
                 }
             }
         });
@@ -157,77 +147,4 @@ public class MainActivity extends FragmentActivity {
             }
         });
     }
-
-    public void jumpHomeFindMerchantActivity(View view) {
-        Intent intent = new Intent(MainActivity.this, HomeFindMerchantActivity.class);
-        startActivity(intent);
-    }
-    public void jumpHomeWeddingTaskActivity(View view) {
-        Intent intent = new Intent(MainActivity.this, HomeWeddingTaskActivity.class);
-        startActivity(intent);
-    }
-
-
-    public void huiyilu(View view) {
-        Intent intent=new Intent(MainActivity.this, SocialHuiyiluActivity.class);
-        startActivity(intent);
-    }
-
-    public void jinxingce(View view) {
-        Intent intent=new Intent(MainActivity.this,SocialJinxingceActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void shenghuoji(View view) {
-        Intent intent=new Intent(MainActivity.this,SocialShenghuojiActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void fannaoji(View view) {
-        Intent intent=new Intent(MainActivity.this,SocialFannaojiActivity.class);
-        startActivity(intent);
-
-    }
-
-
-    public void rentCar(View view) {
-        Intent intent=new Intent(MainActivity.this,KindRentCarActivity.class);
-        startActivity(intent);
-    }
-
-    public void travelkind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindTravelActivity.class);
-        startActivity(intent);
-    }
-
-    public void clothesKind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindClothesActivity.class);
-        startActivity(intent);
-    }
-
-    public void ringKind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindRingActivity.class);
-        startActivity(intent);
-    }
-
-    public void shootKind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindShootActivity.class);
-        startActivity(intent);
-    }
-
-    public void hotelKind(View view) {
-        Intent intent=new Intent(MainActivity.this,KindHotelActivity.class);
-        startActivity(intent);
-    }
-
-
-
-    /*public void getFocusable(View view) {
-        mEditText.setFocusable(true);
-        mEditText.setFocusableInTouchMode(true);
-        mEditText.requestFocus();
-        mEditText.requestFocusFromTouch();
-    }*/
 }
