@@ -15,13 +15,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.android.wedding.R;
-import com.gemptc.wd.activities.EditPostActivity;
+import com.gemptc.wd.activities.social.EditPostActivity;
 import com.gemptc.wd.activities.MainActivity;
-import com.gemptc.wd.activities.SearchPostActivity;
-import com.gemptc.wd.activities.SocialFannaojiActivity;
-import com.gemptc.wd.activities.SocialHuiyiluActivity;
-import com.gemptc.wd.activities.SocialJinxingceActivity;
-import com.gemptc.wd.activities.SocialShenghuojiActivity;
+import com.gemptc.wd.activities.social.SearchPostActivity;
+import com.gemptc.wd.activities.social.SocialFannaojiActivity;
+import com.gemptc.wd.activities.social.SocialHuiyiluActivity;
+import com.gemptc.wd.activities.social.SocialJinxingceActivity;
+import com.gemptc.wd.activities.social.SocialShenghuojiActivity;
 
 
 

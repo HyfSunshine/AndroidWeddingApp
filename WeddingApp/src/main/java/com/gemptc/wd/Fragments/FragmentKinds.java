@@ -4,26 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ImageButton;
 
 import com.android.wedding.R;
-import com.gemptc.wd.activities.HomeFindMerchantActivity;
-import com.gemptc.wd.activities.HomeWeddingTaskActivity;
-import com.gemptc.wd.activities.HomeWeixinCadActivity;
-import com.gemptc.wd.activities.KindClothesActivity;
-import com.gemptc.wd.activities.KindHotelActivity;
-import com.gemptc.wd.activities.KindRentCarActivity;
-import com.gemptc.wd.activities.KindRingActivity;
-import com.gemptc.wd.activities.KindShootActivity;
-import com.gemptc.wd.activities.KindTravelActivity;
-import com.gemptc.wd.activities.MainActivity;
-
-import java.io.File;
+import com.gemptc.wd.activities.kind.KindClothesActivity;
+import com.gemptc.wd.activities.kind.KindHotelActivity;
+import com.gemptc.wd.activities.kind.KindRentCarActivity;
+import com.gemptc.wd.activities.kind.KindRingActivity;
+import com.gemptc.wd.activities.kind.KindShootActivity;
+import com.gemptc.wd.activities.kind.KindTravelActivity;
 
 /**
  * Created by Administrator on 2016/5/5.

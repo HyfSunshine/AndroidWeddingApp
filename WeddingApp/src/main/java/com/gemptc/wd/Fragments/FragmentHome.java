@@ -2,13 +2,10 @@ package com.gemptc.wd.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +14,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.wedding.R;
-import com.gemptc.wd.activities.HomeFindMerchantActivity;
-import com.gemptc.wd.activities.HomeWeddingTaskActivity;
-import com.gemptc.wd.activities.HomeWeixinCadActivity;
+import com.gemptc.wd.activities.home.HomeFindMerchantActivity;
+import com.gemptc.wd.activities.home.HomeWeddingTaskActivity;
+import com.gemptc.wd.activities.home.HomeWeixinCadActivity;
 import com.gemptc.wd.activities.MainActivity;
 import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.utils.PrefUtils;

@@ -1,4 +1,4 @@
-package com.gemptc.wd.activities;
+package com.gemptc.wd.activities.home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,26 +7,25 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.android.wedding.R;
-import com.gemptc.wd.adapter.TotalTaskAdapter;
+import com.gemptc.wd.adapter.MyTaskAdapter;
 import com.gemptc.wd.bean.TaskBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectWeddingTaskActivity extends AppCompatActivity {
+public class HomeWeddingTaskActivity extends AppCompatActivity {
     ListView mListView;
     List<TaskBean> mTaskBeanList;
-    TotalTaskAdapter mTotalTaskAdapter;
+    MyTaskAdapter mMyTaskAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_wedding_task);
+        setContentView(R.layout.activity_home_wedding_task);
         Intent intent=getIntent();
-        mListView= (ListView) findViewById(R.id.total_Task_listView);
+        mListView= (ListView) findViewById(R.id.my_task_listView);
         initData();
-        mTotalTaskAdapter=new TotalTaskAdapter(mTaskBeanList,SelectWeddingTaskActivity.this);
-        mListView.setAdapter(mTotalTaskAdapter);
-
+        mMyTaskAdapter=new MyTaskAdapter(mTaskBeanList,HomeWeddingTaskActivity.this);
+        mListView.setAdapter(mMyTaskAdapter);
     }
 
     private void initData() {
@@ -70,16 +69,16 @@ public class SelectWeddingTaskActivity extends AppCompatActivity {
         mTaskBeanList.add(task19);
         mTaskBeanList.add(task20);
 
-
-
-
-
-
     }
 
-    public void setAddTask(View view) {
-        //调回
-        Intent intent=new Intent(SelectWeddingTaskActivity.this,HomeWeddingTaskActivity.class);
+    public void addTask(View view) {
+        Intent intent=new Intent(HomeWeddingTaskActivity.this,SelectWeddingTaskActivity.class);
+        startActivity(intent);
+        Intent intent1=getIntent();
+    }
+
+    public void editTask(View view) {
+        Intent intent=new Intent(HomeWeddingTaskActivity.this,EditTaskActivity.class);
         startActivity(intent);
     }
 }

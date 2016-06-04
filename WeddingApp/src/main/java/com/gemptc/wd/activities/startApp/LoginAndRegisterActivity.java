@@ -1,8 +1,6 @@
-package com.gemptc.wd.activities;
+package com.gemptc.wd.activities.startApp;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.android.wedding.R;
 import com.gemptc.wd.utils.UrlAddress;

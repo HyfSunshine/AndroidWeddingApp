@@ -1,9 +1,8 @@
-package com.gemptc.wd.activities;
+package com.gemptc.wd.activities.startApp;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.wedding.R;
+import com.gemptc.wd.activities.MainActivity;
 import com.gemptc.wd.utils.MD5Util;
 import com.gemptc.wd.utils.PrefUtils;
 import com.gemptc.wd.utils.QQLogin;
 import com.gemptc.wd.utils.UrlAddress;
-import com.tencent.tauth.Tencent;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;

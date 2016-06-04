@@ -29,43 +29,43 @@
             android:name="com.gemptc.wd.activities.MainActivity"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity
-            android:name="com.gemptc.wd.activities.HomeFindMerchantActivity"
+            android:name="com.gemptc.wd.activities.home.HomeFindMerchantActivity"
             android:theme="@style/StyledIndicators"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <activity android:name="com.gemptc.wd.activities.HomeWeddingTaskActivity"/>
-        <activity android:name="com.gemptc.wd.activities.HomeWeixinCadActivity"/>
-        <activity android:name="com.gemptc.wd.activities.SocialHuiyiluActivity"/>
-        <activity android:name="com.gemptc.wd.activities.SocialJinxingceActivity"/>
-        <activity android:name="com.gemptc.wd.activities.SocialShenghuojiActivity"/>
-        <activity android:name="com.gemptc.wd.activities.SocialFannaojiActivity"/>
-        <activity android:name="com.gemptc.wd.activities.SelectWeddingTaskActivity"/>
-        <activity android:name="com.gemptc.wd.activities.EditTaskActivity"/>
-        <activity android:name="com.gemptc.wd.activities.KindRentCarActivity"/>
-        <activity android:name="com.gemptc.wd.activities.KindTravelActivity"/>
-        <activity android:name="com.gemptc.wd.activities.KindClothesActivity"/>
-        <activity android:name="com.gemptc.wd.activities.KindRingActivity"/>
-        <activity android:name="com.gemptc.wd.activities.KindShootActivity"/>
-        <activity android:name="com.gemptc.wd.activities.KindHotelActivity"/>
-        <activity android:name="com.gemptc.wd.activities.StartActivity">
+        <activity android:name="com.gemptc.wd.activities.home.HomeWeddingTaskActivity"/>
+        <activity android:name="com.gemptc.wd.activities.home.HomeWeixinCadActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.home.SelectWeddingTaskActivity"/>
+        <activity android:name="com.gemptc.wd.activities.home.EditTaskActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindRentCarActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindTravelActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindClothesActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindRingActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindShootActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindHotelActivity"/>
+        <activity android:name="com.gemptc.wd.activities.startApp.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.gemptc.wd.activities.LoginAndRegisterActivity"/>
-        <activity android:name="com.gemptc.wd.activities.LoginActivity"/>
-        <activity android:name="com.gemptc.wd.activities.RegisterActivity"/>
-        <activity android:name="com.gemptc.wd.activities.RegisterXieYiActivity"/>
-        <activity android:name="com.gemptc.wd.activities.SellerDetailActivity">
+        <activity android:name="com.gemptc.wd.activities.startApp.LoginAndRegisterActivity"/>
+        <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity"/>
+        <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity"/>
+        <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.home.SellerDetailActivity">
         </activity>
-        <activity android:name="com.gemptc.wd.activities.EditPostActivity">
+        <activity android:name="com.gemptc.wd.activities.social.EditPostActivity">
         </activity>
         <activity
-            android:name="com.gemptc.wd.activities.SearchPostActivity"
+            android:name="com.gemptc.wd.activities.social.SearchPostActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity android:name="com.gemptc.wd.activities.ProductDetailActivity">
+        <activity android:name="com.gemptc.wd.activities.home.ProductDetailActivity">
         </activity>
 
         <!--QQ的登录的activity-->

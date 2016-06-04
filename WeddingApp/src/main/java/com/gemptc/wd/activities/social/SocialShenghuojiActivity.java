@@ -1,4 +1,4 @@
-package com.gemptc.wd.activities;
+package com.gemptc.wd.activities.social;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import com.gemptc.wd.bean.Post;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SocialJinxingceActivity extends AppCompatActivity {
+public class SocialShenghuojiActivity extends AppCompatActivity {
     //第一步：找数据
     List<Post> mList;
     //第二步：找到每行的视图
@@ -20,13 +20,12 @@ public class SocialJinxingceActivity extends AppCompatActivity {
     PostAdapter mPostAdapter;
     ListView mListView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_social_jinxingce);
+        setContentView(R.layout.activity_social_shenghuoji);
         Intent intent=getIntent();
-        mListView= (ListView)findViewById(R.id.lv_jinxingce);
+        mListView= (ListView)findViewById(R.id.lv_shenghuoji);
         initData();
         mPostAdapter=new PostAdapter(this,mList);
         mListView.setAdapter(mPostAdapter);
@@ -58,5 +57,6 @@ public class SocialJinxingceActivity extends AppCompatActivity {
         mList.add(post8);
         mList.add(post9);
         mList.add(post10);
+
     }
 }

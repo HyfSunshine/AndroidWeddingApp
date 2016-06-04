@@ -9,7 +9,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:background="#fff"
-    tools:context="com.gemptc.wd.activities.HomeFindMerchantActivity">
+    tools:context="com.gemptc.wd.activities.home.HomeFindMerchantActivity">
     <include layout="@layout/search"
              android:layout_height="0dp"
              android:layout_width="match_parent"
