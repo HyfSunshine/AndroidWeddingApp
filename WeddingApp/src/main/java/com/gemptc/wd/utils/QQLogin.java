@@ -62,8 +62,6 @@ public abstract class QQLogin extends AppCompatActivity {
             openid = responseJsonobject.optString("openid");
             final String access_token = responseJsonobject.optString("access_token");
 //            final String expires_in = responseJsonobject.optString("expires_in");
-            ToastUtils.longToast(QQLogin.this,response.toString());
-
             Log.e("用户登录成功",response.toString());
 
             getUserData(APP_ID, openid,access_token);

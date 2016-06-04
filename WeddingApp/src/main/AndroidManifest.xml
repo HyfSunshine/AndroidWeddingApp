@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
           package="com.android.wedding">
     <!--XUtils权限-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -18,7 +17,6 @@
     <!--QQ登录验证权限-->
     <!--<uses-permission android:name="android.permission.INTERNET" />-->
     <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
-    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
 
     <application
         android:name="com.gemptc.wd.application.MyApplication"
@@ -29,13 +27,11 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name="com.gemptc.wd.activities.MainActivity"
-
             android:windowSoftInputMode="stateHidden|adjustPan"/>
-
-
         <activity
             android:name="com.gemptc.wd.activities.HomeFindMerchantActivity"
-            android:theme="@style/StyledIndicators"/>
+            android:theme="@style/StyledIndicators"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name="com.gemptc.wd.activities.HomeWeddingTaskActivity"/>
         <activity android:name="com.gemptc.wd.activities.HomeWeixinCadActivity"/>
         <activity android:name="com.gemptc.wd.activities.SocialHuiyiluActivity"/>
@@ -57,17 +53,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity android:name="com.gemptc.wd.activities.LoginAndRegisterActivity"/>
+        <activity android:name="com.gemptc.wd.activities.LoginActivity"/>
+        <activity android:name="com.gemptc.wd.activities.RegisterActivity"/>
+        <activity android:name="com.gemptc.wd.activities.RegisterXieYiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.SellerDetailActivity">
+        </activity>
         <activity android:name="com.gemptc.wd.activities.EditPostActivity">
         </activity>
-        <activity android:name="com.gemptc.wd.activities.SearchPostActivity"
-                  android:windowSoftInputMode="adjustPan">
+        <activity
+            android:name="com.gemptc.wd.activities.SearchPostActivity"
+            android:windowSoftInputMode="adjustPan">
         </activity>
-
-        <activity android:name="com.gemptc.wd.activities.LoginActivity" />
-        <activity android:name="com.gemptc.wd.activities.RegisterActivity" />
-        <activity android:name="com.gemptc.wd.activities.RegisterXieYiActivity"></activity>
+        <activity android:name="com.gemptc.wd.activities.ProductDetailActivity">
+        </activity>
 
         <!--QQ的登录的activity-->
         <activity
