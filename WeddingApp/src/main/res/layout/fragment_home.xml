@@ -65,16 +65,11 @@
                 </com.viewpagerindicator.CirclePageIndicator>
             </RelativeLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="#CCCCCC"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="5dp"
-
+                android:layout_marginTop="5dp"
                 android:layout_weight="2"
                 android:background="#fff"
                 android:paddingTop="10dp"
