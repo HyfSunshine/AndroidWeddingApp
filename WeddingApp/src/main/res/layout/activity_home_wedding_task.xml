@@ -7,38 +7,36 @@
     android:orientation="vertical"
     android:background="@color/homebackgroudcolor"
     tools:context="com.gemptc.wd.activities.home.HomeWeddingTaskActivity">
-<LinearLayout
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"
-    android:gravity="center"
-    android:orientation="horizontal"
     android:background="@color/textDown">
     <ImageButton
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#01000000"
-        android:src="@mipmap/btn_back_w"
+        android:layout_width="15dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:background="@mipmap/btn_back_w"
         android:layout_marginRight="10dp"
 
         />
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_centerInParent="true"
         android:textColor="#fff"
         android:textSize="25sp"
-        android:gravity="center"
         android:text="结婚任务"/>
     <ImageButton
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#01000000"
-        android:src="@mipmap/icon_task_menu"
+        android:layout_width="10dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/icon_task_menu"
+        android:layout_marginRight="10dp"
         />
-</LinearLayout>
+</RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

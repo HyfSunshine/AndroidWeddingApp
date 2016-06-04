@@ -38,6 +38,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.3.0'
     compile project(':09_SMSSDK')
     compile 'com.lzy.widget:ninegridview:0.1.4'
-    compile files('libs/mta-sdk-1.6.2.jar')
 
 }

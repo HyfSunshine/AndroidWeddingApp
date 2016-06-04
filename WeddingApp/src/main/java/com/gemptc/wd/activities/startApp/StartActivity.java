@@ -20,6 +20,8 @@ public class StartActivity extends AppCompatActivity {
             public void run() {
                 //获取到用户是否登录的信息
 
+               // boolean isLogin= PrefUtils.getBoolean(StartActivity.this,PrefUtils.PREF_NAME,true);
+
                 boolean isLogin= PrefUtils.getBoolean(StartActivity.this,"isLogin",false);
 
                 if (!isLogin){

@@ -23,7 +23,7 @@ import java.util.List;
 public class HomeFindMerchantActivity extends FragmentActivity {
     private ViewPager mViewPager;
     private TabPageIndicator  mTabPageIndicator;
-    public MerchantFragmentAdapter mAdapter ;
+    private MerchantFragmentAdapter mAdapter ;
     private List<Fragment> mFragments;
 
     @Override

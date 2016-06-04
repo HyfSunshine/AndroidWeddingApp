@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Wedding</string>
+    <string name="app_name">Wedding婚礼纪</string>
     <string name="merchant">找商家</string>
     <string name="wedding_task">婚礼任务</string>
     <string name="weixin_cad">发送请帖</string>
