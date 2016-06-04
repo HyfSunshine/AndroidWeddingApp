@@ -95,7 +95,7 @@ public class LoginActivity extends QQLogin {
                             public void onSuccess(String result) {
                                 if (result.startsWith("登录成功")){
                                     LoginAndRegisterActivity.loginAndRegister.finish();
-
+                                    //存储是否登录的信息
                                     PrefUtils.setBoolean(LoginActivity.this,"isLogin",true);
                                     PrefUtils.setString(LoginActivity.this,"userPhoneNum",userPhone);
                                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
