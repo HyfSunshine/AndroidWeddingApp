@@ -34,16 +34,12 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initViews();
-
         initFragments();
         initListeners();
-
         //初始化Handler，为的是实现图片轮播的速度不变，系统只创建一个Handler
         initHandler();
     }
-
     private void initHandler() {
         handler = new Handler(){
             @Override
@@ -52,7 +48,6 @@ public class MainActivity extends FragmentActivity {
                     FragmentHome fragmentHome = (FragmentHome) fragmentList.get(0);
                     ViewPager homeViewPager = fragmentHome.viewPager;
                     List<String> imagesUrlList=fragmentHome.imagesUrlList;
-
                     int currentPosition = homeViewPager.getCurrentItem();
                     if (currentPosition<imagesUrlList.size()-1){
                         currentPosition++;

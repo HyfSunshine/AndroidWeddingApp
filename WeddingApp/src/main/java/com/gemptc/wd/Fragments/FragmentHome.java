@@ -47,7 +47,7 @@ public class FragmentHome extends Fragment {
     private List<ProductBean> listProduct;
     private MyViewPagerAdapter pagerAdapter;
     private View view;
-    //private Handler handler;
+//    private Handler handler;
 private ImageButton mImgbtnMerchant,mImgbtnWeddingTask,mImgbtnWeixinCard;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,8 +72,8 @@ private ImageButton mImgbtnMerchant,mImgbtnWeddingTask,mImgbtnWeixinCard;
         if (result != null) {
             parseData(result);
             Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
-        } else
-            getDatas();
+        }
+        getDatas();
         return view;
     }
 
