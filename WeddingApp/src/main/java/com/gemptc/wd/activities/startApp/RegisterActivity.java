@@ -1,4 +1,4 @@
-package com.gemptc.wd.activities;
+package com.gemptc.wd.activities.startApp;
 
 import android.content.Intent;
 import android.os.Handler;

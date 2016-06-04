@@ -126,16 +126,16 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId==R.id.radioButtonHome){
-                    vp.setCurrentItem(0);
+                    vp.setCurrentItem(0,false);
                 }
                 if (checkedId==R.id.radioButtonKinds){
-                    vp.setCurrentItem(1);
+                    vp.setCurrentItem(1,false);
                 }
                 if (checkedId==R.id.radioButtonSocial){
-                    vp.setCurrentItem(2);
+                    vp.setCurrentItem(2,false);
                 }
                 if (checkedId==R.id.radioButtonMine){
-                    vp.setCurrentItem(3);
+                    vp.setCurrentItem(3,false);
                 }
             }
         });

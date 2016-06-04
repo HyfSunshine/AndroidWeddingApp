@@ -1,4 +1,4 @@
-package com.gemptc.wd.activities;
+package com.gemptc.wd.activities.home;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;

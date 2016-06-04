@@ -1,4 +1,4 @@
-package com.gemptc.wd.activities;
+package com.gemptc.wd.activities.social;
 
 import android.content.Context;
 import android.content.Intent;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.gemptc.wd.activities.SocialShenghuojiActivity">
+    tools:context="com.gemptc.wd.activities.social.SocialShenghuojiActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="6"
-            android:text="话题"
+            android:text="甜蜜·生活记"
             android:textColor="#ff705e"
             android:textSize="30sp"
             android:gravity="center"

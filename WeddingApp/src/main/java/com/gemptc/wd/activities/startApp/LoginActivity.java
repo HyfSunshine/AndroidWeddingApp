@@ -1,4 +1,4 @@
-package com.gemptc.wd.activities;
+package com.gemptc.wd.activities.startApp;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.wedding.R;
+import com.gemptc.wd.activities.MainActivity;
 import com.gemptc.wd.utils.PrefUtils;
 
 public class LoginActivity extends AppCompatActivity {

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/start_bground"
-    tools:context="com.gemptc.wd.activities.StartActivity">
+    tools:context="com.gemptc.wd.activities.startApp.StartActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
