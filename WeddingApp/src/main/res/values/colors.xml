@@ -11,10 +11,12 @@
     <color name="textUp">#999999</color>
     <color name="searchbackground">#F2F2F2</color>
     <color name="searchdivierline">#fff</color>
-    <color name="homebackgroudcolor">#e9e7e7</color>
+    <color name="homebackgroudcolor">#F4F4F2</color>
     <color name="socialbackgroudcolor">#e9e7e7</color>
     <color name="tab_indicator">#999999</color>
     <color name="viewpager_indicator">#fccbcb</color>
     <color name="zhuColor">#FF705E</color>
     <color name="white">@android:color/white</color>
+    <!--背景的灰色-->
+    <color name="backGroundGray">#F4F4F2</color>
 </resources>
