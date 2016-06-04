@@ -27,7 +27,7 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
     private PageIndicator indicator;
     private List<String> imageUrlList;
 
-    static LoginAndRegisterActivity loginAndRegister;
+    public static LoginAndRegisterActivity loginAndRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
