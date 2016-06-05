@@ -1,6 +1,7 @@
 package com.gemptc.wd.activities.startApp;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,9 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.android.wedding.R;
+import com.gemptc.wd.utils.ToastUtils;
 import com.gemptc.wd.utils.UrlAddress;
+import com.gemptc.wd.view.PowerImageView;
 import com.viewpagerindicator.PageIndicator;
 
+import org.xutils.common.Callback;
 import org.xutils.x;
 
 import java.util.ArrayList;
@@ -25,28 +29,30 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
     private List<String> imageUrlList;
 
     public static LoginAndRegisterActivity loginAndRegister;
+    private MyViewPagerAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_and_register);
         loginAndRegister=this;
-
+        imageUrlList=new ArrayList<>();
         viewPager= (ViewPager) this.findViewById(R.id.viewPager);
         indicator= (PageIndicator) this.findViewById(R.id.indicator);
+
+        adapter = new MyViewPagerAdapter();
+        viewPager.setAdapter(adapter);
+        indicator.setViewPager(viewPager);
+
         //初始化图片地址集合
         initImageUrl();
-
-        viewPager.setAdapter(new MyViewPagerAdapter());
-        indicator.setViewPager(viewPager);
     }
-
     private void initImageUrl() {
-        imageUrlList=new ArrayList<>();
         imageUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo1.jpg");
         imageUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo2.png");
         imageUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo3.jpg");
+        adapter.notifyDataSetChanged();
     }
-
 
     class MyViewPagerAdapter extends PagerAdapter{
 
@@ -61,12 +67,11 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
         }
 
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            ImageView image = new ImageView(LoginAndRegisterActivity.this);
-            image.setScaleType(ImageView.ScaleType.FIT_XY);
-            x.image().bind(image,imageUrlList.get(position));
-            container.addView(image);
-            return image;
+        public Object instantiateItem(final ViewGroup container, int position) {
+            ImageView view = new ImageView(LoginAndRegisterActivity.this);
+            view.setScaleType(ImageView.ScaleType.FIT_XY);
+            x.image().bind(view, imageUrlList.get(position));
+            return view;
         }
 
         @Override

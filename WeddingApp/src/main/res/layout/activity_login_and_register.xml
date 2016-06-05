@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context="com.gemptc.wd.activities.startApp.LoginAndRegisterActivity">
-<android.support.v4.view.ViewPager
-    android:id="@+id/viewPager"
-    android:layout_weight="5"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:background="@color/zhuColor">
-</android.support.v4.view.ViewPager>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_weight="5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/zhuColor">
+        </android.support.v4.view.ViewPager>
     <com.viewpagerindicator.LinePageIndicator
         android:id="@+id/indicator"
         android:padding="5dip"
@@ -22,7 +23,6 @@
         app:lineWidth="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="wrap_content"

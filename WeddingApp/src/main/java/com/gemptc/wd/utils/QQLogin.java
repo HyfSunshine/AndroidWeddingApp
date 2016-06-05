@@ -170,7 +170,9 @@ public abstract class QQLogin extends AppCompatActivity {
 
         @Override
         public void onError(Throwable ex, boolean isOnCallback) {
-
+            if (InternetCode==20){
+                QQLogin.this.finish();
+            }
         }
 
         @Override
