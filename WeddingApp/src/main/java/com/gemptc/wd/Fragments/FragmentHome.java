@@ -1,5 +1,6 @@
 package com.gemptc.wd.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,17 +9,15 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.wedding.R;
-<<<<<<< HEAD
 import com.gemptc.wd.activities.home.HomeFindMerchantActivity;
 import com.gemptc.wd.activities.home.HomeWeddingTaskActivity;
 import com.gemptc.wd.activities.home.HomeWeixinCadActivity;
-=======
->>>>>>> 6e2149986941524f80c5d5115a5e860d19a3a0a0
 import com.gemptc.wd.activities.MainActivity;
 import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.utils.PrefUtils;
@@ -45,14 +44,9 @@ public class FragmentHome extends Fragment {
     public List<String> imagesUrlList;
     private List<ProductBean> listProduct;
     private MyViewPagerAdapter pagerAdapter;
-<<<<<<< HEAD
     private View view;
 //    private Handler handler;
     private LinearLayout mLL_merchant,mLL_wedding_task,mLL_weixin_cad;
-=======
-    //private Handler handler;
-
->>>>>>> 6e2149986941524f80c5d5115a5e860d19a3a0a0
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +56,9 @@ public class FragmentHome extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, null);
+        view = inflater.inflate(R.layout.fragment_home, null);
+        initView();
+        initListeners();
         imagesUrlList = new ArrayList<>();
         viewPager = (ViewPager) view.findViewById(R.id.home_lunbo_viewpager);
         indicator = (PageIndicator) view.findViewById(R.id.indicator);
@@ -73,7 +69,6 @@ public class FragmentHome extends Fragment {
         String result = PrefUtils.getString(getContext(), "home_product_lunbo", null);
         if (result != null) {
             parseData(result);
-<<<<<<< HEAD
             Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
         }
         getDatas();
@@ -110,16 +105,6 @@ public class FragmentHome extends Fragment {
                     break;
             }
         }
-=======
-
-            Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
-
-            //Toast.makeText(getContext(), "从缓存中获取", Toast.LENGTH_SHORT).show();
-
-        } else
-            getDatas();
-        return view;
->>>>>>> 6e2149986941524f80c5d5115a5e860d19a3a0a0
     }
 
     private void initImagesURL() {
@@ -128,23 +113,16 @@ public class FragmentHome extends Fragment {
         imagesUrlList.add(UrlAddress.PRODUCT_IMAGE_ADDRESS + listProduct.get(1).getPrBgroundName());
         imagesUrlList.add(UrlAddress.PRODUCT_IMAGE_ADDRESS + listProduct.get(2).getPrBgroundName());
         pagerAdapter.notifyDataSetChanged();
+
     }
 
     //获取网络数据
     private void getDatas() {
-
         RequestParams params = new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"ProductController");
-
-        //RequestParams params = new RequestParams("http://10.201.1.9:8080/WeddingJson/ProductController");
-
         params.addBodyParameter("productop", "homesheying");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-
-
-                Log.e("数据", result);
-
                 PrefUtils.setString(getContext(), "home_product_lunbo", result);
                 parseData(result);
             }
@@ -200,5 +178,6 @@ public class FragmentHome extends Fragment {
             container.removeView((View) object);
         }
     }
+
 }
 

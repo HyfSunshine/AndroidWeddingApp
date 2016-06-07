@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_weight="6"
-        android:text="那年·回忆录"
+        android:text="话题"
         android:textColor="#ff705e"
         android:textSize="30sp"
         android:gravity="center"
@@ -35,11 +35,14 @@
         android:layout_gravity="center"
         android:src="@mipmap/btn_edit_red"/>
 </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <ListView
-            android:layout_marginTop="2dp"
             android:id="@+id/lv_huiyilu"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>
+    </LinearLayout>
 
 </LinearLayout>

@@ -30,7 +30,7 @@
     </LinearLayout>
 
  <LinearLayout
-     android:id="@+id/post_huiyilulayout"
+     android:id="@+id/post_feilayout"
      android:layout_width="match_parent"
      android:layout_height="95dp"
      android:background="#fff"
@@ -48,77 +48,50 @@
          android:layout_height="match_parent"
          android:layout_weight="5"
          android:orientation="vertical">
-
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="0dp"
              android:layout_weight="1"
              android:orientation="horizontal">
              <TextView
-                 android:id="@+id/userName"
+                 android:id="@+id/social_username"
                  android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
+                 android:layout_height="match_parent"
                  android:text="独孤觅影"
-                 android:layout_gravity="center"
+                 android:gravity="center_vertical"
                  android:textColor="#ff705e"
                  android:layout_weight="4"
                  android:layout_marginLeft="10dp"
                  android:textSize="18sp"/>
+
+             <TextView
+                 android:id="@+id/social_posttime"
+                 android:layout_width="wrap_content"
+                 android:layout_height="match_parent"
+                 android:text="1小时前"
+                 android:gravity="center_vertical"
+                 android:paddingRight="10dp"
+                 android:textSize="15sp"/>
          </LinearLayout>
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="0dp"
              android:layout_weight="1">
              <TextView
-                 android:id="@+id/postTitle"
+                 android:id="@+id/social_posttitle"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:text="大家分享一下婚礼的妆容吧"
-                 android:layout_gravity="center_vertical"
                  android:singleLine="true"
-                 android:paddingTop="5dp"
                  android:paddingLeft="10dp"
                  android:textColor="#000"
                  android:textSize="22sp"/>
          </LinearLayout>
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="0dp"
-             android:layout_weight="1"
-             android:orientation="horizontal">
-             <TextView
-                 android:id="@+id/postTime"
-                 android:layout_width="wrap_content"
-                 android:layout_height="match_parent"
-                 android:text="2016年06月03日10时12分25秒"
-                 android:layout_marginLeft="15dp"
-                 android:gravity="center_vertical"
-                 android:paddingRight="10dp"
-                 android:textSize="12sp"
-                 android:textColor="@color/textUp"/>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/replyNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="100"
-                    android:textColor="@color/replyNumColor"
-                    android:gravity="center_vertical"
-                    android:layout_alignParentRight="true"
-                    android:paddingRight="10dp"
-                    android:textSize="15sp"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@id/replyNum"
-                    android:src="@mipmap/icon_comment_r_s3"/>
-            </RelativeLayout>
-         </LinearLayout>
+         
      </LinearLayout>
+
+    
+
  </LinearLayout>
 
 </LinearLayout>

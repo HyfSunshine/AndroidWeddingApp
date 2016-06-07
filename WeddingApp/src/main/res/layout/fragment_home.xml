@@ -147,21 +147,21 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
                     android:src="@mipmap/lvpai_bottom"/>
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="100dp"
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
                     android:src="@mipmap/lvpai_bottom"/>
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="100dp"
                     android:scaleType="fitXY"
                     android:src="@mipmap/lvpai_bottom"/>
 
