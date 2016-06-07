@@ -23,30 +23,30 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private PageIndicator indicator;
     private List<String> imageUrlList;
-
-    static LoginAndRegisterActivity loginAndRegister;
+    public static LoginAndRegisterActivity loginAndRegister;
+    private MyViewPagerAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_and_register);
         loginAndRegister=this;
-
+        imageUrlList=new ArrayList<>();
         viewPager= (ViewPager) this.findViewById(R.id.viewPager);
         indicator= (PageIndicator) this.findViewById(R.id.indicator);
+
+        adapter = new MyViewPagerAdapter();
+        viewPager.setAdapter(adapter);
+        indicator.setViewPager(viewPager);
+
         //初始化图片地址集合
         initImageUrl();
-
-        viewPager.setAdapter(new MyViewPagerAdapter());
-        indicator.setViewPager(viewPager);
     }
-
     private void initImageUrl() {
-        imageUrlList=new ArrayList<>();
         imageUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo1.jpg");
         imageUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo2.png");
         imageUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo3.jpg");
+        adapter.notifyDataSetChanged();
     }
-
 
     class MyViewPagerAdapter extends PagerAdapter{
 
@@ -61,12 +61,12 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
         }
 
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            ImageView image = new ImageView(LoginAndRegisterActivity.this);
-            image.setScaleType(ImageView.ScaleType.FIT_XY);
-            x.image().bind(image,imageUrlList.get(position));
-            container.addView(image);
-            return image;
+        public Object instantiateItem(final ViewGroup container, int position) {
+            ImageView view = new ImageView(LoginAndRegisterActivity.this);
+            view.setScaleType(ImageView.ScaleType.FIT_XY);
+            x.image().bind(view, imageUrlList.get(position));
+            container.addView(view);
+            return view;
         }
 
         @Override

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,9 +45,9 @@ public class FragmentHome extends Fragment {
     public List<String> imagesUrlList;
     private List<ProductBean> listProduct;
     private MyViewPagerAdapter pagerAdapter;
-    private View view;
-//    private Handler handler;
     private LinearLayout mLL_merchant,mLL_wedding_task,mLL_weixin_cad;
+    private View view;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

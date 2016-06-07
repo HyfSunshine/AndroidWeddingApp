@@ -1,8 +1,8 @@
 package com.gemptc.wd.activities.startApp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,23 +13,35 @@ import com.android.wedding.R;
 import com.gemptc.wd.activities.MainActivity;
 import com.gemptc.wd.utils.MD5Util;
 import com.gemptc.wd.utils.PrefUtils;
+
 import com.gemptc.wd.utils.UrlAddress;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
-public class LoginActivity extends AppCompatActivity {
+import com.gemptc.wd.utils.QQLogin;
+import com.gemptc.wd.utils.UrlAddress;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
+
+public class LoginActivity extends QQLogin {
 
     private EditText userPhone;
     private EditText userPass;
     private Button btn_Login;
     private ImageView qq_Login;
     private ImageView weibo_Login;
+
+    public static LoginActivity loginActivity;
+    public static Handler qqLoginHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        loginActivity=this;
 
         //初始化界面上的数据
         initViews();
@@ -90,6 +102,10 @@ public class LoginActivity extends AppCompatActivity {
                                 if (result.startsWith("登录成功")){
                                     LoginAndRegisterActivity.loginAndRegister.finish();
 
+
+
+                                    //存储是否登录的信息
+
                                     PrefUtils.setBoolean(LoginActivity.this,"isLogin",true);
                                     PrefUtils.setString(LoginActivity.this,"userPhoneNum",userPhone);
                                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
@@ -122,6 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                 //点击第三方qq登录按钮
                 case R.id.qqLogin:
                     Toast.makeText(LoginActivity.this, "点击了qq登录按钮", Toast.LENGTH_SHORT).show();
+                    startQQLogin();
                     break;
                 //点击第三方微博登录
                 case R.id.weiboLogin:

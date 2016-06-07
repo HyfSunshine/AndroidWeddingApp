@@ -29,12 +29,14 @@ public class MainActivity extends FragmentActivity {
     private List<Fragment> fragmentList;
     private  EditText mEditText;
     public static Handler handler;
+    public static MainActivity mainActivity;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainActivity=this;
         initViews();
         initFragments();
         initListeners();

@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.android.wedding.R;
+
 import com.gemptc.wd.adapter.SellerGridAdapter;
 import com.gemptc.wd.adapter.SellerListAdapter;
 import com.gemptc.wd.bean.Seller;
@@ -41,6 +42,7 @@ public class HomeFindMerchantActivity extends FragmentActivity {
     List<Seller> mSellerlist=new ArrayList<>();
     List<SellerData> mSellerData;
     SellerListAdapter mSellerListAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +86,7 @@ public class HomeFindMerchantActivity extends FragmentActivity {
         }
         getDataFromInternet(selectClass);
     }
+
 
     //解析数据的方法
     private void parseData(String result){
@@ -229,11 +232,12 @@ public class HomeFindMerchantActivity extends FragmentActivity {
 
     }
     private void initGridlistener() {
+
        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                mSellerlist.clear();
-               switch (position){
+               switch (position) {
                    case 0:
                        clickGetClassData(0);
                        break;
@@ -256,7 +260,7 @@ public class HomeFindMerchantActivity extends FragmentActivity {
                }
               /* mListView.notify();
                mSellerListAdapter.notifyDataSetChanged();*/
-               mSellerListAdapter=new SellerListAdapter(HomeFindMerchantActivity.this,mSellerlist);
+               mSellerListAdapter = new SellerListAdapter(HomeFindMerchantActivity.this, mSellerlist);
                mListView.setAdapter(mSellerListAdapter);
                mSellerListAdapter.notifyDataSetChanged();
 
@@ -265,3 +269,4 @@ public class HomeFindMerchantActivity extends FragmentActivity {
     }
 
 }
+

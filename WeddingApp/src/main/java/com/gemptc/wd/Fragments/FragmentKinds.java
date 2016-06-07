@@ -17,6 +17,10 @@ import com.gemptc.wd.activities.kind.KindRingActivity;
 import com.gemptc.wd.activities.kind.KindShootActivity;
 import com.gemptc.wd.activities.kind.KindTravelActivity;
 
+
+import com.android.wedding.R;
+
+
 /**
  * Created by Administrator on 2016/5/5.
  */

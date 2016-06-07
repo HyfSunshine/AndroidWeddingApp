@@ -15,5 +15,7 @@
     <color name="tab_indicator">#999999</color>
     <color name="viewpager_indicator">#fccbcb</color>
     <color name="zhuColor">#FF705E</color>
+    <!--背景的灰色-->
+    <color name="backGroundGray">#F4F4F2</color>
     <color name="white">@android:color/white</color>
 </resources>

@@ -8,9 +8,9 @@
     <RelativeLayout
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
-        android:background="#FF705E"
+        android:background="#ff705e"
         android:gravity="center">
           <ImageButton
             android:id="@+id/back"
@@ -39,7 +39,7 @@
     <LinearLayout
         android:id="@+id/bottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:background="#FF705E"
         android:gravity="center">
