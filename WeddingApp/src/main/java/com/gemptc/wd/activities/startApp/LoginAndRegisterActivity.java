@@ -1,7 +1,6 @@
 package com.gemptc.wd.activities.startApp;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.android.wedding.R;
-import com.gemptc.wd.utils.ToastUtils;
 import com.gemptc.wd.utils.UrlAddress;
-import com.gemptc.wd.view.PowerImageView;
 import com.viewpagerindicator.PageIndicator;
 
-import org.xutils.common.Callback;
 import org.xutils.x;
 
 import java.util.ArrayList;
@@ -71,6 +67,7 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
             ImageView view = new ImageView(LoginAndRegisterActivity.this);
             view.setScaleType(ImageView.ScaleType.FIT_XY);
             x.image().bind(view, imageUrlList.get(position));
+            container.addView(view);
             return view;
         }
 
