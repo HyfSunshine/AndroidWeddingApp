@@ -68,6 +68,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="13"
+<<<<<<< HEAD
         >
     </android.support.v4.view.ViewPager>-->
+=======
+        android:background="#ff0">
+    </android.support.v4.view.ViewPager>
+>>>>>>> 6e2149986941524f80c5d5115a5e860d19a3a0a0
 </LinearLayout>

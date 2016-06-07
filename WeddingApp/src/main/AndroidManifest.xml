@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.android.wedding">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <!-- XUtils权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- 短信验证权限 -->
@@ -27,8 +31,12 @@
             android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity
             android:name="com.gemptc.wd.activities.home.HomeFindMerchantActivity"
+<<<<<<< HEAD
             android:theme="@style/StyledIndicators"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
+=======
+            android:theme="@style/StyledIndicators"/>
+>>>>>>> 6e2149986941524f80c5d5115a5e860d19a3a0a0
         <activity android:name="com.gemptc.wd.activities.home.HomeWeddingTaskActivity"/>
         <activity android:name="com.gemptc.wd.activities.home.HomeWeixinCadActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluActivity"/>
@@ -51,18 +59,30 @@
             </intent-filter>
         </activity>
         <activity android:name="com.gemptc.wd.activities.startApp.LoginAndRegisterActivity"/>
+<<<<<<< HEAD
         <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity"/>
         <activity android:name="com.gemptc.wd.activities.home.SellerDetailActivity">
         </activity>
+=======
+>>>>>>> 6e2149986941524f80c5d5115a5e860d19a3a0a0
         <activity android:name="com.gemptc.wd.activities.social.EditPostActivity">
         </activity>
         <activity
             android:name="com.gemptc.wd.activities.social.SearchPostActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
+<<<<<<< HEAD
         <activity android:name="com.gemptc.wd.activities.home.ProductDetailActivity">
+=======
+        <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity"/>
+        <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity"/>
+        <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.DetailPostActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity">
+>>>>>>> 6e2149986941524f80c5d5115a5e860d19a3a0a0
         </activity>
     </application>
 
