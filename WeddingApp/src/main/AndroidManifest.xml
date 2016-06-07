@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.android.wedding">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+          package="com.android.wedding">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- XUtils权限 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 短信验证权限 -->
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.GET_TASKS"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- QQ登录验证权限 -->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
 
     <application
         android:name="com.gemptc.wd.application.MyApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/icon_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name="com.gemptc.wd.activities.MainActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan"/>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="com.gemptc.wd.activities.home.HomeFindMerchantActivity"
-            android:theme="@style/StyledIndicators"/>
+            android:theme="@style/StyledIndicators"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
         <activity android:name="com.gemptc.wd.activities.home.HomeWeddingTaskActivity"/>
         <activity android:name="com.gemptc.wd.activities.home.HomeWeixinCadActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluActivity"/>
@@ -47,14 +51,18 @@
         <activity android:name="com.gemptc.wd.activities.kind.KindRingActivity"/>
         <activity android:name="com.gemptc.wd.activities.kind.KindShootActivity"/>
         <activity android:name="com.gemptc.wd.activities.kind.KindHotelActivity"/>
+
+        <!--登录-->
         <activity android:name="com.gemptc.wd.activities.startApp.StartActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name="com.gemptc.wd.activities.startApp.LoginAndRegisterActivity"/>
+<<<<<<< HEAD
         <activity
             android:name="com.gemptc.wd.activities.social.EditPostActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
@@ -63,18 +71,49 @@
             android:name="com.gemptc.wd.activities.social.SearchPostActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
+=======
+>>>>>>> f69c8eb791a847c604c6ff2065210e5e1e5b2f6d
         <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity"/>
-        <activity android:name="com.gemptc.wd.activities.social.DetailPostActivity">
+        <activity android:name="com.gemptc.wd.activities.home.SellerDetailActivity">
         </activity>
-        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity">
+        <activity android:name="com.gemptc.wd.activities.social.EditPostActivity">
         </activity>
+        <activity
+            android:name="com.gemptc.wd.activities.social.SearchPostActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.gemptc.wd.activities.home.ProductDetailActivity" />
+
+        <!-- QQ的登录的activity -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1105446072" />
+            </intent-filter>
+        </activity>
+<<<<<<< HEAD
         <activity android:name="com.gemptc.wd.activities.social.AlbumActivity">
         </activity>
         <activity android:name="com.gemptc.wd.activities.social.GalleryActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.ImageFile"/>
         <activity android:name="com.gemptc.wd.activities.social.ShowAllPhoto"/>
+=======
+
+
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.gemptc.wd.activities.mine.MineDetalActivity" />
+        <activity android:name="com.gemptc.wd.activities.mine.EdtiUserDataActivity"></activity>
+>>>>>>> f69c8eb791a847c604c6ff2065210e5e1e5b2f6d
     </application>
 
 </manifest>

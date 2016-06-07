@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingTop="10dp"
     android:paddingLeft="10dp"
@@ -16,18 +17,41 @@
              android:layout_weight="1"
 
        />
-<com.viewpagerindicator.TabPageIndicator
-    android:id="@+id/merchant_indicator"
-    android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-    >
-    </com.viewpagerindicator.TabPageIndicator>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/merchant_viewpager"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="13"
-        android:background="#ff0">
-    </android.support.v4.view.ViewPager>
+        android:layout_weight="1">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <GridView
+                    android:id="@+id/look_classfiy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:numColumns="auto_fit"
+                    android:stretchMode="spacingWidthUniform"
+                    android:scrollbars="none"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+
+        </HorizontalScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/sellerlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ptr:ptrDrawable="@drawable/default_ptr_flip"
+            ptr:ptrAnimationStyle="flip"
+            android:scrollbars="none"
+            />
+    </LinearLayout>
 </LinearLayout>
