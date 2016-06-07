@@ -304,10 +304,10 @@ import java.util.concurrent.atomic.AtomicLong;
         if (options.isForceLoadingDrawable()) {
             loadingDrawable = options.getLoadingDrawable(view);
             view.setScaleType(options.getPlaceholderScaleType());
-            view.setImageDrawable(new AsyncDrawable(this, loadingDrawable));
+            view.setImageDrawable(new AsyncDrawable(ImageLoader.this, loadingDrawable));
         } else {
             loadingDrawable = view.getDrawable();
-            view.setImageDrawable(new AsyncDrawable(this, loadingDrawable));
+            view.setImageDrawable(new AsyncDrawable(ImageLoader.this, loadingDrawable));
         }
 
         // request

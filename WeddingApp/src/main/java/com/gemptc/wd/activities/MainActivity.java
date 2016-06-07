@@ -41,6 +41,7 @@ public class MainActivity extends FragmentActivity {
     public static Handler handler;
     public static MainActivity mainActivity;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

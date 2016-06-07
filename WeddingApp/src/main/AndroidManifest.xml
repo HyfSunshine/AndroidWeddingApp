@@ -79,6 +79,12 @@
 
                 <data android:scheme="tencent1105446072" />
             </intent-filter>
+        <activity android:name="com.gemptc.wd.activities.home.SellerDetailActivity">
+        </activity>
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.social.DetailPostActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity">
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
