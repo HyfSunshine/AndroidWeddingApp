@@ -2,24 +2,22 @@ package com.gemptc.wd.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.wedding.R;
-import com.gemptc.wd.activities.HomeFindMerchantActivity;
-import com.gemptc.wd.activities.HomeWeddingTaskActivity;
-import com.gemptc.wd.activities.HomeWeixinCadActivity;
+import com.gemptc.wd.activities.home.HomeFindMerchantActivity;
+import com.gemptc.wd.activities.home.HomeWeddingTaskActivity;
+import com.gemptc.wd.activities.home.HomeWeixinCadActivity;
 import com.gemptc.wd.activities.MainActivity;
 import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.utils.PrefUtils;
@@ -48,7 +46,7 @@ public class FragmentHome extends Fragment {
     private MyViewPagerAdapter pagerAdapter;
     private View view;
 //    private Handler handler;
-private ImageButton mImgbtnMerchant,mImgbtnWeddingTask,mImgbtnWeixinCard;
+    private LinearLayout mLL_merchant,mLL_wedding_task,mLL_weixin_cad;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,30 +76,29 @@ private ImageButton mImgbtnMerchant,mImgbtnWeddingTask,mImgbtnWeixinCard;
     }
 
     private void initView() {
-        mImgbtnMerchant= (ImageButton) view.findViewById(R.id.imgbtn_merchant);
-        mImgbtnWeddingTask= (ImageButton) view.findViewById(R.id.imgbtn_wedding_task);
-        mImgbtnWeixinCard= (ImageButton) view.findViewById(R.id.imgbtn_weixin_card);
-
+        mLL_merchant= (LinearLayout) view.findViewById(R.id.LL_merchant);
+        mLL_wedding_task= (LinearLayout) view.findViewById(R.id.LL_wedding_task);
+        mLL_weixin_cad= (LinearLayout) view.findViewById(R.id.LL_weixin_cad);
     }
 
     private void initListeners() {
         HomeListener listener=new HomeListener();
-        mImgbtnMerchant.setOnClickListener(listener);
-        mImgbtnWeddingTask.setOnClickListener(listener);
-        mImgbtnWeixinCard.setOnClickListener(listener);
+        mLL_merchant.setOnClickListener(listener);
+        mLL_wedding_task.setOnClickListener(listener);
+        mLL_weixin_cad.setOnClickListener(listener);
     }
     class HomeListener implements View.OnClickListener{
 
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.imgbtn_merchant:
+                case R.id.LL_merchant:
                     startActivity(new Intent(getContext(),HomeFindMerchantActivity.class));
                     break;
-                case R.id.imgbtn_wedding_task:
+                case R.id.LL_wedding_task:
                     startActivity(new Intent(getContext(),HomeWeddingTaskActivity.class));
                     break;
-                case R.id.imgbtn_weixin_card:
+                case R.id.LL_weixin_cad:
                     startActivity(new Intent(getContext(), HomeWeixinCadActivity.class));
                     break;
                 default:

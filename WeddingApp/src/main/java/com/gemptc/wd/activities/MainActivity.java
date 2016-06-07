@@ -30,6 +30,7 @@ public class MainActivity extends FragmentActivity {
     private  EditText mEditText;
     public static Handler handler;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

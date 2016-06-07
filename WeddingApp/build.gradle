@@ -35,6 +35,7 @@ dependencies {
     compile project(':02_XUtils3')
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.loopeer.android.thirdparty.pulltorefresh:Android-PullToRefresh:2.1.1'
     compile 'com.android.support:recyclerview-v7:23.3.0'
     compile project(':09_SMSSDK')
 }

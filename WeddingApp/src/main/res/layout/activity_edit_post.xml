@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/socialbackgroudcolor"
-    tools:context="com.gemptc.wd.activities.EditPostActivity">
+    tools:context="com.gemptc.wd.activities.social.EditPostActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

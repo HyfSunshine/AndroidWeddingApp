@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.wedding.R;
-import com.gemptc.wd.activities.SellerDetailActivity;
+import com.gemptc.wd.activities.home.SellerDetailActivity;
 import com.gemptc.wd.bean.Seller;
 import com.gemptc.wd.utils.UrlAddress;
 

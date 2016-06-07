@@ -80,11 +80,17 @@
                 android:paddingTop="10dp"
                 >
 
-                <include layout="@layout/include_merchant"/>
+                <include
+                    android:id="@+id/LL_merchant"
+                    layout="@layout/include_merchant"/>
 
-                <include layout="@layout/include_wedding_task"/>
+                <include
+                    android:id="@+id/LL_wedding_task"
+                    layout="@layout/include_wedding_task"/>
 
-                <include layout="@layout/include_weixin_cad"/>
+                <include
+                    android:id="@+id/LL_weixin_cad"
+                    layout="@layout/include_weixin_cad"/>
 
             </LinearLayout>
 
