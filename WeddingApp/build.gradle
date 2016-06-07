@@ -39,4 +39,6 @@ dependencies {
     compile project(':09_SMSSDK')
     compile files('libs/mta-sdk-1.6.2.jar')
     compile project(':14_PullToZoomView')
+    compile files('libs/open_sdk_r5756.jar')
+    compile 'com.lzy.widget:ninegridview:0.1.4'
 }

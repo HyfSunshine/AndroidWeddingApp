@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_weight="6"
-            android:text="话题"
+            android:text="婚礼·进行册"
             android:textColor="#ff705e"
             android:textSize="30sp"
             android:gravity="center"

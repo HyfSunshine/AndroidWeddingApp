@@ -6,8 +6,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.gemptc.wd.activities.startApp.LoginAndRegisterActivity;
 import com.gemptc.wd.activities.MainActivity;
+import com.gemptc.wd.activities.startApp.LoginAndRegisterActivity;
 import com.tencent.connect.common.Constants;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;

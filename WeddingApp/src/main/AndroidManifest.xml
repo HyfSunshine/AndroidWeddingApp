@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.Android.com/tools"
     package="com.android.wedding">
-
     <!-- XUtils权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 短信验证权限 -->
@@ -19,6 +17,7 @@
     <!-- QQ登录验证权限 -->
     <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
     <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+
     <application
         android:name="com.gemptc.wd.application.MyApplication"
         android:allowBackup="true"
@@ -26,29 +25,29 @@
         android:icon="@drawable/icon_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        tools:replace="android:icon">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name="com.gemptc.wd.activities.MainActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="com.gemptc.wd.activities.home.HomeFindMerchantActivity"
-            android:theme="@style/StyledIndicators"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity android:name="com.gemptc.wd.activities.home.HomeWeddingTaskActivity" />
-        <activity android:name="com.gemptc.wd.activities.home.HomeWeixinCadActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiActivity" />
-        <activity android:name="com.gemptc.wd.activities.home.SelectWeddingTaskActivity" />
-        <activity android:name="com.gemptc.wd.activities.home.EditTaskActivity" />
-        <activity android:name="com.gemptc.wd.activities.kind.KindRentCarActivity" />
-        <activity android:name="com.gemptc.wd.activities.kind.KindTravelActivity" />
-        <activity android:name="com.gemptc.wd.activities.kind.KindClothesActivity" />
-        <activity android:name="com.gemptc.wd.activities.kind.KindRingActivity" />
-        <activity android:name="com.gemptc.wd.activities.kind.KindShootActivity" />
-        <activity android:name="com.gemptc.wd.activities.kind.KindHotelActivity" />
+            android:theme="@style/StyledIndicators"/>
+        <activity android:name="com.gemptc.wd.activities.home.HomeWeddingTaskActivity"/>
+        <activity android:name="com.gemptc.wd.activities.home.HomeWeixinCadActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.home.SelectWeddingTaskActivity"/>
+        <activity android:name="com.gemptc.wd.activities.home.EditTaskActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindRentCarActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindTravelActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindClothesActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindRingActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindShootActivity"/>
+        <activity android:name="com.gemptc.wd.activities.kind.KindHotelActivity"/>
+
+        <!--登录-->
         <activity android:name="com.gemptc.wd.activities.startApp.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,7 +59,8 @@
         <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity" />
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity" />
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity" />
-        <activity android:name="com.gemptc.wd.activities.home.SellerDetailActivity" />
+
+
         <activity android:name="com.gemptc.wd.activities.social.EditPostActivity" />
         <activity
             android:name="com.gemptc.wd.activities.social.SearchPostActivity"
@@ -74,7 +74,6 @@
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 

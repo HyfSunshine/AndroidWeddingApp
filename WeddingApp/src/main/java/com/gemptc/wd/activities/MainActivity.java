@@ -1,25 +1,35 @@
 package com.gemptc.wd.activities;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 import com.android.wedding.R;
 import com.gemptc.wd.adapter.FragmentAdapter;
+import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.fragments.FragmentHome;
 import com.gemptc.wd.fragments.FragmentKinds;
 import com.gemptc.wd.fragments.FragmentMine;
 import com.gemptc.wd.fragments.FragmentSocial;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 public class MainActivity extends FragmentActivity {
 
@@ -38,11 +48,14 @@ public class MainActivity extends FragmentActivity {
         mainActivity=this;
 
         initViews();
+
         initFragments();
         initListeners();
+
         //初始化Handler，为的是实现图片轮播的速度不变，系统只创建一个Handler
         initHandler();
     }
+
     private void initHandler() {
         handler = new Handler(){
             @Override
@@ -51,6 +64,7 @@ public class MainActivity extends FragmentActivity {
                     FragmentHome fragmentHome = (FragmentHome) fragmentList.get(0);
                     ViewPager homeViewPager = fragmentHome.viewPager;
                     List<String> imagesUrlList=fragmentHome.imagesUrlList;
+
                     int currentPosition = homeViewPager.getCurrentItem();
                     if (currentPosition<imagesUrlList.size()-1){
                         currentPosition++;
@@ -66,6 +80,7 @@ public class MainActivity extends FragmentActivity {
                     FragmentSocial fragmentSocial = (FragmentSocial) fragmentList.get(2);
                     ViewPager socialViewPager = fragmentSocial.viewPager;
                     List<String> imagesUrlList=fragmentSocial.imagesUrlList;
+
                     int currentPosition = socialViewPager.getCurrentItem();
                     if (currentPosition<imagesUrlList.size()-1){
                         currentPosition++;
@@ -144,4 +159,9 @@ public class MainActivity extends FragmentActivity {
             }
         });
     }
+
+
+
+
+
 }
