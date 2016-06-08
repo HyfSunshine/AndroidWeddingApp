@@ -43,6 +43,10 @@
         <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceDetailActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiDetailActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiDetailActivity"/>
         <activity android:name="com.gemptc.wd.activities.home.SelectWeddingTaskActivity"/>
         <activity android:name="com.gemptc.wd.activities.home.EditTaskActivity"/>
         <activity android:name="com.gemptc.wd.activities.kind.KindRentCarActivity"/>
@@ -62,7 +66,7 @@
         </activity>
 
         <activity android:name="com.gemptc.wd.activities.startApp.LoginAndRegisterActivity"/>
-<<<<<<< HEAD
+
         <activity
             android:name="com.gemptc.wd.activities.social.EditPostActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
@@ -71,18 +75,13 @@
             android:name="com.gemptc.wd.activities.social.SearchPostActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
-=======
->>>>>>> f69c8eb791a847c604c6ff2065210e5e1e5b2f6d
+
         <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity"/>
         <activity android:name="com.gemptc.wd.activities.home.SellerDetailActivity">
         </activity>
-        <activity android:name="com.gemptc.wd.activities.social.EditPostActivity">
-        </activity>
-        <activity
-            android:name="com.gemptc.wd.activities.social.SearchPostActivity"
-            android:windowSoftInputMode="adjustPan" />
+
         <activity android:name="com.gemptc.wd.activities.home.ProductDetailActivity" />
 
         <!-- QQ的登录的activity -->
@@ -98,13 +97,13 @@
                 <data android:scheme="tencent1105446072" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
         <activity android:name="com.gemptc.wd.activities.social.AlbumActivity">
         </activity>
         <activity android:name="com.gemptc.wd.activities.social.GalleryActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.ImageFile"/>
         <activity android:name="com.gemptc.wd.activities.social.ShowAllPhoto"/>
-=======
+
 
 
         <activity
@@ -113,7 +112,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name="com.gemptc.wd.activities.mine.MineDetalActivity" />
         <activity android:name="com.gemptc.wd.activities.mine.EdtiUserDataActivity"></activity>
->>>>>>> f69c8eb791a847c604c6ff2065210e5e1e5b2f6d
+
     </application>
 
 </manifest>

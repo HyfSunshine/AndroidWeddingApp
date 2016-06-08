@@ -5,11 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="textDown">#FF705E</color>
     <color name="textColor">#FF705E</color>
-<<<<<<< HEAD
+
     <color name="replyNumColor">#FF705E</color>
     <color name="plugin_camera_title_bar">#454141</color>
-=======
->>>>>>> f69c8eb791a847c604c6ff2065210e5e1e5b2f6d
+
     <color name="searchtextColor">#fff</color>
     <color name="searchColor">#FF705E</color>
     <color name="textUp">#999999</color>
