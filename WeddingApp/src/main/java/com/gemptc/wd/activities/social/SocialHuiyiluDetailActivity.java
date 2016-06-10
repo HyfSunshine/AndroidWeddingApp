@@ -104,4 +104,8 @@ public class SocialHuiyiluDetailActivity extends AppCompatActivity {
         //初始化所有控件
         huiyiluListView= (ListView) this.findViewById(R.id.listview_detailview);
     }
+
+    public void detail_post_back(View view) {
+        finish();
+    }
 }

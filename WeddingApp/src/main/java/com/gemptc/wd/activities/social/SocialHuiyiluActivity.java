@@ -1,13 +1,17 @@
 package com.gemptc.wd.activities.social;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.android.wedding.R;
 import com.gemptc.wd.adapter.PostAdapter;
 import com.gemptc.wd.bean.PostBean;
+import com.gemptc.wd.fragments.FragmentSocial;
 import com.gemptc.wd.utils.PrefUtils;
 import com.gemptc.wd.utils.UrlAddress;
 import com.google.gson.Gson;
@@ -21,6 +25,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 public class SocialHuiyiluActivity extends AppCompatActivity {
     PostBean mPostBean;
@@ -29,10 +35,11 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
     //第二步：找到每行的视图
     //第三步：确定适配器
     PostAdapter mPostAdapter;
-
     ListView mListView;
-
     int moduleType=1;
+    ImageButton huiyilu_edit_post;
+    //加载帖子列表
+    private SweetAlertDialog LoadingPostDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +48,8 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
         mListView= (ListView)findViewById(R.id.lv_huiyilu);
         mPostAdapter=new PostAdapter(this,mList,moduleType);
         mListView.setAdapter(mPostAdapter);
+        initView();
+        initListener();
 
         String result = PrefUtils.getString(SocialHuiyiluActivity.this, "huiyilu_post", null);
         if (result != null) {
@@ -48,7 +57,39 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
         }
         getDatas();
 
+
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==100){
+            LoadingPostDialog=null;
+            LoadingPostDialog=new SweetAlertDialog(this,SweetAlertDialog.PROGRESS_TYPE);
+            LoadingPostDialog.setTitleText("正在刷新").show();
+            LoadingPostDialog.setCancelable(true);
+            getDatas();
+        }
+    }
+
+    private void initView() {
+        huiyilu_edit_post= (ImageButton) findViewById(R.id.huiyilu_edit_post);
+
+    }
+
+    private void initListener() {
+       HuiyiluListener listener = new HuiyiluListener();
+        huiyilu_edit_post.setOnClickListener(listener);
+    }
+
     //获取网络数据
     private void getDatas() {
         RequestParams params = new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"PostController");
@@ -57,7 +98,6 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
             @Override
             public void onSuccess(String result) {
                 Log.e("数据",result);
-                //Toast.makeText(SocialHuiyiluActivity.this, result, Toast.LENGTH_SHORT).show();
                 PrefUtils.setString(SocialHuiyiluActivity.this, "huiyilu_post", result);
                 Log.e("数据", "456");
                 parseData(result);
@@ -72,12 +112,9 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
             @Override
             public void onFinished() {
                 Log.e("数据","请求完成");
+                LoadingPostDialog.dismiss();
             }
         });
-
-//        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo1.jpg");
-//        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo2.png");
-//        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo3.jpg");
     }
 
     //解析数据
@@ -95,31 +132,22 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
     }
 
 
-//        //先获取置顶部分的内容
-//        Post post1=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",true);
-//        Post post2=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",true);
-//
-//        //先获取非置顶部分的内容
-//        Post post3=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-//        Post post4=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-//        Post post5=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-//        Post post6=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-//        Post post7=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-//        Post post8=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-//        Post post9=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-//        Post post10=new Post(R.mipmap.u107,"小白兔","三小时前","大家聊聊自己的爱好",false);
-//
-//        mList.add(post1);
-//        mList.add(post2);
-//        mList.add(post3);
-//        mList.add(post4);
-//        mList.add(post5);
-//        mList.add(post6);
-//        mList.add(post7);
-//        mList.add(post8);
-//        mList.add(post9);
-//        mList.add(post10);
 
+    public void huiyilu_back(View view) {
+        finish();
     }
+
+    private class HuiyiluListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.huiyilu_edit_post:
+                    startActivityForResult(new Intent(SocialHuiyiluActivity.this,EditPostActivity.class),100);
+                    break;
+            }
+        }
+    }
+}
 
 

@@ -13,13 +13,11 @@
     android:background="#fff">
 
     <ImageButton
-        android:id="@+id/social_search"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:background="#ffff"
-        android:layout_gravity="center"
-        android:src="@mipmap/icon_search_ss"/>
+        android:background="#fff"
+        android:layout_gravity="center"/>
     <TextView
         android:layout_width="0dp"
         android:layout_weight="4"
@@ -29,13 +27,14 @@
        android:gravity="center"
         android:layout_height="match_parent"/>
     <ImageButton
-        android:id="@+id/social_editpost"
+        android:id="@+id/social_search"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:background="#fff"
+        android:background="#ffff"
         android:layout_gravity="center"
-        android:src="@mipmap/btn_edit_red"/>
+        android:src="@mipmap/icon_search_ss"/>
+
 </LinearLayout>
 
 

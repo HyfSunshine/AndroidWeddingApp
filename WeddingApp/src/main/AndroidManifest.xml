@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.android.wedding">
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -22,6 +22,7 @@
     <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
 
     <application
+        tools:replace="android:icon"
         android:name="com.gemptc.wd.application.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"

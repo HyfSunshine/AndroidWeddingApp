@@ -74,7 +74,7 @@ public class FragmentSocial extends Fragment {
     private void initListeners() {
         SocialListener listener = new SocialListener();
         social_search.setOnClickListener(listener);
-        social_editpost.setOnClickListener(listener);
+        //social_editpost.setOnClickListener(listener);
 
         social_huiyilu.setOnClickListener(listener);
         social_jinxingce.setOnClickListener(listener);
@@ -85,7 +85,7 @@ public class FragmentSocial extends Fragment {
 
     private void initView() {
         social_search = (ImageButton) view.findViewById(R.id.social_search);
-        social_editpost = (ImageButton) view.findViewById(R.id.social_editpost);
+        //social_editpost = (ImageButton) view.findViewById(R.id.social_editpost);
 
         social_huiyilu = (LinearLayout) view.findViewById(R.id.social_huiyilu);
         social_jinxingce = (LinearLayout) view.findViewById(R.id.social_jinxingce);
@@ -136,9 +136,9 @@ public class FragmentSocial extends Fragment {
                 case R.id.social_search:
                     startActivity(new Intent(getContext(), SearchPostActivity.class));
                     break;
-                case R.id.social_editpost:
-                    startActivity(new Intent(getContext(), EditPostActivity.class));
-                    break;
+//                case R.id.social_editpost:
+//                    startActivity(new Intent(getContext(), EditPostActivity.class));
+//                    break;
                 case R.id.social_huiyilu:
                     startActivity(new Intent(getContext(), SocialHuiyiluActivity.class));
                     break;

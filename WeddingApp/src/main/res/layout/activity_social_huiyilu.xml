@@ -13,12 +13,14 @@
     android:background="#fff">
 
     <ImageButton
+        android:id="@+id/huiyilu_back"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="30dp"
         android:background="#ffff"
         android:layout_gravity="center"
-        android:src="@mipmap/btn_back_red"/>
+        android:src="@mipmap/btn_back_red"
+        android:onClick="huiyilu_back"/>
     <TextView
         android:layout_width="0dp"
         android:layout_weight="6"
@@ -28,6 +30,7 @@
         android:gravity="center"
         android:layout_height="match_parent"/>
     <ImageButton
+        android:id="@+id/huiyilu_edit_post"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
