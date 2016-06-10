@@ -4,6 +4,7 @@
 
           package="com.android.wedding">
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <!-- XUtils权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 短信验证权限 -->
@@ -43,6 +44,10 @@
         <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceDetailActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiDetailActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiDetailActivity"/>
         <activity android:name="com.gemptc.wd.activities.home.SelectWeddingTaskActivity"/>
         <activity android:name="com.gemptc.wd.activities.home.EditTaskActivity"/>
         <activity android:name="com.gemptc.wd.activities.kind.KindRentCarActivity"/>
@@ -62,16 +67,22 @@
         </activity>
 
         <activity android:name="com.gemptc.wd.activities.startApp.LoginAndRegisterActivity"/>
+
+        <activity
+            android:name="com.gemptc.wd.activities.social.EditPostActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+        </activity>
+        <activity
+            android:name="com.gemptc.wd.activities.social.SearchPostActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+
         <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity"/>
         <activity android:name="com.gemptc.wd.activities.home.SellerDetailActivity">
         </activity>
-        <activity android:name="com.gemptc.wd.activities.social.EditPostActivity">
-        </activity>
-        <activity
-            android:name="com.gemptc.wd.activities.social.SearchPostActivity"
-            android:windowSoftInputMode="adjustPan" />
+
         <activity android:name="com.gemptc.wd.activities.home.ProductDetailActivity" />
 
         <!-- QQ的登录的activity -->
@@ -88,6 +99,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.gemptc.wd.activities.social.AlbumActivity">
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.social.GalleryActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.ImageFile"/>
+        <activity android:name="com.gemptc.wd.activities.social.ShowAllPhoto"/>
+
+
 
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
@@ -95,6 +113,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name="com.gemptc.wd.activities.mine.MineDetalActivity" />
         <activity android:name="com.gemptc.wd.activities.mine.EdtiUserDataActivity"></activity>
+
     </application>
 
 </manifest>
