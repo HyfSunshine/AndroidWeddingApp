@@ -91,7 +91,7 @@ public class MyTaskAdapter extends BaseAdapter {
                 holder.TaskItemBottom.setVisibility(View.GONE);
             }
         }
-
+        holder.task_tv.setText(mTaskBeenList.get(position).getTaskName());
         return convertView;
     }
 

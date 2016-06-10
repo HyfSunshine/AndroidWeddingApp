@@ -1,57 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:ptr="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:paddingTop="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
     android:background="#fff"
+    android:orientation="vertical"
     tools:context="com.gemptc.wd.activities.home.HomeFindMerchantActivity">
-    <include layout="@layout/search"
-             android:layout_height="0dp"
-             android:layout_width="match_parent"
-             android:layout_weight="1"
 
-       />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#01000000"
+            android:onClick="backActivity"
+            android:src="@mipmap/btn_back_red"/>
+
+        <include
+            layout="@layout/search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_weight="6"
+            />
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <GridView
                     android:id="@+id/look_classfiy"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
                     android:gravity="center"
                     android:numColumns="auto_fit"
-                    android:stretchMode="spacingWidthUniform"
                     android:scrollbars="none"
-                    android:layout_gravity="center_vertical"/>
+                    android:stretchMode="spacingWidthUniform"
+                    style="@style/StyledIndicators"/>
             </LinearLayout>
 
         </HorizontalScrollView>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10">
+
         <com.handmark.pulltorefresh.library.PullToRefreshListView
             android:id="@+id/sellerlist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            ptr:ptrDrawable="@drawable/default_ptr_flip"
-            ptr:ptrAnimationStyle="flip"
             android:scrollbars="none"
+            ptr:ptrAnimationStyle="flip"
+            ptr:ptrDrawable="@drawable/default_ptr_flip"
             />
     </LinearLayout>
 </LinearLayout>

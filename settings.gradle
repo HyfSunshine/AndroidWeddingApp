@@ -1,1 +1,1 @@
-include ':WeddingApp', ':02_XUtils3', ':09_SMSSDK', ':14_PullToZoomView'
+include ':WeddingApp', ':02_XUtils3', ':09_SMSSDK', ':14_PullToZoomView', ':19_SweetAalertDialog'
