@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@mipmap/seller_detail_bg"
+            android:paddingTop="10dp">
+        </RelativeLayout>
+
+        <com.gemptc.wd.view.CircleImageView
+            android:id="@+id/cv_imageview"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/sellerpic"/>
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/header"
+        android:text="案例名字"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textColor="#666464"
+        android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/descriptionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="几个员工了好了哪里呢。好了好了好了更便捷，好看了给客户"
+        android:singleLine="false"
+        android:maxLines="4"
+        android:gravity="center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:textSize="15sp"/>
+
+
+</LinearLayout>

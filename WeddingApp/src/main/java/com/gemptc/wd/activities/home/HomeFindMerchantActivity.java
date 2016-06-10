@@ -61,6 +61,7 @@ public class HomeFindMerchantActivity extends FragmentActivity {
         mListView.setAdapter(mSellerListAdapter);
         //初始化从网络上获取的数据
         clickGetClassData(0);
+
         //initListData();
         //initListlistener();
 
@@ -97,7 +98,6 @@ public class HomeFindMerchantActivity extends FragmentActivity {
         mSellerlist.clear();
         for (int i = 0; i < sellerList.size(); i++) {
             mSellerlist.add(sellerList.get(i));
-            Log.e("数据456",sellerList.get(i).toString());
         }
         mSellerListAdapter.notifyDataSetChanged();
     }
@@ -129,6 +129,10 @@ public class HomeFindMerchantActivity extends FragmentActivity {
 
             }
         });
+    }
+
+    public void backActivity(View view) {
+        finish();
     }
 
     static class LoadDataAsyncTask extends AsyncTask<Void, Void, String> {//定义返回值的类型
@@ -206,7 +210,7 @@ public class HomeFindMerchantActivity extends FragmentActivity {
         int length = 120;
         //使用DisplayMetrics获取屏幕参数
         DisplayMetrics dm = new DisplayMetrics();
-       getWindowManager().getDefaultDisplay().getMetrics(dm);
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
         float density = dm.density;
         int gridviewWidth = (int) (size * length * density);
         int itemWidth = (int) (length * density);

@@ -24,7 +24,7 @@
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:text="123"
-                android:textSize="25sp"/>
+                android:textSize="20sp"/>
 
             <Button
                 android:id="@+id/btn_task_undo"

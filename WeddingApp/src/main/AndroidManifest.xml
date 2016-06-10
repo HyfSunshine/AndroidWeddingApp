@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
+
           package="com.android.wedding">
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -16,7 +17,7 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <!-- QQ登录验证权限 -->
     <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
     <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
@@ -35,7 +36,6 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="com.gemptc.wd.activities.home.HomeFindMerchantActivity"
-            android:theme="@style/StyledIndicators"
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
         <activity android:name="com.gemptc.wd.activities.home.HomeWeddingTaskActivity"/>

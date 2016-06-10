@@ -5,8 +5,9 @@
               android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/LL_productDetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@drawable/seller_detail_border"
         >
@@ -14,7 +15,7 @@
         <ImageView
             android:id="@+id/product_img"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:scaleType="fitXY"
             android:src="@mipmap/seller_detail_bg"/>
         <RelativeLayout
