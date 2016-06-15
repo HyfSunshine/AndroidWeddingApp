@@ -19,6 +19,7 @@
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/tv_user_sign"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -43,11 +44,9 @@
             android:textColor="@android:color/black"
             android:textSize="20dp" />
         <ListView
-            android:id="@+id/post_listview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="20dp"
+            android:id="@+id/lv_detail_post"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             />
     </LinearLayout>

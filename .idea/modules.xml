@@ -6,8 +6,14 @@
       <module fileurl="file://$PROJECT_DIR$/09_SMSSDK/09_SMSSDK.iml" filepath="$PROJECT_DIR$/09_SMSSDK/09_SMSSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/14_PullToZoomView/14_PullToZoomView.iml" filepath="$PROJECT_DIR$/14_PullToZoomView/14_PullToZoomView.iml" />
       <module fileurl="file://$PROJECT_DIR$/19_SweetAalertDialog/19_SweetAalertDialog.iml" filepath="$PROJECT_DIR$/19_SweetAalertDialog/19_SweetAalertDialog.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/24_MultipleImagesSelector/24_MultipleImagesSelector.iml" filepath="$PROJECT_DIR$/24_MultipleImagesSelector/24_MultipleImagesSelector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidWeddingApp.iml" filepath="$PROJECT_DIR$/AndroidWeddingApp.iml" />
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
       <module fileurl="file://$PROJECT_DIR$/WeddingApp/WeddingApp.iml" filepath="$PROJECT_DIR$/WeddingApp/WeddingApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/24_MultipleImagesSelector/multiple-images-selector.iml" filepath="$PROJECT_DIR$/24_MultipleImagesSelector/multiple-images-selector.iml" />
     </modules>
   </component>
 </project>

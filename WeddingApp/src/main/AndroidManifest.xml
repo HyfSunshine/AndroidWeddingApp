@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
           xmlns:tools="http://schemas.android.com/tools"
           package="com.android.wedding">
 
     <uses-permission android:name="android.permission.CAMERA"/>
+=======
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.wedding">
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
     <!-- XUtils权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- 短信验证权限 -->
@@ -20,17 +25,42 @@
     <!-- QQ登录验证权限 -->
     <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
     <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+<<<<<<< HEAD
     <!-- 申请地图需要的的权限 -->
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+=======
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- 图片选择器权限 -->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+    <!-- the following two permissions are required if you want to take photo in selector -->
+    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+
+
+    <!--第三方分享权限-->
+    <!--<uses-permission android:name="android.permission.GET_TASKS" />-->
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 蓝牙分享所需的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
 
     <application
         android:name="com.gemptc.wd.application.MyApplication"
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
         android:icon="@drawable/icon_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -41,8 +71,17 @@
 
         <activity
             android:name="com.gemptc.wd.activities.MainActivity"
+<<<<<<< HEAD
             android:windowSoftInputMode="stateHidden|adjustPan"/>
 
+=======
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+
+
+        <!--赵志飞-->
+        <!-- 婚礼说界面的activity -->
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
         <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiActivity"/>
@@ -51,6 +90,7 @@
         <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceDetailActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiDetailActivity"/>
         <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiDetailActivity"/>
+<<<<<<< HEAD
 
         <activity android:name="com.gemptc.wd.activities.kind.KindRentCarActivity"/>
         <activity android:name="com.gemptc.wd.activities.kind.KindTravelActivity"/>
@@ -70,16 +110,39 @@
         <activity android:name="com.gemptc.wd.activities.startApp.LoginAndRegisterActivity"/>
         <activity
             android:name="com.gemptc.wd.activities.social.EditPostActivity"
+=======
+        <!-- 婚礼说界面发帖的activity -->
+        <activity android:name="com.gemptc.wd.activities.social.EditPostActivity"
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
             android:windowSoftInputMode="stateHidden|adjustPan">
         </activity>
+        <!-- 婚礼说界面搜索的activity -->
         <activity
             android:name="com.gemptc.wd.activities.social.SearchPostActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
+<<<<<<< HEAD
         <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity"/>
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity"/>
 
+=======
+
+
+        <!--何永锋-->
+        <!-- 登录 -->
+        <activity android:name="com.gemptc.wd.activities.startApp.StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.gemptc.wd.activities.startApp.LoginAndRegisterActivity" />
+        <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity" />
+        <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity" />
+        <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity" />
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
 
         <!-- QQ的登录的activity -->
         <activity
@@ -87,13 +150,21 @@
             android:launchMode="singleTask"
             android:noHistory="true">
             <intent-filter>
+<<<<<<< HEAD
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
+=======
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
 
                 <data android:scheme="tencent1105446072"/>
             </intent-filter>
+<<<<<<< HEAD
         </activity>
         <activity android:name="com.gemptc.wd.activities.social.AlbumActivity">
         </activity>
@@ -137,7 +208,53 @@
 
         <activity android:name="com.gemptc.wd.activities.home.RemindActivity">
         </activity>
+=======
 
+            <activity android:name="com.gemptc.wd.activities.home.SellerDetailActivity" />
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.gemptc.wd.activities.mine.MineDetailActivity" />
+        <activity android:name="com.gemptc.wd.activities.mine.EdtiUserDataActivity" />
+        <activity android:name="com.gemptc.wd.activities.mine.EditUserNameSignActivity" />
+        <activity android:name="com.gemptc.wd.activities.mine.MineFocusAndColleActivity" />
+        <activity android:name="com.gemptc.wd.activities.mine.MinePostActivity" />
+        <activity android:name="com.gemptc.wd.activities.mine.UpdatePasswordActivity" />
+        <activity android:name="com.gemptc.wd.activities.kind.AllProductKindActivity" />
+        <activity android:name="com.gemptc.wd.activities.home.invitation.InvitationListActivity" />
+        <activity android:name="com.gemptc.wd.activities.home.invitation.InviteDetailActivity" />
+        <!-- 照片选择器的Activity -->
+        <activity
+            android:name="com.zfdang.multiple_images_selector.ImagesSelectorActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name="com.gemptc.wd.activities.home.invitation.AddInviteActivity"></activity>
+
+        <!--第三方分享的activity-->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent1105446072" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

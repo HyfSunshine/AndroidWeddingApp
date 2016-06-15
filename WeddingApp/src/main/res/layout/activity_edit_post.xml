@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/ll_edit_post"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -41,7 +42,7 @@
             android:layout_centerInParent="true"
             android:text="发话题"
             android:textColor="@color/textDown"
-            android:textSize="25sp"/>
+            android:textSize="22sp"/>
         <Button
             android:id="@+id/postSend"
             android:layout_width="50dp"
@@ -70,12 +71,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="请输入标题"
-                android:textColor="#cececa"
+                android:textColor="#000000"
                 android:textSize="22sp"/>
         </RelativeLayout>
 
-        <RelativeLayout
 
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
@@ -86,25 +87,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="请输入话题内容"
-            android:textColor="#cececa"
+            android:textColor="#000000"
             android:textSize="22sp"
             android:gravity="left"/>
     </RelativeLayout>
-        <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_weight="2"-->
-            <!--android:background="#fff">-->
-            <!--<ImageView-->
-                <!--android:id="@+id/postAddPic"-->
-                <!--android:layout_width="80dp"-->
-                <!--android:layout_height="80dp"-->
-                <!--android:textColor="#cececa"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:layout_alignParentLeft="true"-->
-                <!--android:src="@mipmap/iconfont"-->
-                <!--android:onClick="addPic"/>-->
-        <!--</RelativeLayout>-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#fff">
+        <ImageView
+            android:id="@+id/addPostpic"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/icon_addpic_focused"/>
+        </RelativeLayout>
         <RelativeLayout
             android:id="@+id/postPic"
             android:layout_width="match_parent"
@@ -115,70 +112,16 @@
 
             <GridView
                 android:id="@+id/noScrollgridview"
-                android:layout_width="390dp"
-                android:layout_height="350dp"
+                android:layout_width="match_parent"
+                android:layout_height="215dp"
                 android:layout_marginLeft="5dp"
                 android:horizontalSpacing="3dp"
-                android:numColumns="4"
+                android:numColumns="3"
                 android:scrollbars="none"
                 android:verticalSpacing="5dp" >
             </GridView>
-            <!--<com.view.NoScrollGridView-->
-                <!--android:id="@+id/noScrollgridview"-->
-                <!--android:layout_marginLeft="@dimen/smaller_space"-->
-                <!--android:layout_marginRight="@dimen/smaller_space"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:horizontalSpacing="3dp"-->
-                <!--android:listSelector="@color/transparent"-->
-                <!--android:numColumns="3"-->
-                <!--android:scrollbars="none"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:layout_marginTop="@dimen/smaller_space"-->
-                <!--android:verticalSpacing="5dp" />-->
-            <!--<GridView-->
-                <!--android:id="@+id/noScrollgridview"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="300dp"-->
-                <!--android:layout_margin="8dp"-->
-                <!--android:background="#fff"-->
-                <!--android:horizontalSpacing="3dp"-->
-                <!--android:verticalSpacing="3dp"-->
-                <!--android:numColumns="3"-->
-                <!--android:columnWidth="110dp"-->
-                <!--android:stretchMode="columnWidth"-->
-                <!--android:gravity="center" >-->
-            <!--</GridView>-->
-
-
 
         </RelativeLayout>
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:background="#fff"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:gravity="center"-->
-            <!--android:layout_marginBottom="5dp">-->
-            <!--<ImageView-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:layout_weight="1"-->
-                <!--android:src="@mipmap/icon_add_images"/>-->
-            <!--<ImageView-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:layout_weight="1"-->
-                <!--android:src="@mipmap/icon_add_face"/>-->
-            <!--<TextView-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_weight="2"-->
-                <!--android:background="@drawable/button_red_shixin_kuang"-->
-                <!--android:text="发表"-->
-                <!--android:textSize="28sp"-->
-                <!--android:textColor="#fff"-->
-                <!--android:gravity="center"-->
-                <!--android:layout_height="match_parent"/>-->
-        <!--</LinearLayout>-->
+
     </LinearLayout>
 </LinearLayout>

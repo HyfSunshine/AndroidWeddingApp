@@ -6,11 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
 import com.android.wedding.R;
 
+import com.bumptech.glide.Glide;
 import com.gemptc.wd.activities.social.SocialFannaojiDetailActivity;
 
 import com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity;
@@ -19,7 +21,16 @@ import com.gemptc.wd.activities.social.SocialJinxingceDetailActivity;
 
 import com.gemptc.wd.activities.social.SocialShenghuojiDetailActivity;
 import com.gemptc.wd.bean.PostBean;
+import com.gemptc.wd.bean.UserBean;
+import com.gemptc.wd.utils.UrlAddress;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
+
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -38,13 +49,6 @@ public class PostAdapter extends BaseAdapter{
         this.moduleType = moduleType;
         mInflater=LayoutInflater.from(mContext);
     }
-
-
-//    public PostAdapter(Context context, List<PostBean> list) {
-//        mContext = context;
-//        mList = list;
-//        mInflater=LayoutInflater.from(context);//初始化
-//    }
 
     @Override
     public int getCount() {
@@ -70,26 +74,29 @@ public class PostAdapter extends BaseAdapter{
      */
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-
-        convertView=mInflater.inflate(R.layout.social_item_layout,null);
-        //确定每一行布局控件中显示的内容
-        //头像
-       // ImageView mPicImageView= (ImageView) convertView.findViewById(R.id.social_userpic);
-        //用户名
-        TextView mNameTextView= (TextView) convertView.findViewById(R.id.userName);
-        //发帖时间
-        TextView mTimeTextView= (TextView) convertView.findViewById(R.id.postTime);
-        //帖子标题
-        TextView mTitleTextView= (TextView) convertView.findViewById(R.id.postTitle);
-        //帖子回复
-        TextView mReplyNum= (TextView) convertView.findViewById(R.id.replyNum);
-
+        MyViewHolder holder = null;
+        if (convertView==null){
+            convertView=mInflater.inflate(R.layout.social_item_layout,null);
+            holder=new MyViewHolder();
+            holder.mPicImageView= (ImageView) convertView.findViewById(R.id.social_userpic);
+            //用户名
+            holder.mNameTextView= (TextView) convertView.findViewById(R.id.userName);
+            //发帖时间
+            holder.mTimeTextView= (TextView) convertView.findViewById(R.id.postTime);
+            //帖子标题
+            holder.mTitleTextView= (TextView) convertView.findViewById(R.id.postTitle);
+            //帖子回复
+            holder.mReplyNum= (TextView) convertView.findViewById(R.id.replyNum);
+            getUserpic(mList.get(position).getUserID(),holder.mPicImageView);
+            convertView.setTag(holder);
+        }else{
+            holder= (MyViewHolder) convertView.getTag();
+        }
         //把内容填充到具体的布局中去
-       // mPicImageView.setImageResource(mList.get(position).getUserPicName());
-        mNameTextView.setText(mList.get(position).getUserName());
-        mTimeTextView.setText(mList.get(position).getPostTime());
-        mTitleTextView.setText(mList.get(position).getPostTitle());
-        mReplyNum.setText(""+mList.get(position).getReplyNum());
+        holder.mNameTextView.setText(mList.get(position).getUserName());
+        holder.mTimeTextView.setText(mList.get(position).getPostTime());
+        holder.mTitleTextView.setText(mList.get(position).getPostTitle());
+        holder.mReplyNum.setText(""+mList.get(position).getReplyNum());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +128,51 @@ public class PostAdapter extends BaseAdapter{
             }
         });
         return convertView;
+    }
+
+    private void getUserpic(int userID, final ImageView mPicImageView) {
+        RequestParams params=new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"UserController");
+        params.addBodyParameter("userop","detailsuser");
+        params.addBodyParameter("userid",userID+"");
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Gson gson=new Gson();
+                Type type=new TypeToken<UserBean>(){}
+                        .getType();
+                UserBean userbean=gson.fromJson(result,type);
+                Glide.with(mContext).load(UrlAddress.USER_IMAGE_ADDRESS+userbean.getU_picname()).into(mPicImageView);
+                notifyDataSetChanged();
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+
+    private class MyViewHolder{
+        ImageView mPicImageView;
+        //用户名
+        TextView mNameTextView;
+        //发帖时间
+        TextView mTimeTextView;
+        //帖子标题
+        TextView mTitleTextView;
+        //帖子回复
+        TextView mReplyNum;
     }
 
 }

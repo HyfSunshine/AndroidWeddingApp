@@ -25,10 +25,13 @@ import com.android.wedding.R;
 import com.bumptech.glide.Glide;
 import com.gemptc.wd.activities.home.HomeFindMerchantActivity;
 import com.gemptc.wd.activities.home.HomeWeddingTaskActivity;
-import com.gemptc.wd.activities.home.HomeWeixinCadActivity;
 import com.gemptc.wd.activities.MainActivity;
+<<<<<<< HEAD
 import com.gemptc.wd.activities.home.ProductDetailActivity;
 import com.gemptc.wd.activities.home.SearchActivity;
+=======
+import com.gemptc.wd.activities.home.invitation.InvitationListActivity;
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
 import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.bean.Seller;
 import com.gemptc.wd.utils.PrefUtils;
@@ -163,7 +166,7 @@ public class FragmentHome extends Fragment {
                     startActivity(new Intent(getContext(),HomeWeddingTaskActivity.class));
                     break;
                 case R.id.LL_weixin_cad:
-                    startActivity(new Intent(getContext(), HomeWeixinCadActivity.class));
+                    startActivity(new Intent(getContext(), InvitationListActivity.class));
                     break;
                 case R.id.ImgBtnClothes:
                     getTuiJianDatas("homeweddingdress");
@@ -403,6 +406,10 @@ public class FragmentHome extends Fragment {
             public void onFinished() {
             }
         });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
     }
 
     //解析数据

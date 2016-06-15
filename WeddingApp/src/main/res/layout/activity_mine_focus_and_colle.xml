@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gemptc.wd.activities.mine.MineFocusAndColleActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/iv_fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/btn_back_red"/>
+
+
+        <RadioGroup
+            android:id="@+id/rg_focus_coll"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb_left"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/bottom_bg_left_selector"
+                android:checked="true"
+                android:textColor="@drawable/mine_textcolor"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16sp"
+                android:text="用户"/>
+            <RadioButton
+                android:id="@+id/rb_right"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:background="@drawable/bottom_bg_right_selector"
+                android:textColor="@drawable/mine_textcolor"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textSize="16sp"
+                android:text="商家"/>
+        </RadioGroup>
+    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_collection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

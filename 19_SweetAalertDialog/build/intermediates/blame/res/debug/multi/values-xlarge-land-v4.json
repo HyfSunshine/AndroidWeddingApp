@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\AndroidStudio\\workspace\\app\\19_SweetAalertDialog\\build\\intermediates\\res\\merged\\debug\\values-xlarge-land-v4\\values-xlarge-land-v4.xml",
+        "outputFile": "F:\\AndroidStudio\\workspace\\AndroidWeddingApp\\19_SweetAalertDialog\\build\\intermediates\\res\\merged\\debug\\values-xlarge-land-v4\\values-xlarge-land-v4.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 114
                 },
                 "from": {
-                    "file": "D:\\AndroidStudio\\workspace\\app\\19_SweetAalertDialog\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.0\\res\\values-xlarge-land\\values.xml",
+                    "file": "F:\\AndroidStudio\\workspace\\AndroidWeddingApp\\19_SweetAalertDialog\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.0\\res\\values-xlarge-land\\values.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,

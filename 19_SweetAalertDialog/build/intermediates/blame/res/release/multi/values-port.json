@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\AndroidStudio\\workspace\\app\\19_SweetAalertDialog\\build\\intermediates\\res\\merged\\release\\values-port\\values-port.xml",
+        "outputFile": "F:\\AndroidStudio\\workspace\\AndroidWeddingApp\\19_SweetAalertDialog\\build\\intermediates\\res\\merged\\release\\values-port\\values-port.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 106
                 },
                 "from": {
-                    "file": "D:\\AndroidStudio\\workspace\\app\\19_SweetAalertDialog\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.0\\res\\values-port\\values.xml",
+                    "file": "F:\\AndroidStudio\\workspace\\AndroidWeddingApp\\19_SweetAalertDialog\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\21.0.0\\res\\values-port\\values.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
