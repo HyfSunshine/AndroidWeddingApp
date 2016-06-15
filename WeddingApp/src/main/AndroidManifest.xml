@@ -65,6 +65,24 @@
         <activity android:name="com.gemptc.wd.activities.home.SelectWeddingTaskActivity" />
         <activity android:name="com.gemptc.wd.activities.home.EditTaskActivity" />
 
+
+        <activity android:name="com.gemptc.wd.activities.social.EditPostActivity" />
+        <activity
+            android:name="com.gemptc.wd.activities.social.SearchPostActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.gemptc.wd.activities.home.ProductDetailActivity" />
+
+
+
+
+        <activity android:name="com.gemptc.wd.activities.social.DetailPostActivity" />
+        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity" />
+
+
+
+
+
+        <!--我做的-->
         <!-- 登录 -->
         <activity android:name="com.gemptc.wd.activities.startApp.StartActivity">
             <intent-filter>
@@ -77,11 +95,6 @@
         <activity android:name="com.gemptc.wd.activities.startApp.LoginActivity" />
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterActivity" />
         <activity android:name="com.gemptc.wd.activities.startApp.RegisterXieYiActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.EditPostActivity" />
-        <activity
-            android:name="com.gemptc.wd.activities.social.SearchPostActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name="com.gemptc.wd.activities.home.ProductDetailActivity" />
 
         <!-- QQ的登录的activity -->
         <activity
@@ -99,8 +112,6 @@
 
             <activity android:name="com.gemptc.wd.activities.home.SellerDetailActivity" />
         </activity>
-        <activity android:name="com.gemptc.wd.activities.social.DetailPostActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity" />
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
@@ -119,11 +130,6 @@
             android:name="com.zfdang.multiple_images_selector.ImagesSelectorActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name="com.gemptc.wd.activities.home.invitation.AddInviteActivity"></activity>
-
-
-
-
-
         <!--第三方分享的activity-->
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -147,6 +153,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
