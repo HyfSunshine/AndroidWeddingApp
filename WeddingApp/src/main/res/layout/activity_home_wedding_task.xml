@@ -7,40 +7,44 @@
     android:orientation="vertical"
     android:background="@color/homebackgroudcolor"
     tools:context="com.gemptc.wd.activities.home.HomeWeddingTaskActivity">
-<RelativeLayout
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="horizontal"
     android:background="@color/textDown">
     <ImageButton
-        android:layout_width="15dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentLeft="true"
-        android:background="@mipmap/btn_back_w"
+        android:id="@+id/btn_back"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#01000000"
+        android:src="@mipmap/btn_back_w"
         android:layout_marginRight="10dp"
-
+        android:onClick="backActivity"
         />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_weight="3"
         android:textColor="#fff"
         android:textSize="25sp"
+        android:gravity="center"
         android:text="结婚任务"/>
     <ImageButton
-        android:layout_width="10dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentRight="true"
-        android:background="@mipmap/icon_task_menu"
-        android:layout_marginRight="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#01000000"
+        android:src="@mipmap/icon_task_menu"
         />
-</RelativeLayout>
+</LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:paddingLeft="30dp"
         android:background="@color/textDown">
         <TextView
             android:id="@+id/feigexian"
@@ -49,7 +53,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="40dp"
             android:layout_centerInParent="true"
             android:background="#fff"/>
         <TextView
@@ -115,17 +119,29 @@
                 android:layout_toRightOf="@+id/weiwancheng"
                 android:textSize="25sp"/>
     </RelativeLayout>
-
-    <RelativeLayout
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="10">
+    <FrameLayout
         android:id="@+id/renwu"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9">
+        android:layout_height="match_parent">
+        <!--空白时布局-->
+       <ImageView
+           android:id="@+id/emptyImgView"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:scaleType="fitXY"
+           android:src="@drawable/taskhint"
+           android:visibility="gone"/>
         <ListView
             android:id="@+id/my_task_listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>
+
+    </FrameLayout>
     <Button
         android:id="@+id/addTaskButton"
         android:layout_width="40dp"
@@ -136,5 +152,5 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
         android:background="@mipmap/icon_add_contact_name"/>
-    </RelativeLayout>
+</RelativeLayout>
 </LinearLayout>

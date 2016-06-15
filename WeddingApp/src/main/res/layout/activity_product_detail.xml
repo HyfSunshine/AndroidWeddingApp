@@ -4,10 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.gemptc.wd.activities.home.ProductDetailActivity">
+    <FrameLayout
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/productListview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+        </com.handmark.pulltorefresh.library.PullToRefreshListView>
 
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:background="#00000000">
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/back_g"
+                android:background="#01000000"
+                android:onClick="backActivity"/>
+            <ImageButton
+                android:id="@+id/share"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_share_white"
+                android:layout_alignParentRight="true"
+                android:background="#01000000"/>
+            <ImageButton
+                android:id="@+id/collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_toLeftOf="@+id/share"
+                android:src="@mipmap/icon_collect_w"
+                android:background="#01000000"/>
+        </RelativeLayout>
+
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FF705E"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/location_w"/>
+
+        <TextView
+            android:id="@+id/locationTxt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:text="河南省郑州市二七区"
+            android:textColor="#ffffff"
+            android:textSize="15sp"/>
+
+        <ImageButton
+            android:id="@+id/phoneImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#01000000"
+            android:src="@mipmap/icon_call"/>
+    </LinearLayout>
+
+
+
+  <!--  <RelativeLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1">
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:id="@+id/middle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_above="@+id/bottom"
+            android:layout_alignParentTop="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:background="@mipmap/seller_detail_bg"
+                        android:paddingTop="10dp">
+                    </RelativeLayout>
+
+                    <com.gemptc.wd.view.CircleImageView
+                        android:id="@+id/cv_imageview"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/sellerpic"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>-->
 </RelativeLayout>

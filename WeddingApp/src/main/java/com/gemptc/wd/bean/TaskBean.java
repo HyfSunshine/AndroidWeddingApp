@@ -12,28 +12,12 @@ public class TaskBean implements Serializable {
     private String taskDescription;
     private Long taskTime;
     private int taskState;
-    private boolean checked = false;
-    public TaskBean(int taskId, int userId, String taskName, String taskDescription, Long taskTime, int taskState) {
-        this.taskId = taskId;
-        this.userId = userId;
-        this.taskName = taskName;
-        this.taskDescription = taskDescription;
-        this.taskTime = taskTime;
-        this.taskState = taskState;
-    }
+
     public TaskBean() {
     }
 
     public TaskBean(String taskName) {
         this.taskName = taskName;
-    }
-
-    public boolean isChecked() {
-        return checked;
-    }
-
-    public void setChecked(boolean checked) {
-        this.checked = checked;
     }
 
     public int getTaskId() {

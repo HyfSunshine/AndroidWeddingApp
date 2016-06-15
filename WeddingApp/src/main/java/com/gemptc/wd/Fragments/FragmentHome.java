@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -44,7 +45,6 @@ public class FragmentHome extends Fragment {
     public List<String> imagesUrlList;
     private List<ProductBean> listProduct;
     private MyViewPagerAdapter pagerAdapter;
-//    private Handler handler;
     private LinearLayout mLL_merchant,mLL_wedding_task,mLL_weixin_cad;
     private View view;
 
@@ -57,25 +57,22 @@ public class FragmentHome extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_home, null);
+        initView();
+        initListeners();
+        imagesUrlList = new ArrayList<>();
+        viewPager = (ViewPager) view.findViewById(R.id.home_lunbo_viewpager);
+        indicator = (PageIndicator) view.findViewById(R.id.indicator);
+        pagerAdapter = new MyViewPagerAdapter();
+        viewPager.setAdapter(pagerAdapter);
+        indicator.setViewPager(viewPager);
 
-            view = inflater.inflate(R.layout.fragment_home, null);
-            initView();
-            initListeners();
-
-            imagesUrlList = new ArrayList<>();
-            viewPager = (ViewPager) view.findViewById(R.id.home_lunbo_viewpager);
-            indicator = (PageIndicator) view.findViewById(R.id.indicator);
-            pagerAdapter = new MyViewPagerAdapter();
-            viewPager.setAdapter(pagerAdapter);
-            indicator.setViewPager(viewPager);
-
-            String result = PrefUtils.getString(getContext(), "home_product_lunbo", null);
-            if (result != null) {
-                parseData(result);
-                Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
-            }
-            getDatas();
-
+        String result = PrefUtils.getString(getContext(), "home_product_lunbo", null);
+        if (result != null) {
+            parseData(result);
+            Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
+        }
+        getDatas();
         return view;
     }
 
@@ -117,23 +114,16 @@ public class FragmentHome extends Fragment {
         imagesUrlList.add(UrlAddress.PRODUCT_IMAGE_ADDRESS + listProduct.get(1).getPrBgroundName());
         imagesUrlList.add(UrlAddress.PRODUCT_IMAGE_ADDRESS + listProduct.get(2).getPrBgroundName());
         pagerAdapter.notifyDataSetChanged();
+
     }
 
     //获取网络数据
     private void getDatas() {
-
         RequestParams params = new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"ProductController");
-
-        //RequestParams params = new RequestParams("http://10.201.1.9:8080/WeddingJson/ProductController");
-
         params.addBodyParameter("productop", "homesheying");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-
-
-                Log.e("数据", result);
-
                 PrefUtils.setString(getContext(), "home_product_lunbo", result);
                 parseData(result);
             }
@@ -148,9 +138,6 @@ public class FragmentHome extends Fragment {
             }
         });
 
-//        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo1.jpg");
-//        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo2.png");
-//        imagesUrlList.add(UrlAddress.LOGIN_IMAGE_ADDRESS+"photo3.jpg");
     }
 
     //解析数据
@@ -189,5 +176,6 @@ public class FragmentHome extends Fragment {
             container.removeView((View) object);
         }
     }
+
 }
 

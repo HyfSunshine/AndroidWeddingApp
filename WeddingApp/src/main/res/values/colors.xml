@@ -5,10 +5,16 @@
     <color name="colorAccent">#FF4081</color>
     <color name="textDown">#FF705E</color>
     <color name="textColor">#FF705E</color>
+
     <color name="replyNumColor">#FF705E</color>
+    <color name="plugin_camera_title_bar">#454141</color>
+    <color name="TextTitlecolor">#fff</color>
+    <color name="transparent">#50000000</color>
     <color name="searchtextColor">#fff</color>
     <color name="searchColor">#FF705E</color>
     <color name="textUp">#999999</color>
+    <color name="selectbg">#dad7d7</color>
+    <color name="itemdivider">#e9e7e7</color>
     <color name="searchbackground">#F2F2F2</color>
     <color name="searchdivierline">#fff</color>
     <color name="homebackgroudcolor">#e9e7e7</color>
@@ -20,4 +26,9 @@
     <color name="backGroundGray">#F4F4F2</color>
     <color name="white">@android:color/white</color>
     <color name="phoneGrayBG">#F4F4F3</color>
+    <color name="black">#000</color>
+    <!-- 上传图片添加的颜色 -->
+    <color name="none_color">#00000000</color>
+    <color name="plugin_camera_black">#000000</color>
+    <color name="albumback">#E1E0DE</color>
 </resources>

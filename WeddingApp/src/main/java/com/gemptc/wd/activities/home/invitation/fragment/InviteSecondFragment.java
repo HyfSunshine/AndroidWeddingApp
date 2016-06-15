@@ -107,7 +107,6 @@ public class InviteSecondFragment extends Fragment implements View.OnClickListen
             getActivity().finish();
         }
         if (v.getId()==R.id.btn_sendFriends){
-            ToastUtils.shortToast(getActivity(),"您点击了发送给好友");
             ShareSDK.initSDK(getActivity());
             OnekeyShare oks = new OnekeyShare();
             //关闭sso授权

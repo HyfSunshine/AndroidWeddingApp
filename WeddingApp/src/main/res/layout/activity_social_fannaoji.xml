@@ -14,21 +14,24 @@
         android:background="#fff">
 
         <ImageButton
+            android:id="@+id/fannaoji_back"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="30dp"
             android:background="#ffff"
             android:layout_gravity="center"
-            android:src="@mipmap/btn_back_red"/>
+            android:src="@mipmap/btn_back_red"
+            android:onClick="fannaoji_back"/>
         <TextView
             android:layout_width="0dp"
             android:layout_weight="6"
-            android:text="倾诉·烦恼集"
+            android:text="话题"
             android:textColor="#ff705e"
-            android:textSize="30sp"
+            android:textSize="22sp"
             android:gravity="center"
             android:layout_height="match_parent"/>
         <ImageButton
+            android:id="@+id/fannaoji_edit_post"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -42,7 +45,9 @@
         <ListView
             android:id="@+id/lv_fannaoji"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:dividerHeight="3dp"
+            android:divider="@color/itemdivider">
         </ListView>
     </LinearLayout>
 </LinearLayout>

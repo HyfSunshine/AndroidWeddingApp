@@ -23,10 +23,8 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private PageIndicator indicator;
     private List<String> imageUrlList;
-
     public static LoginAndRegisterActivity loginAndRegister;
     private MyViewPagerAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

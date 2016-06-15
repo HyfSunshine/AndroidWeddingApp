@@ -22,13 +22,11 @@ import com.gemptc.wd.fragments.FragmentSocial;
 import com.gemptc.wd.utils.PrefUtils;
 import com.gemptc.wd.utils.UrlAddress;
 import com.gemptc.wd.view.LazyViewPager;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,17 +40,14 @@ public class MainActivity extends FragmentActivity {
     private List<Fragment> fragmentList;
     private  EditText mEditText;
     public static Handler handler;
-    public static MainActivity mainActivity;
+   public static MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mainActivity=this;
-
-
+       mainActivity=this;
         initViews();
-
         initFragments();
         initListeners();
         //初始化Handler，为的是实现图片轮播的速度不变，系统只创建一个Handler
@@ -102,7 +97,6 @@ public class MainActivity extends FragmentActivity {
             }
         });
     }
-
     private void initHandler() {
         handler = new Handler(){
             @Override
@@ -111,7 +105,6 @@ public class MainActivity extends FragmentActivity {
                     FragmentHome fragmentHome = (FragmentHome) fragmentList.get(0);
                     ViewPager homeViewPager = fragmentHome.viewPager;
                     List<String> imagesUrlList=fragmentHome.imagesUrlList;
-
                     int currentPosition = homeViewPager.getCurrentItem();
                     if (currentPosition<imagesUrlList.size()-1){
                         currentPosition++;
@@ -127,7 +120,6 @@ public class MainActivity extends FragmentActivity {
                     FragmentSocial fragmentSocial = (FragmentSocial) fragmentList.get(2);
                     ViewPager socialViewPager = fragmentSocial.viewPager;
                     List<String> imagesUrlList=fragmentSocial.imagesUrlList;
-
                     int currentPosition = socialViewPager.getCurrentItem();
                     if (currentPosition<imagesUrlList.size()-1){
                         currentPosition++;
@@ -205,7 +197,6 @@ public class MainActivity extends FragmentActivity {
             }
         });
     }
-
     //在按返回键的时候弹出弹框，询问用户是否退出应用
     @Override
     public void onBackPressed() {

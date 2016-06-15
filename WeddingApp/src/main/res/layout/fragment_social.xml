@@ -13,13 +13,11 @@
     android:background="#fff">
 
     <ImageButton
-        android:id="@+id/social_search"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:background="#ffff"
-        android:layout_gravity="center"
-        android:src="@mipmap/icon_search_ss"/>
+        android:background="#fff"
+        android:layout_gravity="center"/>
     <TextView
         android:layout_width="0dp"
         android:layout_weight="4"
@@ -29,13 +27,14 @@
        android:gravity="center"
         android:layout_height="match_parent"/>
     <ImageButton
-        android:id="@+id/social_editpost"
+        android:id="@+id/social_search"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:background="#fff"
+        android:background="#ffff"
         android:layout_gravity="center"
-        android:src="@mipmap/btn_edit_red"/>
+        android:src="@mipmap/icon_search_ss"/>
+
 </LinearLayout>
 
 
@@ -96,11 +95,14 @@
                         android:gravity="center"
                         android:background="#a80de7d9"/>
                     <TextView
+                        android:id="@+id/huiyilu_tuijian"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:background="#fff"
                         android:text="我们的爱情故事，那一年我们19岁"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
                         android:layout_marginBottom="1dp"/>
                 </LinearLayout>
                 <LinearLayout
@@ -116,11 +118,14 @@
                         android:gravity="center"
                         android:background="#d2f7030f"/>
                     <TextView
+                        android:id="@+id/jinxingce_tuijian"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:background="#fff"
                         android:text="这些年的喜糖盒真的都好美..."
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
                         android:layout_marginBottom="1dp"/>
                 </LinearLayout>
             </LinearLayout>
@@ -143,10 +148,13 @@
                         android:gravity="center"
                         android:background="#a8f44308"/>
                     <TextView
+                        android:id="@+id/shenghuoji_tuijian"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:background="#fff"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
                         android:text="两人世界到三口之家"/>
                 </LinearLayout>
                 <LinearLayout
@@ -162,10 +170,13 @@
                         android:gravity="center"
                         android:background="#a8303631"/>
                     <TextView
+                        android:id="@+id/fannaoji_tuijian"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="8"
                         android:background="#fff"
+                        android:textSize="18sp"
+                        android:gravity="center_vertical"
                         android:text="大家来聊聊前女友的事"/>
                 </LinearLayout>
             </LinearLayout>
@@ -181,11 +192,11 @@
             android:gravity="center"
             android:layout_marginBottom="1dp">
 
-            <ImageView
+            <com.gemptc.wd.view.CircleImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:src="@mipmap/socialuser1"/>
+                android:src="@mipmap/huiyilu"/>
             <TextView
                 android:id="@+id/tv_huiyilu"
                 android:background="#fff"
@@ -212,11 +223,11 @@
             android:gravity="center"
             android:layout_marginBottom="1dp">
 
-            <ImageView
+            <com.gemptc.wd.view.CircleImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:src="@mipmap/socialuser3"/>
+                android:src="@mipmap/jinxingce"/>
             <TextView
                 android:id="@+id/tv_jinxingce"
                 android:background="#fff"
@@ -242,11 +253,11 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginBottom="1dp">
-            <ImageView
+            <com.gemptc.wd.view.CircleImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:src="@mipmap/socialuser4"/>
+                android:src="@mipmap/shenghuoji"/>
             <TextView
                 android:id="@+id/tv_shenghuoji"
                 android:background="#fff"
@@ -274,11 +285,11 @@
             android:layout_marginBottom="1dp"
             android:onClick="fannaoji">
 
-            <ImageView
+            <com.gemptc.wd.view.CircleImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:src="@mipmap/socialuser5"/>
+                android:src="@mipmap/fannaoji"/>
             <TextView
                 android:id="@+id/tv_fannaoji"
                 android:background="#fff"

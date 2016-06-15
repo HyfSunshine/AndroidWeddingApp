@@ -36,7 +36,6 @@ import java.util.List;
  * Created by Administrator on 2016/5/5.
  */
 public class FragmentKinds extends Fragment{
-
     private View view;
     private LinearLayout ll_sheying,ll_lifu,ll_jiezhi,ll_jiudian,ll_hunche,ll_miyue;
     private ListView lv_home_kind;

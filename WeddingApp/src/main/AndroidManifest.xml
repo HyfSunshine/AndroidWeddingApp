@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.android.wedding">
-
     <!-- XUtils权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 短信验证权限 -->
@@ -15,7 +14,7 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <!-- QQ登录验证权限 -->
     <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
     <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
@@ -44,45 +43,41 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
+        tools:replace="android:icon"
         android:name="com.gemptc.wd.application.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        tools:replace="android:icon">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name="com.gemptc.wd.activities.MainActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
-        <activity
-            android:name="com.gemptc.wd.activities.home.HomeFindMerchantActivity"
-            android:theme="@style/StyledIndicators" />
-        <activity android:name="com.gemptc.wd.activities.home.HomeWeddingTaskActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiActivity" />
-        <activity android:name="com.gemptc.wd.activities.home.SelectWeddingTaskActivity" />
-        <activity android:name="com.gemptc.wd.activities.home.EditTaskActivity" />
 
 
-        <activity android:name="com.gemptc.wd.activities.social.EditPostActivity" />
+
+        <!--赵志飞-->
+        <!-- 婚礼说界面的activity -->
+        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialJinxingceDetailActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialShenghuojiDetailActivity"/>
+        <activity android:name="com.gemptc.wd.activities.social.SocialFannaojiDetailActivity"/>
+        <!-- 婚礼说界面发帖的activity -->
+        <activity android:name="com.gemptc.wd.activities.social.EditPostActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+        </activity>
+        <!-- 婚礼说界面搜索的activity -->
         <activity
             android:name="com.gemptc.wd.activities.social.SearchPostActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name="com.gemptc.wd.activities.home.ProductDetailActivity" />
+            android:windowSoftInputMode="adjustPan">
+        </activity>
 
 
-
-
-        <activity android:name="com.gemptc.wd.activities.social.DetailPostActivity" />
-        <activity android:name="com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity" />
-
-
-
-
-
-        <!--我做的-->
+        <!--何永锋-->
         <!-- 登录 -->
         <activity android:name="com.gemptc.wd.activities.startApp.StartActivity">
             <intent-filter>
@@ -130,6 +125,7 @@
             android:name="com.zfdang.multiple_images_selector.ImagesSelectorActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name="com.gemptc.wd.activities.home.invitation.AddInviteActivity"></activity>
+
         <!--第三方分享的activity-->
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -153,7 +149,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

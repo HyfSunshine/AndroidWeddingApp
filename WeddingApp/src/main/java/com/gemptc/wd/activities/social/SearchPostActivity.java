@@ -9,9 +9,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -28,19 +30,22 @@ import com.gemptc.wd.adapter.GridAdapter;
 import com.gemptc.wd.adapter.ListAdapter;
 import com.gemptc.wd.adapter.SearchRecyclerViewAdapter;
 import com.gemptc.wd.bean.GridBean;
+import com.gemptc.wd.bean.PostBean;
 import com.gemptc.wd.bean.SearchBean;
 import com.gemptc.wd.bean.SearchHistoryBean;
 import com.gemptc.wd.utils.DividerItemDecoration;
 import com.gemptc.wd.utils.HistoryTable;
 import com.gemptc.wd.utils.MyHelper;
+import com.gemptc.wd.utils.PrefUtils;
+import com.gemptc.wd.utils.UrlAddress;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,10 +75,10 @@ public class SearchPostActivity extends AppCompatActivity {
     //适配器
     SearchRecyclerViewAdapter mSearchRecyclerViewAdapter=null;
     ListAdapter mListAdapter;
-    GridAdapter mGridAdapter;
+//    GridAdapter mGridAdapter;
     //gridbean
-    List<GridBean> mGridList;
-    GridView mGridView;
+//    List<GridBean> mGridList;
+//    GridView mGridView;
 
 
     private ImageView search_back;
@@ -106,6 +111,7 @@ public class SearchPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_post);
         initViews();
         initListeners();
+
     }
 
     //事件监听
@@ -143,7 +149,7 @@ public class SearchPostActivity extends AppCompatActivity {
                 mEditText.setText("");
                 search_clear.setVisibility(View.GONE);
                 result_Layout.setVisibility(View.GONE);
-                now_Layout.setVisibility(View.GONE);
+                //now_Layout.setVisibility(View.GONE);
             }
         });
 
@@ -162,7 +168,7 @@ public class SearchPostActivity extends AppCompatActivity {
                     //隐藏软键盘
                     imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-                    now_Layout.setVisibility(View.GONE);
+                   // now_Layout.setVisibility(View.GONE);
                     result_Layout.setVisibility(View.VISIBLE);
                     search_clear.setVisibility(View.VISIBLE);
                     text=mEditText.getText().toString().trim();
@@ -181,78 +187,13 @@ public class SearchPostActivity extends AppCompatActivity {
 
             //请求http获取
             private void getHttpMethod() {
-                String url="http://fuwuqi.guanweiming.top/headvip/json/testdata";
-                RequestParams params=new RequestParams(url);
-                params.addBodyParameter("size","7");
+                RequestParams params=new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"PostController");
+                params.addBodyParameter("postop","searchpost");
+                params.addBodyParameter("searchcontent",mEditText.getText().toString());
                 x.http().get(params, new Callback.CommonCallback<String>() {
                     @Override
                     public void onSuccess(String result) {
-                        try {
-                            JSONObject object = new JSONObject(result);
-                            JSONArray data = object.getJSONArray("goods");
-                            for (int i = 0; i < data.length(); i++) {
-                                JSONObject object1 = data.getJSONObject(i);
-                                SearchBean searchBean = new SearchBean();
-                                String name = object1.getString("title");
-                                searchBean.setPostTitle(name);
-                                mList.add(searchBean);
-                            }
-                            for (int i = 0; i <mList.size(); i++) {
-                                if (mList.get(i).getPostTitle().contains(text.trim())){
-                                    resultList.add(mList.get(i));
-                                }
-                            }
-                            //判断resultList的大小
-                            if (resultList.size()==0){
-                                //未匹配到结果,切换到之前的界面
-                                result_Layout.setVisibility(View.GONE);
-                                resultList.clear();
-                                now_Layout.setVisibility(View.VISIBLE);
-                                listView.setVisibility(View.VISIBLE);
-                                show("抱歉，没有找到相关话题");
-                            }
-                            if (mSearchRecyclerViewAdapter==null){
-                                mSearchRecyclerViewAdapter=new SearchRecyclerViewAdapter(resultList,SearchPostActivity.this);
-                                resultRecyclerView.setAdapter(mSearchRecyclerViewAdapter);
-                            }else {
-                                mSearchRecyclerViewAdapter.notifyDataSetChanged();
-                            }
-                            //接着判断editText内容
-                            mEditText.addTextChangedListener(new TextWatcher() {
-                                @Override
-                                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                                }
-
-                                @Override
-                                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                                }
-
-                                @Override
-                                public void afterTextChanged(Editable s) {
-                                    if (mEditText.getText().toString().equals("")){
-                                        flag=false;
-                                        search_clear.setVisibility(View.GONE);
-                                        result_Layout.setVisibility(View.GONE);
-                                        now_Layout.setVisibility(View.GONE);
-                                    }else {
-                                        resultList.clear();
-                                        mList.clear();
-                                        //隐藏软键盘
-                                        imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                                        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-                                        searchResult();
-                                    }
-                                }
-                            });
-                            Message message=new Message();
-                            message.obj="finish";
-                            mHandler.sendMessage(message);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
+                        parseDatas(result);
                     }
 
                     @Override
@@ -327,14 +268,85 @@ public class SearchPostActivity extends AppCompatActivity {
 
     }
 
+    //解析数据
+    private void parseDatas(String result) {
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<SearchBean>>() {
+        }.getType();
+        List<SearchBean> list = gson.fromJson(result, type);
+        mList=new ArrayList<>();
+        Log.e("result1",list.size()+"");
+        for (int i = 0; i < list.size(); i++) {
+            Log.e("result",list.get(i).getPostTitle());
+            mList.add(list.get(i));
+        }
+        for (int i = 0; i <mList.size() ; i++) {
+            if (mList.get(i).getPostTitle().contains(text.trim())){
+                resultList.add(mList.get(i));
+                Log.e("rusult",resultList.size()+"");
+            }
+        }
+        //判断resultList的大小
+        if (resultList.size()==0){
+            //未匹配到结果,切换到之前的界面
+            result_Layout.setVisibility(View.GONE);
+            resultList.clear();
+            //now_Layout.setVisibility(View.VISIBLE);
+            listView.setVisibility(View.VISIBLE);
+            Toast.makeText(SearchPostActivity.this, "抱歉，没有找到相关话题", Toast.LENGTH_SHORT).show();
+        }
+        if (mSearchRecyclerViewAdapter==null){
+            mSearchRecyclerViewAdapter=new SearchRecyclerViewAdapter(resultList,SearchPostActivity.this);
+            resultRecyclerView.setAdapter(mSearchRecyclerViewAdapter);
+        }else {
+            mSearchRecyclerViewAdapter.notifyDataSetChanged();
+        }
+        //接着判断editText内容
+        mEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (mEditText.getText().toString().equals("")){
+                    flag=false;
+                    search_clear.setVisibility(View.GONE);
+                    result_Layout.setVisibility(View.GONE);
+                    //now_Layout.setVisibility(View.GONE);
+                }else {
+                    resultList.clear();
+                    mList.clear();
+                    //隐藏软键盘
+                    imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+                    searchResult();
+                }
+
+            }
+        });
+        Message message=new Message();
+        message.obj="finish";
+        mHandler.sendMessage(message);
+        mSearchRecyclerViewAdapter.notifyDataSetChanged();
+    }
+
+
+
     private void initViews() {
-        mGridView= (GridView) findViewById(R.id.hotGridView);
+        //mGridView= (GridView) findViewById(R.id.hotGridView);
         //绑定gridView
-        gridViewSearch();
+        //gridViewSearch();
         history_clear= (Button) findViewById(R.id.clear_history);
         //创建数据库对象
         myHelper=new MyHelper(SearchPostActivity.this);
-        now_Layout= (LinearLayout) findViewById(R.id.now_linear);
+        //now_Layout= (LinearLayout) findViewById(R.id.now_linear);
         result_Layout= (LinearLayout) findViewById(R.id.result_linear);
         search_back= (ImageView) findViewById(R.id.search_back);
         search_go = (Button) findViewById(R.id.search_go);
@@ -354,15 +366,14 @@ public class SearchPostActivity extends AppCompatActivity {
                 mEditText.setText(historyList.get(position).getContent());
             }
         });
-
         //隐藏软键盘
         imm= (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         //强制隐藏键盘
         imm.hideSoftInputFromInputMethod(mEditText.getWindowToken(),0);
 
         //设置RecyclerView的布局管理
-        GridLayoutManager gridLayoutManager=new GridLayoutManager(SearchPostActivity.this,2);
-        resultRecyclerView.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(SearchPostActivity.this);
+        resultRecyclerView.setLayoutManager(linearLayoutManager);
         resultRecyclerView.addItemDecoration(new DividerItemDecoration(SearchPostActivity.this, 1));
 
         mEditText.setOnClickListener(new View.OnClickListener() {
@@ -432,17 +443,17 @@ public class SearchPostActivity extends AppCompatActivity {
     }
 
     //绑定gridView
-    private void gridViewSearch() {
-        mGridList=new ArrayList<>();
-        //假数据
-        for (int i = 0; i < 9; i++) {
-            GridBean gridBean=new GridBean();
-            gridBean.setText("热搜"+i);
-            mGridList.add(gridBean);
-        }
-        mGridAdapter=new GridAdapter(SearchPostActivity.this,mGridList);
-        mGridView.setAdapter(mGridAdapter);
-    }
+//    private void gridViewSearch() {
+//        mGridList=new ArrayList<>();
+//        //假数据
+//        for (int i = 0; i < 9; i++) {
+//            GridBean gridBean=new GridBean();
+//            gridBean.setText("热搜"+i);
+//            mGridList.add(gridBean);
+//        }
+//        mGridAdapter=new GridAdapter(SearchPostActivity.this,mGridList);
+//        mGridView.setAdapter(mGridAdapter);
+//    }
 
     public void search_back(View view) {
         imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

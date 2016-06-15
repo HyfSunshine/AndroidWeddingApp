@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/ll_edit_post"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -35,14 +36,24 @@
             android:textSize="20sp"
             android:textColor="@color/textColor"/>
         </RelativeLayout>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="发布话题"
+            android:text="发话题"
             android:textColor="@color/textDown"
-            android:textSize="25sp"/>
+            android:textSize="22sp"/>
+        <Button
+            android:id="@+id/postSend"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:background="@drawable/button_red_shixin_kuang"
+            android:text="发布"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,60 +62,66 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/posttitle"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:background="#fff"
             android:gravity="center">
             <EditText
+                android:id="@+id/postTitle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="请输入标题"
-                android:textColor="#cececa"
-                android:textSize="25sp"/>
+                android:textColor="#000000"
+                android:textSize="22sp"/>
         </RelativeLayout>
 
+
         <RelativeLayout
-            android:id="@+id/postsection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:background="#fff"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/postContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="请输入话题内容"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:gravity="left"/>
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#fff">
+        <ImageView
+            android:id="@+id/addPostpic"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/icon_addpic_focused"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/postPic"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="7"
             android:background="#fff"
             android:gravity="center">
-            <EditText
+
+            <GridView
+                android:id="@+id/noScrollgridview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="请输入话题内容"
-                android:textColor="#cececa"
-                android:textSize="25sp"
-                android:gravity="left"/>
+                android:layout_height="215dp"
+                android:layout_marginLeft="5dp"
+                android:horizontalSpacing="3dp"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:verticalSpacing="5dp" >
+            </GridView>
+
         </RelativeLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#fff"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="5dp">
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/icon_add_images"/>
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@mipmap/icon_add_face"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:background="@drawable/button_red_shixin_kuang"
-                android:text="发  表"
-                android:textSize="28sp"
-                android:textColor="#fff"
-                android:gravity="center"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

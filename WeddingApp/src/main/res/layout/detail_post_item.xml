@@ -18,7 +18,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp">
-            <ImageView
+            <com.gemptc.wd.view.CircleImageView
                 android:id="@+id/userPic"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
