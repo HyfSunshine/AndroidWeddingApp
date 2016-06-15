@@ -29,6 +29,7 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_huiyilu);
         Intent intent=getIntent();
+        mList=new ArrayList<>();
         mListView= (ListView)findViewById(R.id.lv_huiyilu);
         initData();
         mPostAdapter=new PostAdapter(this,mList,1);

@@ -19,4 +19,5 @@
     <!--背景的灰色-->
     <color name="backGroundGray">#F4F4F2</color>
     <color name="white">@android:color/white</color>
+    <color name="phoneGrayBG">#F4F4F3</color>
 </resources>

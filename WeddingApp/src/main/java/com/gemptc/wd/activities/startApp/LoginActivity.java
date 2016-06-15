@@ -20,6 +20,8 @@ import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class LoginActivity extends QQLogin {
 
     private EditText userPhone;
@@ -27,6 +29,7 @@ public class LoginActivity extends QQLogin {
     private Button btn_Login;
     private ImageView qq_Login;
     private ImageView weibo_Login;
+    private SweetAlertDialog sweetAlertDialog;
 
     public static LoginActivity loginActivity;
     public static Handler qqLoginHandler;
@@ -70,7 +73,6 @@ public class LoginActivity extends QQLogin {
     //点击手机自带的返回按钮
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         finish();
     }
 
@@ -85,49 +87,65 @@ public class LoginActivity extends QQLogin {
                 case R.id.login:
                     //Toast.makeText(LoginActivity.this, "点击了登录按钮", Toast.LENGTH_SHORT).show();
                     if (!"".equals(userPhone)&&!"".equals(userPass)){
-                        String url = UrlAddress.USER_Controller;
-                        RequestParams params = new RequestParams(url);
-                        params.addQueryStringParameter("userop","login");
-                        params.addQueryStringParameter("userphonenum",userPhone);
-                        params.addQueryStringParameter("userpassword", MD5Util.MD5(userPass));
-                        x.http().post(params, new Callback.CommonCallback<String>() {
-                            @Override
-                            public void onSuccess(String result) {
-                                if (result.startsWith("登录成功")){
-                                    LoginAndRegisterActivity.loginAndRegister.finish();
-                                    //存储是否登录的信息
-                                    PrefUtils.setBoolean(LoginActivity.this,"isLogin",true);
-                                    PrefUtils.setString(LoginActivity.this,"userPhoneNum",userPhone);
-                                    Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                                    LoginActivity.this.finish();
-                                }else if (result.startsWith("登录失败")){
-                                    Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                        if (userPhone.length()==11){
+                            sweetAlertDialog=null;
+                            sweetAlertDialog=new SweetAlertDialog(loginActivity,SweetAlertDialog.PROGRESS_TYPE)
+                                    .setTitleText("正在登陆");
+                            sweetAlertDialog.show();
+                            String url = UrlAddress.USER_Controller;
+                            RequestParams params = new RequestParams(url);
+                            params.addQueryStringParameter("userop","login");
+                            params.addQueryStringParameter("userphonenum",userPhone);
+                            params.addQueryStringParameter("userpassword", MD5Util.MD5(userPass));
+                            x.http().post(params, new Callback.CommonCallback<String>() {
+                                @Override
+                                public void onSuccess(String result) {
+                                    if (result.startsWith("登录成功")){
+                                        sweetAlertDialog.dismiss();
+                                        LoginAndRegisterActivity.loginAndRegister.finish();
+                                        //存储是否登录的信息
+                                        PrefUtils.setBoolean(LoginActivity.this,"isLogin",true);
+                                        PrefUtils.setString(LoginActivity.this,"userPhoneNum",userPhone);
+                                        Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                                        LoginActivity.this.finish();
+                                    }else if (result.startsWith("登录失败")){
+                                        sweetAlertDialog.changeAlertType(SweetAlertDialog.ERROR_TYPE);
+                                        sweetAlertDialog.setTitleText("登录失败").setContentText("账号或密码错误");
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onError(Throwable ex, boolean isOnCallback) {
+                                @Override
+                                public void onError(Throwable ex, boolean isOnCallback) {
+                                    sweetAlertDialog.dismiss();
+                                    sweetAlertDialog=null;
+                                    sweetAlertDialog=new SweetAlertDialog(loginActivity,SweetAlertDialog.ERROR_TYPE)
+                                            .setTitleText("网络连接失败");
+                                    sweetAlertDialog.show();
+                                }
 
-                            }
+                                @Override
+                                public void onCancelled(CancelledException cex) {
 
-                            @Override
-                            public void onCancelled(CancelledException cex) {
+                                }
 
-                            }
+                                @Override
+                                public void onFinished() {
 
-                            @Override
-                            public void onFinished() {
-
-                            }
-                        });
+                                }
+                            });
+                        }else{
+                            sweetAlertDialog=null;
+                            sweetAlertDialog=new SweetAlertDialog(loginActivity,SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("请输入正确的手机号码");
+                            sweetAlertDialog.show();
+                        }
                     }else{
                         Toast.makeText(LoginActivity.this, "账号或者密码不能为空", Toast.LENGTH_SHORT).show();
                     }
                 break;
                 //点击第三方qq登录按钮
                 case R.id.qqLogin:
-                    Toast.makeText(LoginActivity.this, "点击了qq登录按钮", Toast.LENGTH_SHORT).show();
                     startQQLogin();
                     break;
                 //点击第三方微博登录

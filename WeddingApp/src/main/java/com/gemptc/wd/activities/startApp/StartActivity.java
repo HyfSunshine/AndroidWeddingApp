@@ -1,9 +1,9 @@
 package com.gemptc.wd.activities.startApp;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.android.wedding.R;
 import com.gemptc.wd.activities.MainActivity;

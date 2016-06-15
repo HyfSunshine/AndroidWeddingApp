@@ -1,39 +1,42 @@
 package com.gemptc.wd.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 import com.android.wedding.R;
 import com.gemptc.wd.adapter.FragmentAdapter;
-import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.fragments.FragmentHome;
 import com.gemptc.wd.fragments.FragmentKinds;
 import com.gemptc.wd.fragments.FragmentMine;
 import com.gemptc.wd.fragments.FragmentSocial;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.gemptc.wd.utils.PrefUtils;
+import com.gemptc.wd.utils.UrlAddress;
+import com.gemptc.wd.view.LazyViewPager;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class MainActivity extends FragmentActivity {
 
-    private ViewPager vp;
+    private LazyViewPager vp;
     private FragmentHome home;
     private RadioGroup radioGroup;
     private List<Fragment> fragmentList;
@@ -41,20 +44,63 @@ public class MainActivity extends FragmentActivity {
     public static Handler handler;
     public static MainActivity mainActivity;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainActivity=this;
 
+
         initViews();
 
         initFragments();
         initListeners();
-
         //初始化Handler，为的是实现图片轮播的速度不变，系统只创建一个Handler
         initHandler();
+        //存储用户ID
+        getMySelfData();
+    }
+
+    //获取用户自己的数据
+    private void getMySelfData() {
+        //当Activity创建的时候存储用户的id
+        //获取登陆成功后存在本地的手机号码
+        String phoneNum = PrefUtils.getString(MainActivity.mainActivity,"userPhoneNum","");
+        RequestParams params = new RequestParams(UrlAddress.USER_Controller);
+        //http://10.201.1.9:8080/WeddingJson/UserController?userop=getUserByPhoneNum&phoneNum=12345678910
+        params.addQueryStringParameter("userop","getUserByPhoneNum");
+        params.addQueryStringParameter("phoneNum", phoneNum);
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                //存储用户自己的ID
+                Log.e("FragmentMine的Oncreate方法中获取用户的Json信息",result);
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    String user_id = jsonObject.getString("u_id");
+                    //存储用户的ID
+                    PrefUtils.setString(MainActivity.mainActivity,"user_self_id",user_id);
+                    //存储数据
+                    PrefUtils.setString(MainActivity.mainActivity,"user_self_info",result);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.e("连接网络失败？",ex.toString());
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+            }
+        });
     }
 
     private void initHandler() {
@@ -99,7 +145,7 @@ public class MainActivity extends FragmentActivity {
 
     //初始化View对象的方法
     public void initViews(){
-        vp = (ViewPager) findViewById(R.id.viewPager);
+        vp = (LazyViewPager) findViewById(R.id.viewPager);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroupBottom);
         mEditText= (EditText) findViewById(R.id.search_et_input);
     }
@@ -143,7 +189,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        vp.setOnPageChangeListener(new LazyViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -156,13 +202,42 @@ public class MainActivity extends FragmentActivity {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
     }
 
+    //在按返回键的时候弹出弹框，询问用户是否退出应用
+    @Override
+    public void onBackPressed() {
+        SweetAlertDialog sweetAlertDialog = new SweetAlertDialog(MainActivity.mainActivity, SweetAlertDialog.WARNING_TYPE);
+        sweetAlertDialog.setContentText("真的要退出吗？")
+                .setTitleText("退出应用")
+                .setConfirmText("退出应用")
+                .showCancelButton(true)
+                .setCancelText("留下逛逛")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        sweetAlertDialog.dismiss();
+                        mainActivity.finish();
+                    }
+                }).setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                sweetAlertDialog.dismiss();
+                sweetAlertDialog=null;
+            }
+        }).show();
+    }
 
-
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==200){
+            if (resultCode==222) {
+                FragmentMine fragmentMine = (FragmentMine) fragmentList.get(3);
+                fragmentMine.initData();
+            }
+        }
+    }
 }

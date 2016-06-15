@@ -17,8 +17,8 @@ import android.widget.Toast;
 import com.android.wedding.R;
 import com.gemptc.wd.activities.home.HomeFindMerchantActivity;
 import com.gemptc.wd.activities.home.HomeWeddingTaskActivity;
-import com.gemptc.wd.activities.home.HomeWeixinCadActivity;
 import com.gemptc.wd.activities.MainActivity;
+import com.gemptc.wd.activities.home.invitation.InvitationListActivity;
 import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.utils.PrefUtils;
 import com.gemptc.wd.utils.UrlAddress;
@@ -57,23 +57,25 @@ public class FragmentHome extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_home, null);
-        initView();
-        initListeners();
 
-        imagesUrlList = new ArrayList<>();
-        viewPager = (ViewPager) view.findViewById(R.id.home_lunbo_viewpager);
-        indicator = (PageIndicator) view.findViewById(R.id.indicator);
-        pagerAdapter = new MyViewPagerAdapter();
-        viewPager.setAdapter(pagerAdapter);
-        indicator.setViewPager(viewPager);
+            view = inflater.inflate(R.layout.fragment_home, null);
+            initView();
+            initListeners();
 
-        String result = PrefUtils.getString(getContext(), "home_product_lunbo", null);
-        if (result != null) {
-            parseData(result);
-            Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
-        }
-        getDatas();
+            imagesUrlList = new ArrayList<>();
+            viewPager = (ViewPager) view.findViewById(R.id.home_lunbo_viewpager);
+            indicator = (PageIndicator) view.findViewById(R.id.indicator);
+            pagerAdapter = new MyViewPagerAdapter();
+            viewPager.setAdapter(pagerAdapter);
+            indicator.setViewPager(viewPager);
+
+            String result = PrefUtils.getString(getContext(), "home_product_lunbo", null);
+            if (result != null) {
+                parseData(result);
+                Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
+            }
+            getDatas();
+
         return view;
     }
 
@@ -101,7 +103,7 @@ public class FragmentHome extends Fragment {
                     startActivity(new Intent(getContext(),HomeWeddingTaskActivity.class));
                     break;
                 case R.id.LL_weixin_cad:
-                    startActivity(new Intent(getContext(), HomeWeixinCadActivity.class));
+                    startActivity(new Intent(getContext(), InvitationListActivity.class));
                     break;
                 default:
                     break;

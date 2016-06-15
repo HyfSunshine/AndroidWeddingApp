@@ -57,18 +57,17 @@ public class FragmentSocial extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_social, null);
-        initView();
-        initListeners();
-        viewPager = (ViewPager) view.findViewById(R.id.social_lunbo_viewpager);
-        indicator = (PageIndicator) view.findViewById(R.id.indicator);
-        //初始化图片地址
-        initImagesURL();
+            view = inflater.inflate(R.layout.fragment_social, null);
+            initView();
+            initListeners();
+            viewPager = (ViewPager) view.findViewById(R.id.social_lunbo_viewpager);
+            indicator = (PageIndicator) view.findViewById(R.id.indicator);
+            //初始化图片地址
+            initImagesURL();
 
-        viewPager.setAdapter(new MyViewPagerAdapter());
-        indicator.setViewPager(viewPager);
-
-        return view;
+            viewPager.setAdapter(new MyViewPagerAdapter());
+            indicator.setViewPager(viewPager);
+            return view;
     }
 
     private void initListeners() {

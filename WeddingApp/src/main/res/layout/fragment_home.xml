@@ -52,7 +52,7 @@
                     android:id="@+id/home_lunbo_viewpager"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    >
+                    android:background="@color/zhuColor">
                 </android.support.v4.view.ViewPager>
 
                 <com.viewpagerindicator.CirclePageIndicator
@@ -64,16 +64,10 @@
                     app:fillColor="#ff705e">
                 </com.viewpagerindicator.CirclePageIndicator>
             </RelativeLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="#CCCCCC"/>
-
             <LinearLayout
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
 
                 android:layout_weight="2"
                 android:background="#fff"
@@ -95,9 +89,9 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="5dp"
                 android:layout_weight="3">
 
                 <ImageButton
@@ -121,13 +115,6 @@
                         android:layout_marginBottom="1dp"
                         android:background="#fff"
                         android:src="@mipmap/zuhunche"/>
-                    <!--   <ImageView
-                           android:id="@+id/line"
-                           android:layout_width="match_parent"
-                           android:layout_height="1dp"
-                           android:layout_below="@id/hunche"
-                           android:background="#2e2929"
-                           android:src="@drawable/image_dashline"/>-->
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -137,11 +124,11 @@
                         android:src="@mipmap/lvpai"/>
                 </RelativeLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
+                android:layout_marginTop="5dp"
                 android:orientation="vertical"
                 >
 

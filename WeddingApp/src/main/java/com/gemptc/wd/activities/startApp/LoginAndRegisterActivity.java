@@ -36,6 +36,8 @@ public class LoginAndRegisterActivity extends AppCompatActivity {
         viewPager= (ViewPager) this.findViewById(R.id.viewPager);
         indicator= (PageIndicator) this.findViewById(R.id.indicator);
 
+        //默认自动预加载3个页面
+        viewPager.setOffscreenPageLimit(3);
         adapter = new MyViewPagerAdapter();
         viewPager.setAdapter(adapter);
         indicator.setViewPager(viewPager);
