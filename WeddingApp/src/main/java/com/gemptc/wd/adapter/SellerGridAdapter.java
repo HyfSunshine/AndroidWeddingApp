@@ -46,7 +46,6 @@ public class SellerGridAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-
         if (convertView == null){
             //说明是第一次绘制整屏列表，例如1-6行
             convertView =mInflater.inflate(R.layout.seller_top_item,null);

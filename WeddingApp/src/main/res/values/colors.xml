@@ -6,6 +6,7 @@
     <color name="textDown">#FF705E</color>
     <color name="textColor">#FF705E</color>
 
+    <color name="itemDivider">#e9e7e7</color>
     <color name="replyNumColor">#FF705E</color>
     <color name="plugin_camera_title_bar">#454141</color>
 

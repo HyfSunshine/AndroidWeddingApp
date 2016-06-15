@@ -33,6 +33,7 @@
         android:gravity="center"
         android:text="结婚任务"/>
     <ImageButton
+        android:id="@+id/taskSettingsBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -48,47 +49,57 @@
         android:background="@color/textDown">
         <TextView
             android:id="@+id/feigexian"
-            android:layout_width="2dp"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-           android:layout_marginLeft="20dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_centerInParent="true"
             android:background="#fff"/>
-        <TextView
-            android:id="@+id/tian"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/feigexian"
-            android:textSize="16sp"
-            android:textColor="#fff"
-            android:layout_centerVertical="true"
-            android:text="天"/>
-        <TextView
-            android:id="@+id/shijian"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/tian"
-            android:gravity="center"
-            android:layout_centerVertical="true"
-            android:text="256"
+            android:layout_centerInParent="true"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/textDown"
-            android:background="@drawable/time_textview_style"
-            android:textSize="30sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/shijian"
-            android:textSize="16sp"
-            android:textColor="#fff"
-            android:text="倒计时:"
-            />
-        <ImageView
+            android:layout_toLeftOf="@+id/feigexian"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/shijian"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:text="倒计时:"
+                />
+            <TextView
+                android:id="@+id/shijian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tian"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:text="256"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/textDown"
+                android:background="@drawable/time_textview_style"
+                android:textSize="25sp"/>
+            <TextView
+                android:id="@+id/tian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/feigexian"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:layout_centerVertical="true"
+                android:text="天"/>
+        </LinearLayout>
+       <!-- <ImageView
             android:id="@+id/yuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,28 +107,47 @@
             android:background="#00000000"
             android:gravity="center"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/feigexian"/>
+            android:layout_toRightOf="@+id/feigexian"/>-->
 
+<!--
+   <com.gemptc.wd.utils.NumberCircleProgressBar
+                 style="@style/NumberCircleProgressBar_Beauty_Red"
+                 android:id="@+id/yuan"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:padding="10dp"/>-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/feigexian"
+        android:gravity="center"
+        >
 
             <TextView
                 android:id="@+id/weiwancheng"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:text="未完成:"
                 android:gravity="center"
+                android:layout_marginRight="10dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/yuan"
                 android:textColor="#fff"/>
             <TextView
+                android:id="@+id/txtNoFinsh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12"
                 android:textColor="#fff"
                 android:gravity="center"
+                android:text="5"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/weiwancheng"
-                android:textSize="25sp"/>
+                android:textSize="20sp"/>
+    </LinearLayout>
+
     </RelativeLayout>
 <RelativeLayout
     android:layout_width="match_parent"

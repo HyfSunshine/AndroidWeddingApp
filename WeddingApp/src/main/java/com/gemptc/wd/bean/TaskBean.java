@@ -1,18 +1,18 @@
 package com.gemptc.wd.bean;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 /**
  * Created by C5-0 on 2016/5/24.
  */
-public class TaskBean implements Serializable {
+public class TaskBean implements Serializable{
     private int taskId;
-    private int userId;
+    private int uId;
     private String taskName;
     private String taskDescription;
-    private Long taskTime;
+    private String taskTime;
     private int taskState;
-
     public TaskBean() {
     }
 
@@ -28,12 +28,12 @@ public class TaskBean implements Serializable {
         this.taskId = taskId;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getuId() {
+        return uId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setuId(int uId) {
+        this.uId = uId;
     }
 
     public String getTaskName() {
@@ -52,11 +52,11 @@ public class TaskBean implements Serializable {
         this.taskDescription = taskDescription;
     }
 
-    public Long getTaskTime() {
+    public String getTaskTime() {
         return taskTime;
     }
 
-    public void setTaskTime(Long taskTime) {
+    public void setTaskTime(String taskTime) {
         this.taskTime = taskTime;
     }
 

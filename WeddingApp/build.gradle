@@ -9,8 +9,6 @@ repositories {
 android {
     compileSdkVersion 23
     buildToolsVersion '23.0.3'
-
-
     defaultConfig {
         applicationId "com.android.FragmentApplication"
         minSdkVersion 15
@@ -43,4 +41,5 @@ dependencies {
     compile files('libs/open_sdk_r5756.jar')
     compile 'com.lzy.widget:ninegridview:0.1.4'
     compile project(':19_SweetAalertDialog')
+    compile files('libs/AMap_Location_v2.3.0_20160112.jar')
 }

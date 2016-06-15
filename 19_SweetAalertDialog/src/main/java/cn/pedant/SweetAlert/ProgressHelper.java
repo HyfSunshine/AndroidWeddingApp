@@ -129,7 +129,7 @@ public class ProgressHelper {
         updatePropsIfNeed();
     }
 
-    public int getBarColor() {
+    public int getBarColor(int color) {
         return mBarColor;
     }
 

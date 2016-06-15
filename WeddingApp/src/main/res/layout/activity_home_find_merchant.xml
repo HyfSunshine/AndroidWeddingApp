@@ -25,13 +25,24 @@
             android:onClick="backActivity"
             android:src="@mipmap/btn_back_red"/>
 
-        <include
-            layout="@layout/search"
+        <EditText
+            android:id="@+id/search_et_input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_weight="6"
-            />
+            android:layout_weight="5"
+            android:layout_gravity="center"
+            android:background="@drawable/searchtext"
+            android:hint="搜索商家"
+            android:inputType="text"
+            android:textColor="#999999"
+            android:textSize="16sp"/>
+        <ImageButton
+            android:id="@+id/ImgBtnSearch"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#01000000"
+            android:src="@mipmap/icon_search_s"/>
     </LinearLayout>
 
     <LinearLayout
@@ -57,7 +68,7 @@
                     android:numColumns="auto_fit"
                     android:scrollbars="none"
                     android:stretchMode="spacingWidthUniform"
-                    style="@style/StyledIndicators"/>
+                    />
             </LinearLayout>
 
         </HorizontalScrollView>

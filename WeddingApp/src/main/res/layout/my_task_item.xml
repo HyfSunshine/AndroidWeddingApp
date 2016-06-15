@@ -25,7 +25,17 @@
                 android:gravity="center"
                 android:text="123"
                 android:textSize="20sp"/>
-
+            <TextView
+                android:id="@+id/mytasktime_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_task_undo"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="123"
+                android:textSize="15sp"/>
             <Button
                 android:id="@+id/btn_task_undo"
                 android:layout_width="20dp"
@@ -61,7 +71,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="编辑"
-                    android:onClick="editTask"
                     android:textSize="15sp"/>
             </LinearLayout>
             <LinearLayout

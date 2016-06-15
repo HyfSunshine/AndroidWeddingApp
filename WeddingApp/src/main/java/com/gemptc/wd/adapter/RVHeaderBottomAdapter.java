@@ -109,7 +109,6 @@ public class RVHeaderBottomAdapter extends RecyclerView.Adapter implements View.
         public HeaderViewHolder(View itemView) {
             super(itemView);
             imageView = (CircleImageView) itemView.findViewById(R.id.cv_imageview);
-            imageView.setAlpha(200);
             sellerNameTxtView= (TextView) itemView.findViewById(R.id.sellerNameTxt);
             sellerKindTxtView= (TextView) itemView.findViewById(R.id.sellerKindTxt);
             sellerFansNumTxtView= (TextView) itemView.findViewById(R.id.fansnum);

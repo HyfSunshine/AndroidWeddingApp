@@ -1,4 +1,5 @@
 package com.gemptc.wd.activities.home;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -8,9 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.wedding.R;
 
@@ -42,16 +46,22 @@ public class HomeFindMerchantActivity extends FragmentActivity {
     List<Seller> mSellerlist=new ArrayList<>();
     List<SellerData> mSellerData;
     SellerListAdapter mSellerListAdapter;
+    ImageButton mSearchImageButton;
+    EditText mEditTextSearch;
+    String serachTxt;
+    String[] mGridText=new String[]{"true","flase","flase","flase","flase","flase"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home_find_merchant);
+        initView();
         //初始化GridView
         initGridData();
         initGridview();
         initGridlistener();
+
         //初始化下拉刷新
         initListview();
         //商家分类和Params
@@ -59,15 +69,44 @@ public class HomeFindMerchantActivity extends FragmentActivity {
 
         mSellerListAdapter=new SellerListAdapter(HomeFindMerchantActivity.this,mSellerlist);
         mListView.setAdapter(mSellerListAdapter);
+
+      /*  mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                TextView textView= (TextView) view.findViewById(R.id.classfiytext);
+                textView.setTextColor(HomeFindMerchantActivity.this.getResources().getColor(R.color.textDown));
+                textView.setBackgroundResource(R.drawable.selector_tabtext);
+
+            }
+        });*/
         //初始化从网络上获取的数据
         clickGetClassData(0);
-
+        initLisenter();
         //initListData();
         //initListlistener();
 
        /* Intent intent = getIntent();
         initView();*/
     }
+
+    private void initLisenter() {
+        mSearchImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeFindMerchantActivity.this,SearchActivity.class);
+                intent.putExtra("searchtext",mEditTextSearch.getText().toString());
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initView() {
+        mSearchImageButton= (ImageButton) findViewById(R.id.ImgBtnSearch);
+        mEditTextSearch= (EditText) findViewById(R.id.search_et_input);
+
+    }
+
     public void initRefreshListView() {
         ILoadingLayout startLabels = mListView.getLoadingLayoutProxy(true, false);
         startLabels.setPullLabel("下拉刷新");
@@ -99,6 +138,8 @@ public class HomeFindMerchantActivity extends FragmentActivity {
         for (int i = 0; i < sellerList.size(); i++) {
             mSellerlist.add(sellerList.get(i));
         }
+
+
         mSellerListAdapter.notifyDataSetChanged();
     }
     //从网络上获取数据
@@ -225,6 +266,16 @@ public class HomeFindMerchantActivity extends FragmentActivity {
         mGridView.setVerticalScrollBarEnabled(false);//设置滚动条不显示
         mSellerGridAdapter=new SellerGridAdapter(HomeFindMerchantActivity.this,mlist);
         mGridView.setAdapter(mSellerGridAdapter);
+       /* mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView textView= (TextView) view.findViewById(R.id.classfiytext);
+                textView.setTextColor(HomeFindMerchantActivity.this.getResources().getColor(R.color.textDown));
+                textView.setBackgroundResource(R.drawable.base_tabpager_indicator_selected);
+            }
+        });*/
+        //初始化Gridview中text的格式
+
     }
     private void initGridData(){
         mlist.add("婚纱摄影");

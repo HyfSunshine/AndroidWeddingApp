@@ -5,12 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/02_XUtils3/02_XUtils3.iml" filepath="$PROJECT_DIR$/02_XUtils3/02_XUtils3.iml" />
       <module fileurl="file://$PROJECT_DIR$/09_SMSSDK/09_SMSSDK.iml" filepath="$PROJECT_DIR$/09_SMSSDK/09_SMSSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/14_PullToZoomView/14_PullToZoomView.iml" filepath="$PROJECT_DIR$/14_PullToZoomView/14_PullToZoomView.iml" />
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/19_SweetAalertDialog/19_SweetAalertDialog.iml" filepath="$PROJECT_DIR$/19_SweetAalertDialog/19_SweetAalertDialog.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/14_PullToZoomView/14_PullToZoomView.iml" filepath="$PROJECT_DIR$/14_PullToZoomView/14_PullToZoomView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AndroidWeddingApp.iml" filepath="$PROJECT_DIR$/AndroidWeddingApp.iml" />
->>>>>>> 2c35cc885bb3cceb545497fcd25822e728f536cb
       <module fileurl="file://$PROJECT_DIR$/WeddingApp/WeddingApp.iml" filepath="$PROJECT_DIR$/WeddingApp/WeddingApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
     </modules>

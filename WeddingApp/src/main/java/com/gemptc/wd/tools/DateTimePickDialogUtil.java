@@ -1,16 +1,25 @@
 package com.gemptc.wd.tools;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.android.wedding.R;
+import com.gemptc.wd.activities.home.RemindActivity;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by C5-0 on 2016/5/24.
@@ -22,7 +31,8 @@ public class DateTimePickDialogUtil implements DatePicker.OnDateChangedListener,
     private String dateTime;
     private String initDateTime;
     private Activity activity;
-
+    private TextView mTextView;
+    public AlarmManager manager;
     public String getDateTime() {
         return dateTime;
     }
@@ -81,6 +91,38 @@ public class DateTimePickDialogUtil implements DatePicker.OnDateChangedListener,
                 .setView(dateTimeLayout)
                 .setPositiveButton("设置提醒时间", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
+                        mTextView= (TextView) activity.findViewById(R.id.remindTxt);
+                        mTextView.setText(dateTime);
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
+                        long remindTime;
+                        Date date=null;
+                        try {
+                            date=sdf.parse(dateTime);
+                            remindTime=date.getTime();
+                            manager= (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+                            Intent intent=new Intent(activity,RemindActivity.class);
+                            PendingIntent pi= PendingIntent.getActivity(activity,0,intent,0);
+                            //   manager.set(AlarmManager.RTC_WAKEUP,remindTime,pi);
+                            manager.set(AlarmManager.RTC_WAKEUP,remindTime,pi);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                       /* try {
+                           date=sdf.parse(dateTime);
+                            remindTime=date.getTime();
+                            Log.e("time","选择时间："+remindTime);
+                            Log.e("time","选择时间："+dateTime);
+                            manager= (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+                            Intent intent=new Intent(activity,RemindActivity.class);
+                            PendingIntent pi=PendingIntent.getActivity(activity,0,intent,0);
+                         //   manager.set(AlarmManager.RTC_WAKEUP,remindTime,pi);
+                            manager.set(AlarmManager.RTC_WAKEUP,remindTime,pi);
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }*/
+
 
                     }
                 })
