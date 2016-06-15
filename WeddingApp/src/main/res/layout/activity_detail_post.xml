@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/ll_addmenu"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,7 +26,7 @@
             android:layout_weight="6"
             android:text="话题详情"
             android:textColor="#ff705e"
-            android:textSize="30sp"
+            android:textSize="22sp"
             android:gravity="center"
             android:layout_height="match_parent"/>
         <ImageButton
@@ -41,14 +42,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ListView
-            android:layout_marginTop="2dp"
-            android:id="@+id/listview_detailview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white">
-        </ListView>
+
         <LinearLayout
+            android:id="@+id/bottom_replyLayout"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@color/white"
@@ -56,22 +52,25 @@
             android:layout_alignParentBottom="true"
             android:padding="5dp">
 
-            <ImageView
-                android:id="@+id/replyaddPic"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_add_images"/>
+            <!--<ImageView-->
+                <!--android:id="@+id/replyaddPic"-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@mipmap/icon_add_images"/>-->
             <!--<ImageView-->
                 <!--android:layout_width="40dp"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:src="@mipmap/icon_add_face"/>-->
             <EditText
+                android:id="@+id/et_replypost"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:hint="回复楼主："
                 android:background="@drawable/reply_master"/>
             <Button
-                android:id="@+id/replyPost"
+                android:id="@+id/sendreplyPost"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_red_shixin_kuang"
@@ -80,5 +79,15 @@
                 android:textColor="@color/white"
                 android:layout_marginLeft="5dp"/>
         </LinearLayout>
+
+        <ListView
+            android:layout_marginTop="2dp"
+            android:id="@+id/listview_detailview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_above="@id/bottom_replyLayout"
+            android:listSelector="@drawable/timer_list_selector">
+        </ListView>
     </RelativeLayout>
 </LinearLayout>

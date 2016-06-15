@@ -40,10 +40,13 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
     ImageButton huiyilu_edit_post;
     //加载帖子列表
     private SweetAlertDialog LoadingPostDialog;
+    int  postselection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_huiyilu);
+        Intent intent=getIntent();
+        postselection=intent.getIntExtra("postselection",0);
         mList=new ArrayList<>();
         mListView= (ListView)findViewById(R.id.lv_huiyilu);
         mPostAdapter=new PostAdapter(this,mList,moduleType);
@@ -143,7 +146,9 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.huiyilu_edit_post:
-                    startActivityForResult(new Intent(SocialHuiyiluActivity.this,EditPostActivity.class),100);
+                    Intent intent=new Intent(SocialHuiyiluActivity.this,EditPostActivity.class);
+                    intent.putExtra("postselection",1);
+                    startActivityForResult(intent,100);
                     break;
             }
         }

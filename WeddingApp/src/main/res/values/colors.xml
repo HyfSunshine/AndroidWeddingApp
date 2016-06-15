@@ -8,11 +8,13 @@
 
     <color name="replyNumColor">#FF705E</color>
     <color name="plugin_camera_title_bar">#454141</color>
-
+    <color name="TextTitlecolor">#fff</color>
+    <color name="transparent">#50000000</color>
     <color name="searchtextColor">#fff</color>
     <color name="searchColor">#FF705E</color>
     <color name="textUp">#999999</color>
     <color name="selectbg">#dad7d7</color>
+    <color name="itemdivider">#e9e7e7</color>
     <color name="searchbackground">#F2F2F2</color>
     <color name="searchdivierline">#fff</color>
     <color name="homebackgroudcolor">#e9e7e7</color>

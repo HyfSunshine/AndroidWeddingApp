@@ -26,7 +26,7 @@
         android:layout_weight="6"
         android:text="话题"
         android:textColor="#ff705e"
-        android:textSize="30sp"
+        android:textSize="22sp"
         android:gravity="center"
         android:layout_height="match_parent"/>
     <ImageButton
@@ -44,7 +44,9 @@
         <ListView
             android:id="@+id/lv_huiyilu"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:dividerHeight="3dp"
+            android:divider="@color/itemdivider">
         </ListView>
     </LinearLayout>
 

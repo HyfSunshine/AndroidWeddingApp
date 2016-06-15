@@ -72,46 +72,47 @@
             android:textColor="@color/textColor"/>
     </LinearLayout>
     <!-- 内容 -->
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="28">
-        <LinearLayout
-            android:id="@+id/now_linear"
-            android:orientation="vertical"
-            android:visibility="visible"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/hotText"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:gravity="center_vertical"
-                android:padding="5dp"
-                android:text="热门搜索"
-                android:textSize="12sp"
-                android:textColor="@color/searchColor"
-                android:background="@color/searchbackground"/>
-            <!--暂时放个简单的分割线吧-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/searchdivierline"/>
-            <GridView
-                android:id="@+id/hotGridView"
-                android:padding="10dp"
-                android:layout_margin="15dp"
-                android:layout_weight="11"
-                android:numColumns="3"
-                android:columnWidth="50dp"
-                android:minHeight="90dp"
-                android:horizontalSpacing="10sp"
-                android:verticalSpacing="10sp"
-                android:layout_width="match_parent"
-                android:layout_height="0dp">
-            </GridView>
-            <!--暂时放个简单的分割线吧-->
+        android:layout_weight="28"
+        android:orientation="vertical">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/now_linear"-->
+            <!--android:orientation="vertical"-->
+            <!--android:visibility="visible"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+            <!--<TextView-->
+                <!--android:id="@+id/hotText"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="2"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:padding="5dp"-->
+                <!--android:text="热门搜索"-->
+                <!--android:textSize="12sp"-->
+                <!--android:textColor="@color/searchColor"-->
+                <!--android:background="@color/searchbackground"/>-->
+            <!--&lt;!&ndash;暂时放个简单的分割线吧&ndash;&gt;-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/searchdivierline"/>-->
+            <!--<GridView-->
+                <!--android:id="@+id/hotGridView"-->
+                <!--android:padding="10dp"-->
+                <!--android:layout_margin="15dp"-->
+                <!--android:layout_weight="11"-->
+                <!--android:numColumns="3"-->
+                <!--android:columnWidth="50dp"-->
+                <!--android:minHeight="90dp"-->
+                <!--android:horizontalSpacing="10sp"-->
+                <!--android:verticalSpacing="10sp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp">-->
+            <!--</GridView>-->
+            <!--&lt;!&ndash;暂时放个简单的分割线吧&ndash;&gt;-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -122,11 +123,11 @@
                android:layout_width="match_parent"
                android:layout_height="0dp"
                android:background="@color/socialbackgroudcolor"
-               android:layout_weight="2"
+               android:layout_weight="1"
                android:text="历史搜索"
                android:textColor="@color/searchColor"
                android:textSize="12sp"
-               android:layout_gravity="center_vertical"/>
+             android:gravity="center_vertical"/>
             <!--暂时放个简单的分割线吧-->
             <TextView
                 android:layout_width="match_parent"
@@ -136,7 +137,7 @@
                 android:id="@+id/historyList"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="10"
+                android:layout_weight="12"
                 android:background="@color/socialbackgroudcolor">
             </ListView>
             <Button
@@ -146,7 +147,7 @@
                 android:background="#fff"
                 android:text="清除历史搜索"
                 android:textSize="12sp"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/searchColor"/>
         </LinearLayout>
@@ -159,9 +160,8 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/result_recycle"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="12">
+                android:layout_height="wrap_content">
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
-    </FrameLayout>
-</LinearLayout>
+    </LinearLayout>
+<!--</LinearLayout>-->

@@ -72,6 +72,13 @@
             android:name="com.gemptc.wd.activities.social.EditPostActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
         </activity>
+        
+        <!--图片选择器-->
+        <activity
+            android:name="com.zfdang.multiple_images_selector.ImagesSelectorActivity"
+            android:configChanges="orientation|screenSize"/>
+        
+        
         <activity
             android:name="com.gemptc.wd.activities.social.SearchPostActivity"
             android:windowSoftInputMode="adjustPan">

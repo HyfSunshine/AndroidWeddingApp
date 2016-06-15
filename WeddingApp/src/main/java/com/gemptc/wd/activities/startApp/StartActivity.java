@@ -21,7 +21,7 @@ public class StartActivity extends AppCompatActivity {
                 //获取到用户是否登录的信息
 
 
-                boolean isLogin= PrefUtils.getBoolean(StartActivity.this,"isLogin",true);
+                boolean isLogin= PrefUtils.getBoolean(StartActivity.this,"isLogin",false);
 
                 if (!isLogin){
                     //说明用户没有登录，跳转到登录的界面
