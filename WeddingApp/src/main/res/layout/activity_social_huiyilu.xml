@@ -41,13 +41,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ListView
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
             android:id="@+id/lv_huiyilu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:dividerHeight="3dp"
             android:divider="@color/itemdivider">
-        </ListView>
+        </com.handmark.pulltorefresh.library.PullToRefreshListView>
     </LinearLayout>
 
 </LinearLayout>

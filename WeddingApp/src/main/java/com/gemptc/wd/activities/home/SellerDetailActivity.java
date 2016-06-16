@@ -1,12 +1,9 @@
 package com.gemptc.wd.activities.home;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -102,7 +99,7 @@ public class SellerDetailActivity extends AppCompatActivity {
     private void checkedUserSeller() {
         RequestParams params = new RequestParams(UrlAddress.SELLER_Controller);
         params.addBodyParameter("sellerop", "checkUserSeller");
-        params.addBodyParameter("userid", 4 + "");
+        params.addBodyParameter("userid", PrefUtils.getString(this,"user_self_id",null));
         params.addBodyParameter("sellerid", mSeller.getId() + "");
 
         x.http().post(params, new Callback.CommonCallback<String>() {
@@ -112,7 +109,7 @@ public class SellerDetailActivity extends AppCompatActivity {
                     mImageBtnCollect.setClickable(false);
                     mImageBtnCollect.setBackgroundResource(R.mipmap.icon_collect_r2);
                 } else {
-                    mImageBtnCollect.setBackgroundResource(R.drawable.icon_collect_r2);
+                    mImageBtnCollect.setBackgroundResource(R.mipmap.icon_collect_w);
                     mImageBtnCollect.setClickable(true);
                 }
             }
@@ -142,7 +139,7 @@ public class SellerDetailActivity extends AppCompatActivity {
     private void uploadCollectSeller() {
         RequestParams params=new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"SellerController");
         params.addBodyParameter("sellerop","collection");
-        params.addBodyParameter("userid",4+"");
+        params.addBodyParameter("userid",PrefUtils.getString(this,"user_self_id",null));
         params.addBodyParameter("sellerid",mSeller.getId()+"");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override

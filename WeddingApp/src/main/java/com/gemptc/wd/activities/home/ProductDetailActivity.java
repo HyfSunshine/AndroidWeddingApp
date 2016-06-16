@@ -1,24 +1,16 @@
 package com.gemptc.wd.activities.home;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.wedding.R;
 import com.bumptech.glide.Glide;
@@ -30,9 +22,6 @@ import com.gemptc.wd.utils.UrlAddress;
 import com.gemptc.wd.view.CircleImageView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -41,7 +30,6 @@ import org.xutils.x;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -87,7 +75,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     private void checkedUserProduct() {
         RequestParams params = new RequestParams(UrlAddress.PRODUCT_Controller);
         params.addBodyParameter("productop", "checkUserProduct");
-        params.addBodyParameter("userid", 4 + "");
+        params.addBodyParameter("userid", PrefUtils.getString(this,"user_self_id",null));
         params.addBodyParameter("productid", mProduct.getProductId()+"");
 
         x.http().post(params, new Callback.CommonCallback<String>() {
@@ -125,7 +113,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     private void uploadCollectProduct() {
         RequestParams params=new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"ProductController");
         params.addBodyParameter("productop","collection");
-        params.addBodyParameter("userid",4+"");
+        params.addBodyParameter("userid",PrefUtils.getString(this,"user_self_id",null));
         params.addBodyParameter("productid",mProduct.getProductId()+"");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override

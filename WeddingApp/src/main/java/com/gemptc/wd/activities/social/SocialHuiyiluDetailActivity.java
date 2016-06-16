@@ -76,12 +76,13 @@ public class SocialHuiyiluDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_post);
+        Intent intent=getIntent();
+        mPostBean= (PostBean) intent.getSerializableExtra("posthuiyilu");
+
         initView();
         initListeners();
         replyList=new ArrayList<>();
         imagesUrlList=new ArrayList<>();
-        Intent intent=getIntent();
-        mPostBean= (PostBean) intent.getSerializableExtra("posthuiyilu");
         tv_headviewTitle.setText(mPostBean.getPostTitle());
         mPostDetailAdapter=new PostDetailAdapter(SocialHuiyiluDetailActivity.this,mPostBean,imagesUrlList,replyList);
         huiyiluListView.setAdapter(mPostDetailAdapter);
@@ -157,7 +158,7 @@ public class SocialHuiyiluDetailActivity extends AppCompatActivity {
         RequestParams params=new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"PostController");
         params.addBodyParameter("postop","reply");
         params.addBodyParameter("postid",""+mPostBean.getPostID());
-        params.addBodyParameter("userid","4");
+        params.addBodyParameter("userid",PrefUtils.getString(this,"user_self_id",null));
         params.addBodyParameter("replycontent",et_replypost.getText().toString());
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
@@ -206,8 +207,7 @@ public class SocialHuiyiluDetailActivity extends AppCompatActivity {
         ib_addmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //实例化AddMenuPopupWindow
-                mMenuPopupWindow=new AddMenuPopupWindow(SocialHuiyiluDetailActivity.this,itemsOnClick);
+
                 //显示窗口
                 //设置layout在PopupWindow中显示的位置
                 mMenuPopupWindow.showAtLocation(SocialHuiyiluDetailActivity.this.findViewById(R.id.ll_addmenu),Gravity.BOTTOM| Gravity.CENTER_HORIZONTAL, 0, 0);
@@ -240,8 +240,13 @@ public class SocialHuiyiluDetailActivity extends AppCompatActivity {
                     Toast.makeText(SocialHuiyiluDetailActivity.this, "你点击了微博分享", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.item_addmenupopupwindow_Collection:
-                    uploadCollectPost();
-                    Toast.makeText(SocialHuiyiluDetailActivity.this, "你点击了收藏", Toast.LENGTH_SHORT).show();
+                    if (mMenuPopupWindow.btn_Collection.isClickable()){
+                        //检查帖子的发帖人是否是自己，如果是自己的话，就不能进行关注
+                        if (!PrefUtils.getString(SocialHuiyiluDetailActivity.this,"user_self_id",null).equals(mPostBean.getUserID()))
+                            uploadCollectPost();
+                    }else {
+                        Toast.makeText(SocialHuiyiluDetailActivity.this, "您不能收藏自己的帖子哟", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.item_addmenupopupwindow_Cancel:
                     Toast.makeText(SocialHuiyiluDetailActivity.this, "你点击了退出", Toast.LENGTH_SHORT).show();
@@ -322,7 +327,7 @@ public class SocialHuiyiluDetailActivity extends AppCompatActivity {
         for (int i = 0; i < list.size(); i++) {
             imagesUrlList.add(UrlAddress.POST_IMAGE_ADDRESS+list.get(i));
         }
-        mPostDetailAdapter.notifyDataSetChanged();
+        //mPostDetailAdapter.notifyDataSetChanged();
     }
 
     private void initView() {
@@ -341,6 +346,43 @@ public class SocialHuiyiluDetailActivity extends AppCompatActivity {
 
         //找到addmenu的id
         ib_addmenu= (ImageButton) this.findViewById(R.id.post_addMenu);
+        //实例化AddMenuPopupWindow
+        mMenuPopupWindow=new AddMenuPopupWindow(SocialHuiyiluDetailActivity.this,itemsOnClick);
+
+        //判断用户是否收藏此贴
+        checkUserPost(PrefUtils.getString(this,"user_self_id",null),mPostBean.getPostID()+"");
+    }
+
+    private void checkUserPost(String user_self_id, String s) {
+        RequestParams params = new RequestParams(UrlAddress.POST_Controller);
+        params.addBodyParameter("postop","checkUserPost");
+        params.addBodyParameter("userid",user_self_id);
+        params.addBodyParameter("postid",s);
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (!result.startsWith("用户已收藏")){
+                    mMenuPopupWindow.btn_Collection.setVisibility(View.VISIBLE);
+                }else {
+                    mMenuPopupWindow.btn_Collection.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 
     public void detail_post_back(View view) {

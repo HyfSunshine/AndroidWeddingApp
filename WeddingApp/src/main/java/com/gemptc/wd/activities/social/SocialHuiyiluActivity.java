@@ -16,6 +16,7 @@ import com.gemptc.wd.utils.PrefUtils;
 import com.gemptc.wd.utils.UrlAddress;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -35,7 +36,7 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
     //第二步：找到每行的视图
     //第三步：确定适配器
     PostAdapter mPostAdapter;
-    ListView mListView;
+    PullToRefreshListView mListView;
     int moduleType=1;
     ImageButton huiyilu_edit_post;
     //加载帖子列表
@@ -50,7 +51,7 @@ public class SocialHuiyiluActivity extends AppCompatActivity {
         postselection=intent.getIntExtra("postselection",0);
 
         mList=new ArrayList<>();
-        mListView= (ListView)findViewById(R.id.lv_huiyilu);
+        mListView= (PullToRefreshListView) findViewById(R.id.lv_huiyilu);
         mPostAdapter=new PostAdapter(this,mList,moduleType);
         mListView.setAdapter(mPostAdapter);
         initView();

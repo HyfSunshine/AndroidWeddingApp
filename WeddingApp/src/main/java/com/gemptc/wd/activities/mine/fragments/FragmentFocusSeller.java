@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.android.wedding.R;
 import com.gemptc.wd.activities.mine.adapter.FocusSellerAdapter;
-import com.gemptc.wd.bean.SellerBean;
+import com.gemptc.wd.bean.Seller;
 import com.gemptc.wd.utils.PrefUtils;
 import com.gemptc.wd.utils.UrlAddress;
 import com.google.gson.Gson;
@@ -33,7 +33,7 @@ public class FragmentFocusSeller extends Fragment {
 
     private View view;
     private ListView sellerListview;
-    private List<SellerBean> sellerList;
+    private List<Seller> sellerList;
     private FocusSellerAdapter sellerAdapter;
 
     @Nullable
@@ -91,8 +91,8 @@ public class FragmentFocusSeller extends Fragment {
 
     private void parseData(String result) {
         Gson gson = new Gson();
-        Type type = new TypeToken<List<SellerBean>>(){}.getType();
-        List<SellerBean> sellerBeanList = gson.fromJson(result,type);
+        Type type = new TypeToken<List<Seller>>(){}.getType();
+        List<Seller> sellerBeanList = gson.fromJson(result,type);
         sellerList.clear();
         for (int i = 0; i < sellerBeanList.size(); i++) {
             sellerList.add(sellerBeanList.get(i));

@@ -36,6 +36,8 @@ import com.google.gson.reflect.TypeToken;
 import com.zfdang.multiple_images_selector.ImagesSelectorActivity;
 import com.zfdang.multiple_images_selector.SelectorSettings;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
@@ -391,8 +393,20 @@ public class EdtiUserDataActivity extends AppCompatActivity{
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    String user_name=jsonObject.getString("u_name");
+                    //存储用户的ID
+                    PrefUtils.setString(EdtiUserDataActivity.this,"user_self_name",user_name);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
                 //存储用户自己的数据
                 PrefUtils.setString(EdtiUserDataActivity.this,"user_self_info",result);
+                //更新本地用户名
+
                 Intent intent = new Intent();
                 intent.putExtra("data_return","HelloAndroid");
                 setResult(222,intent);

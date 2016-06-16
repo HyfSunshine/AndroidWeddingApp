@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.android.wedding.R;
 import com.bumptech.glide.Glide;
+import com.gemptc.wd.utils.PrefUtils;
+import com.gemptc.wd.utils.ToastUtils;
 import com.gemptc.wd.utils.UrlAddress;
 import com.zfdang.multiple_images_selector.ImagesSelectorActivity;
 import com.zfdang.multiple_images_selector.SelectorSettings;
@@ -72,12 +74,12 @@ public class EditPostActivity extends AppCompatActivity  {
     }
 
 
-    private void UploadData() {
+    private void UploadData(String userid,String userName) {
         RequestParams  params=new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"PostController");
         params.addBodyParameter("postop","addpost");
         params.addBodyParameter("postselection",""+postselection);
-        params.addBodyParameter("userid","4");
-        params.addBodyParameter("username","赵志飞");
+        params.addBodyParameter("userid", userid);
+        params.addBodyParameter("username",userName);
         if (!mResults.isEmpty()){
             params.addBodyParameter("haveImage","yes");
             for (int i = 0; i < mResults.size(); i++) {
@@ -149,9 +151,15 @@ public class EditPostActivity extends AppCompatActivity  {
                     //设置提示
                     Toast.makeText(EditPostActivity.this, "输入内容不能为空", Toast.LENGTH_SHORT).show();
                 }else {
-                    sweetDialogLoad = new SweetAlertDialog(EditPostActivity.this,SweetAlertDialog.PROGRESS_TYPE);
-                    sweetDialogLoad.setTitleText("正在发布帖子").show();
-                    UploadData();
+                    String userid=PrefUtils.getString(EditPostActivity.this,"user_self_id",null);
+                    String userName=PrefUtils.getString(EditPostActivity.this,"user_self_name",null);
+                    if (!"取一个好听的名字吧".equals(userName)){
+                        sweetDialogLoad = new SweetAlertDialog(EditPostActivity.this,SweetAlertDialog.PROGRESS_TYPE);
+                        sweetDialogLoad.setTitleText("正在发布帖子").show();
+                        UploadData(userid,userName);
+                    }else {
+                        ToastUtils.shortToast(EditPostActivity.this,"一定要取个好听的名字再发帖哟");
+                    }
                 }
             }
         });

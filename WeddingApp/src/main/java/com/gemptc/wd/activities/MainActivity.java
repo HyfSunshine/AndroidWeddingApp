@@ -73,8 +73,11 @@ public class MainActivity extends FragmentActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(result);
                     String user_id = jsonObject.getString("u_id");
+                    String user_name=jsonObject.getString("u_name");
                     //存储用户的ID
                     PrefUtils.setString(MainActivity.mainActivity,"user_self_id",user_id);
+                    //存储用户的ID
+                    PrefUtils.setString(MainActivity.mainActivity,"user_self_name",user_name);
                     //存储数据
                     PrefUtils.setString(MainActivity.mainActivity,"user_self_info",result);
                 } catch (JSONException e) {

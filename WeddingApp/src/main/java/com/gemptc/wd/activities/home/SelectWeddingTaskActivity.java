@@ -66,7 +66,7 @@ public class SelectWeddingTaskActivity extends AppCompatActivity {
                 mSweetAlertDialog=null;
                 mSweetAlertDialog= new SweetAlertDialog(SelectWeddingTaskActivity.this, SweetAlertDialog.PROGRESS_TYPE);
                 mSweetAlertDialog.setTitleText("正在添加任务.......！");
-                mSweetAlertDialog.getProgressHelper().getBarColor(getResources().getColor(R.color.textDown));
+                //mSweetAlertDialog.getProgressHelper().getBarColor(getResources().getColor(R.color.textDown));
                 mSweetAlertDialog.show();
                 //获取自己选择的任务
                 mIsChecked = mTotalTaskAdapter.getIsSelected();
@@ -182,7 +182,7 @@ public class SelectWeddingTaskActivity extends AppCompatActivity {
     private void upload(String taskName) {
         RequestParams params = new RequestParams(UrlAddress.USER_Controller);
         params.addBodyParameter("userop", "addtask");
-        params.addBodyParameter("userid", "" + 4);
+        params.addBodyParameter("userid", PrefUtils.getString(this,"user_self_id",null));
         params.addBodyParameter("taskname", taskName);
         params.addBodyParameter("taskdescription", "");
         params.addBodyParameter("tasktime", "");

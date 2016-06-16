@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.android.wedding.R;
 import com.bumptech.glide.Glide;
 import com.gemptc.wd.activities.mine.MineDetailActivity;
+import com.gemptc.wd.activities.social.SocialHuiyiluDetailActivity;
 import com.gemptc.wd.bean.PostBean;
 import com.gemptc.wd.bean.UserBean;
 import com.gemptc.wd.utils.ToastUtils;
@@ -85,7 +86,10 @@ public class CollePostAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
                 //context.startActivity(new Intent(context,MineDetailActivity.class));
-                ToastUtils.shortToast(context,"您点击了第【"+position+"】条帖子");
+                //ToastUtils.shortToast(context,"您点击了第【"+position+"】条帖子");
+                Intent intent = new Intent(context,SocialHuiyiluDetailActivity.class);
+                intent.putExtra("posthuiyilu",postList.get(position));
+                context.startActivity(intent);
             }
         });
         return convertView;

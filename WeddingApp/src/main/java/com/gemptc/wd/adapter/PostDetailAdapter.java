@@ -119,7 +119,6 @@ public class PostDetailAdapter extends BaseAdapter {
             //调用框架的适配器
             viewHolder.nineGridView.setAdapter(new ClickNineGridViewAdapter(mContext,imageInfo));
             notifyDataSetChanged();
-
         }else {
             //动态的修改每一行控件的内容
             ReplyBean reply=replyList.get(position);

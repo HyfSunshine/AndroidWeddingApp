@@ -234,7 +234,7 @@ public class SocialShenghuojiDetailActivity extends AppCompatActivity {
         RequestParams params = new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT + "PostController");
         params.addBodyParameter("postop", "reply");
         params.addBodyParameter("postid", "" + mPostBean.getPostID());
-        params.addBodyParameter("userid", "4");
+        params.addBodyParameter("userid", PrefUtils.getString(this,"user_self_id",null));
         params.addBodyParameter("replycontent", et_replypost.getText().toString());
 
         x.http().post(params, new Callback.CommonCallback<String>() {

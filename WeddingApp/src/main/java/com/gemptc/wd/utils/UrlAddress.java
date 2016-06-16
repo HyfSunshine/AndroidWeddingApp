@@ -7,9 +7,11 @@ public class UrlAddress {
     /*
 	 * 本地使用
 	 */
-    public static final String HOST_ADDRESS = "http://10.201.1.9:8080/";
+    //public static final String HOST_ADDRESS = "http://10.201.1.9:8080/";
 
     //public static final String HOST_ADDRESS="http://localhost:8080/";
+    public static final String HOST_ADDRESS="http://10.40.7.8:8080/";
+
     public static final String FILE_SAVE_ADDRESS = "G:/JavaProject/WeddingProject/images/";
 
 	/*

@@ -35,8 +35,8 @@
             android:layout_marginTop="5dp">
             <ImageView
                 android:id="@+id/wxShare"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
                 android:src="@mipmap/icon_login_wx"/>
             <ImageView
                 android:id="@+id/qqShare"

@@ -18,7 +18,7 @@ import com.android.wedding.R;
  * Created by zhaozhifei on 2016/6/12.
  */
 public class AddMenuPopupWindow extends PopupWindow {
-    private Button btn_Collection,btn_Cancel;
+    public Button btn_Collection,btn_Cancel;
     private ImageView iv_weixin,iv_qq,iv_weibo;
     private View addmenuView;
 
@@ -37,7 +37,6 @@ public class AddMenuPopupWindow extends PopupWindow {
             public void onClick(View v) {
                 //销毁弹出框
                 dismiss();
-
             }
         });
 

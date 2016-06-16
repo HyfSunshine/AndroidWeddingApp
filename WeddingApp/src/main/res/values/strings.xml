@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Wedding婚礼纪</string>
+    <string name="app_name">Wedding</string>
     <string name="merchant">找商家</string>
     <string name="wedding_task">婚礼任务</string>
     <string name="weixin_cad">发送请帖</string>
@@ -13,10 +13,6 @@
     <string name="unfinished">完成</string>
     <string name="camera_cancel">取消</string>
     <string name="no_photo">相册没有图片</string>
-<<<<<<< HEAD
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 
-
-=======
->>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
 </resources>

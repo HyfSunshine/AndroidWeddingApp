@@ -26,14 +26,12 @@ import com.bumptech.glide.Glide;
 import com.gemptc.wd.activities.home.HomeFindMerchantActivity;
 import com.gemptc.wd.activities.home.HomeWeddingTaskActivity;
 import com.gemptc.wd.activities.MainActivity;
-<<<<<<< HEAD
 import com.gemptc.wd.activities.home.ProductDetailActivity;
 import com.gemptc.wd.activities.home.SearchActivity;
-=======
 import com.gemptc.wd.activities.home.invitation.InvitationListActivity;
->>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
 import com.gemptc.wd.bean.ProductBean;
 import com.gemptc.wd.bean.Seller;
+import com.gemptc.wd.bean.SellerBean;
 import com.gemptc.wd.utils.PrefUtils;
 import com.gemptc.wd.utils.StringUtils;
 import com.gemptc.wd.utils.UrlAddress;
@@ -67,6 +65,7 @@ public class FragmentHome extends Fragment {
     private ProductBean mProduct;
     private ImageView mImgViewTravel1,mImgViewTravel2,mImgViewTravel3;
     private EditText mEditTextSearch;
+    private List<ProductBean> threeProduct = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -79,6 +78,8 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, null);
         initView();
+        initData();
+
         initListeners();
         imagesUrlList = new ArrayList<>();
         viewPager = (ViewPager) view.findViewById(R.id.home_lunbo_viewpager);
@@ -93,11 +94,15 @@ public class FragmentHome extends Fragment {
             parseData(result);
             Toast.makeText(getContext(), "轮播Json从缓存中获取", Toast.LENGTH_SHORT).show();
         }
+        //轮播图
         getDatas();
         //获取旅拍图片并显示
-        getLvPaiImg();
+        //getLvPaiImg();
         return view;
     }
+
+
+
 
     private void initLocation() {
         Log.e("location","jinru");
@@ -123,7 +128,6 @@ public class FragmentHome extends Fragment {
             }
         });
         mLocationClient.startLocation();
-
     }
 
 
@@ -169,22 +173,27 @@ public class FragmentHome extends Fragment {
                     startActivity(new Intent(getContext(), InvitationListActivity.class));
                     break;
                 case R.id.ImgBtnClothes:
-                    getTuiJianDatas("homeweddingdress");
+                    String resultClothes = PrefUtils.getString(getActivity(),"home_tuijian_homeweddingdress",null);
+                    parseTuijianData01(resultClothes);
                     break;
                 case R.id.ImgBtnRing:
-                    getTuiJianDatas("homeweddingring");
+                    String resultRing = PrefUtils.getString(getActivity(),"home_tuijian_homeweddingring",null);
+                    parseTuijianData01(resultRing);
                     break;
                 case R.id.ImgBtnHotel:
-                    getTuiJianDatas("homehotel");
+                    String resultHotel = PrefUtils.getString(getActivity(),"home_tuijian_homehotel",null);
+                    parseTuijianData01(resultHotel);
                     break;
                 case R.id.travltuijian1:
-                    getTuiJianDatas("hometravel1");
+                    getSellerData(listProduct.get(0));
                     break;
                 case R.id.travltuijian2:
-                    getTuiJianDatas("hometravel2");
+                    //getTuiJianDatas("hometravel2");
+                    getSellerData(listProduct.get(1));
                     break;
                 case R.id.travltuijian3:
-                    getTuiJianDatas("hometravel3");
+                    //getTuiJianDatas("hometravel3");
+                    getSellerData(listProduct.get(2));
                     break;
                 case R.id.ImgBtnSearch:
                     //跳到搜索页面
@@ -197,185 +206,296 @@ public class FragmentHome extends Fragment {
             }
         }
     }
-    private void getLvPaiImg() {
-        String result = PrefUtils.getString(getContext(), "hometravel", null);
-        if (result != null) {
-            parseLvPaiImgData(result);
-        }
-        requestLvPaiImgDatas();
+
+
+
+
+    private void parseTuijianData01(String result) {
+        Gson gson=new Gson();
+        Type type = new TypeToken<ProductBean>(){}.getType();
+        mProduct=gson.fromJson(result,type);
+
+        getSellerData(mProduct);
     }
 
-    private void requestLvPaiImgDatas() {
+    private void parseTuijianData02(String result){
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<ProductBean>>(){}.getType();
+        List<ProductBean> productBeanList = gson.fromJson(result,type);
+        threeProduct.clear();
+        for (int i = 0; i < productBeanList.size(); i++) {
+            threeProduct.add(productBeanList.get(i));
+        }
+            Glide.with(getActivity()).load(UrlAddress.PRODUCT_IMAGE_ADDRESS+threeProduct.get(0).getPrListPicName()).into(mImgViewTravel1);
+            Glide.with(getActivity()).load(UrlAddress.PRODUCT_IMAGE_ADDRESS+threeProduct.get(1).getPrListPicName()).into(mImgViewTravel2);
+            Glide.with(getActivity()).load(UrlAddress.PRODUCT_IMAGE_ADDRESS+threeProduct.get(2).getPrListPicName()).into(mImgViewTravel3);
+    }
+
+    private void parseSelerData(String result,ProductBean product){
+        Gson gson = new Gson();
+        Type type = new TypeToken<Seller>(){}.getType();
+        mSeller=gson.fromJson(result,type);
+        Intent intent=new Intent(getContext(),ProductDetailActivity.class);
+        intent.putExtra("productDetail",product);
+        intent.putExtra("seller",mSeller);
+        startActivity(intent);
+    }
+
+
+    private void initData() {
+        getTuijian("homeweddingring");
+        getTuijian("homeweddingdress");
+        getTuijian("homehotel");
+
+        String hometravel=PrefUtils.getString(getActivity(),"home_tuijian_hometravel",null);
+        if (hometravel!=null){
+            parseTuijianData02(hometravel);
+        }
+        getTuijian("hometravel");
+
+    }
+
+    private void getTuijian(final String productop) {
         RequestParams params = new RequestParams(UrlAddress.PRODUCT_Controller);
-        params.addBodyParameter("productop", "hometravel");
+        params.addBodyParameter("productop",productop);
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                PrefUtils.setString(getContext(), "hometravel", result);
-                parseLvPaiImgData(result);
-                Log.e("travel",result);
+                if (!"hometravel".equals(productop)) {
+                    PrefUtils.setString(getActivity(), "home_tuijian_" + productop, result);
+                }else {
+                    PrefUtils.setString(getActivity(), "home_tuijian_" + productop, result);
+                    parseTuijianData02(result);
+                }
             }
+
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
+
             }
+
             @Override
             public void onCancelled(CancelledException cex) {
+
             }
+
             @Override
             public void onFinished() {
+
             }
         });
     }
 
-    private void parseLvPaiImgData(String result) {
-        Gson gson=new Gson();
-        Type type=new TypeToken<List<ProductBean>>(){}.getType();
-        List<ProductBean> productList=gson.fromJson(result,type);
-        Glide.with(getContext())
-                .load(UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(0).getPrListPicName())
-                .thumbnail(0.5f)
-                .into(mImgViewTravel1);
-        Glide.with(getContext())
-                .load(UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(1).getPrListPicName())
-                .thumbnail(0.5f)
-                .into(mImgViewTravel2);
-        Glide.with(getContext())
-                .load(UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(2).getPrListPicName())
-                .thumbnail(0.5f)
-                .into(mImgViewTravel3);
 
-       /* x.image().bind(mImgViewTravel1,UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(0).getPrListPicName());
-        x.image().bind(mImgViewTravel2,UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(1).getPrListPicName());
-        x.image().bind(mImgViewTravel3,UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(2).getPrListPicName());*/
-    }
-    private void getTuiJianDatas(String tuiJianName) {
-        String result = PrefUtils.getString(getContext(), tuiJianName, null);
-        if (result != null) {
-            parseTuiJianData(result,tuiJianName);
-        }
-        requestTuiJianDatas(tuiJianName);
-    }
 
-    private void requestTuiJianDatas(final String tuiJianName) {
-        if(tuiJianName.equals("hometravel1")||tuiJianName.equals("hometravel2")||tuiJianName.equals("hometravel3")){
-            RequestParams params = new RequestParams(UrlAddress.PRODUCT_Controller);
-            params.addBodyParameter("productop", "hometravel");
-            x.http().post(params, new Callback.CommonCallback<String>() {
-                @Override
-                public void onSuccess(String result) {
-                    PrefUtils.setString(getContext(), tuiJianName, result);
-                    parseTuiJianData(result,tuiJianName);
-                    Log.e("travel",result);
-                }
-                @Override
-                public void onError(Throwable ex, boolean isOnCallback) {
-                }
-                @Override
-                public void onCancelled(CancelledException cex) {
-                }
-                @Override
-                public void onFinished() {
-                }
-            });
-        }else{
-
-            RequestParams params = new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"ProductController");
-            params.addBodyParameter("productop", tuiJianName);
-            x.http().post(params, new Callback.CommonCallback<String>() {
-                @Override
-                public void onSuccess(String result) {
-                    PrefUtils.setString(getContext(), tuiJianName, result);
-                    parseTuiJianData(result,tuiJianName);
-                }
-                @Override
-                public void onError(Throwable ex, boolean isOnCallback) {
-                }
-                @Override
-                public void onCancelled(CancelledException cex) {
-                }
-                @Override
-                public void onFinished() {
-                }
-            });
-        }
-
-    }
-    private void parseTuiJianData(String result,String tuiJianName) {
-        if(tuiJianName.equals("hometravel1")||tuiJianName.equals("hometravel2")||tuiJianName.equals("hometravel3")){
-            Gson gson=new Gson();
-            Type type=new TypeToken<List<ProductBean>>(){}.getType();
-            List<ProductBean> productList=gson.fromJson(result,type);
-            Log.e("travel",productList.toString());
-            if(tuiJianName.equals("hometravel1")){
-                mProduct=productList.get(0);
-                getSeller(mProduct.getSellerId());
-                /*Intent intent=new Intent(getContext(),ProductDetailActivity.class);
-                intent.putExtra("productDetail",mProduct);
-                intent.putExtra("seller",mSeller);
-                startActivity(intent);*/
-            }else if(tuiJianName.equals("hometravel2")){
-                mProduct=productList.get(1);
-                getSeller(mProduct.getSellerId());
-            }else if(tuiJianName.equals("hometravel3")){
-                mProduct=productList.get(2);
-                getSeller(mProduct.getSellerId());
-            }
-        }else{
-            Gson gson = new Gson();
-            mProduct=gson.fromJson(result,ProductBean.class);
-            Log.e("seller",mProduct.getSellerId()+"");
-            getSeller(mProduct.getSellerId());
-            Log.e("seller",mSeller.toString());
-
-        }
-    }
-
-    //获取推荐里的商家信息
-    private void getSeller(int sellerId){
-        String result = PrefUtils.getString(getContext(), sellerId+"hometuijian", null);
-        if (result != null) {
-            parseSellerData(result);
-            Toast.makeText(getContext(), "tuijian从缓存中获取", Toast.LENGTH_SHORT).show();
-        }
-        requestSellerDatas(sellerId);
-    }
-
-    private void requestSellerDatas(final int sellerId) {
-        Log.e("seller","jinru");
+    private void getSellerData(final ProductBean product){
         RequestParams params = new RequestParams(UrlAddress.SELLER_Controller);
         params.addBodyParameter("sellerop", "detailsseller");
-        params.addBodyParameter("sellerid",sellerId+"");
+        params.addBodyParameter("sellerid",product.getSellerId()+"");
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.e("seller","requestseller");
-                PrefUtils.setString(getContext(),sellerId+"hometuijian", result);
-                parseSellerData(result);
+                parseSelerData(result,product);
             }
+
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                Log.e("seller",ex.toString());
+
             }
+
             @Override
             public void onCancelled(CancelledException cex) {
-                Log.e("seller","cancelled");
+
             }
+
             @Override
             public void onFinished() {
-                Log.e("seller","finshed");
+
             }
         });
-
     }
+//    private void getLvPaiImg() {
+//        String result = PrefUtils.getString(getContext(), "hometravel", null);
+//        if (result != null) {
+//            parseLvPaiImgData(result);
+//        }
+//        requestLvPaiImgDatas();
+//    }
 
-    private void parseSellerData(String result) {
-            Gson gson=new Gson();
-            mSeller=gson.fromJson(result,Seller.class);
-            Intent intent=new Intent(getContext(),ProductDetailActivity.class);
-            intent.putExtra("productDetail",mProduct);
-            intent.putExtra("seller",mSeller);
-            startActivity(intent);
-    }
+//    private void requestLvPaiImgDatas() {
+//        RequestParams params = new RequestParams(UrlAddress.PRODUCT_Controller);
+//        params.addBodyParameter("productop", "hometravel");
+//        x.http().post(params, new Callback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                PrefUtils.setString(getContext(), "hometravel", result);
+//                parseLvPaiImgData(result);
+//                Log.e("travel",result);
+//            }
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//            }
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//            }
+//            @Override
+//            public void onFinished() {
+//            }
+//        });
+//    }
+
+//    private void parseLvPaiImgData(String result) {
+//        Gson gson=new Gson();
+//        Type type=new TypeToken<List<ProductBean>>(){}.getType();
+//        List<ProductBean> productList=gson.fromJson(result,type);
+//        Glide.with(getContext())
+//                .load(UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(0).getPrListPicName())
+//                .thumbnail(0.5f)
+//                .into(mImgViewTravel1);
+//        Glide.with(getContext())
+//                .load(UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(1).getPrListPicName())
+//                .thumbnail(0.5f)
+//                .into(mImgViewTravel2);
+//        Glide.with(getContext())
+//                .load(UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(2).getPrListPicName())
+//                .thumbnail(0.5f)
+//                .into(mImgViewTravel3);
+//
+//       /* x.image().bind(mImgViewTravel1,UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(0).getPrListPicName());
+//        x.image().bind(mImgViewTravel2,UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(1).getPrListPicName());
+//        x.image().bind(mImgViewTravel3,UrlAddress.PRODUCT_IMAGE_ADDRESS+productList.get(2).getPrListPicName());*/
+//    }
+//    private void getTuiJianDatas(String tuiJianName) {
+//        String result = PrefUtils.getString(getContext(), tuiJianName, null);
+//        if (result != null) {
+//            parseTuiJianData(result,tuiJianName);
+//        }
+//        requestTuiJianDatas(tuiJianName);
+//    }
+//
+//    private void requestTuiJianDatas(final String tuiJianName) {
+//        if(tuiJianName.equals("hometravel1")||tuiJianName.equals("hometravel2")||tuiJianName.equals("hometravel3")){
+//            RequestParams params = new RequestParams(UrlAddress.PRODUCT_Controller);
+//            params.addBodyParameter("productop", "hometravel");
+//            x.http().post(params, new Callback.CommonCallback<String>() {
+//                @Override
+//                public void onSuccess(String result) {
+//                    PrefUtils.setString(getContext(), tuiJianName, result);
+//                    parseTuiJianData(result,tuiJianName);
+//                    Log.e("travel",result);
+//                }
+//                @Override
+//                public void onError(Throwable ex, boolean isOnCallback) {
+//                }
+//                @Override
+//                public void onCancelled(CancelledException cex) {
+//                }
+//                @Override
+//                public void onFinished() {
+//                }
+//            });
+//        }else{
+//
+//            RequestParams params = new RequestParams(UrlAddress.HOST_ADDRESS_PROJECT+"ProductController");
+//            params.addBodyParameter("productop", tuiJianName);
+//            x.http().post(params, new Callback.CommonCallback<String>() {
+//                @Override
+//                public void onSuccess(String result) {
+//                    PrefUtils.setString(getContext(), tuiJianName, result);
+//                    parseTuiJianData(result,tuiJianName);
+//                }
+//                @Override
+//                public void onError(Throwable ex, boolean isOnCallback) {
+//                }
+//                @Override
+//                public void onCancelled(CancelledException cex) {
+//                }
+//                @Override
+//                public void onFinished() {
+//                }
+//            });
+//        }
+//
+//    }
+//    private void parseTuiJianData(String result,String tuiJianName) {
+//        if(tuiJianName.equals("hometravel1")||tuiJianName.equals("hometravel2")||tuiJianName.equals("hometravel3")){
+//            Gson gson=new Gson();
+//            Type type=new TypeToken<List<ProductBean>>(){}.getType();
+//            List<ProductBean> productList=gson.fromJson(result,type);
+//            Log.e("travel",productList.toString());
+//            if(tuiJianName.equals("hometravel1")){
+//                mProduct=productList.get(0);
+//                getSeller(mProduct.getSellerId());
+//                /*Intent intent=new Intent(getContext(),ProductDetailActivity.class);
+//                intent.putExtra("productDetail",mProduct);
+//                intent.putExtra("seller",mSeller);
+//                startActivity(intent);*/
+//            }else if(tuiJianName.equals("hometravel2")){
+//                mProduct=productList.get(1);
+//                getSeller(mProduct.getSellerId());
+//            }else if(tuiJianName.equals("hometravel3")){
+//                mProduct=productList.get(2);
+//                getSeller(mProduct.getSellerId());
+//            }
+//        }else{
+//            Gson gson = new Gson();
+//            mProduct=gson.fromJson(result,ProductBean.class);
+//            Log.e("seller",mProduct.getSellerId()+"");
+//            getSeller(mProduct.getSellerId());
+//            Log.e("seller",mSeller.toString());
+//
+//        }
+//    }
+//
+//    //获取推荐里的商家信息
+//    private void getSeller(int sellerId){
+//        String result = PrefUtils.getString(getContext(), sellerId+"hometuijian", null);
+//        if (result != null) {
+//            parseSellerData(result);
+//            Toast.makeText(getContext(), "tuijian从缓存中获取", Toast.LENGTH_SHORT).show();
+//        }
+//        requestSellerDatas(sellerId);
+//    }
+//
+//    private void requestSellerDatas(final int sellerId) {
+//        Log.e("seller","jinru");
+//        RequestParams params = new RequestParams(UrlAddress.SELLER_Controller);
+//        params.addBodyParameter("sellerop", "detailsseller");
+//        params.addBodyParameter("sellerid",sellerId+"");
+//        x.http().post(params, new Callback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                Log.e("seller","requestseller");
+//                PrefUtils.setString(getContext(),sellerId+"hometuijian", result);
+//                parseSellerData(result);
+//            }
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//                Log.e("seller",ex.toString());
+//            }
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//                Log.e("seller","cancelled");
+//            }
+//            @Override
+//            public void onFinished() {
+//                Log.e("seller","finshed");
+//            }
+//        });
+//
+//    }
+//
+//    private void parseSellerData(String result) {
+//            Gson gson=new Gson();
+//            mSeller=gson.fromJson(result,Seller.class);
+//    }
+//
+//    private void startJump(){
+//        Intent intent=new Intent(getContext(),ProductDetailActivity.class);
+//        intent.putExtra("productDetail",mProduct);
+//        intent.putExtra("seller",mSeller);
+//        startActivity(intent);
+//    }
 
     private void initImagesURL() {
         imagesUrlList.clear();
@@ -406,10 +526,6 @@ public class FragmentHome extends Fragment {
             public void onFinished() {
             }
         });
-<<<<<<< HEAD
-=======
-
->>>>>>> 5d520cd38b28958d9a43a9b2f525817494c95e18
     }
 
     //解析数据

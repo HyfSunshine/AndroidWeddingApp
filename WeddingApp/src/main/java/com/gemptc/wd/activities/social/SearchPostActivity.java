@@ -67,9 +67,9 @@ public class SearchPostActivity extends AppCompatActivity {
     //上下文对象
     private Context mContext;
     //数据库总量
-    private List<SearchBean> mList;
+    private List<PostBean> mList;
     //搜索结果
-    private List<SearchBean> resultList;
+    private List<PostBean> resultList;
     //历史记录
     private List<SearchHistoryBean> historyList;
     //适配器
@@ -99,7 +99,6 @@ public class SearchPostActivity extends AppCompatActivity {
             super.handleMessage(msg);
             switch ((String)msg.obj){
                 case "finish":
-                    Toast.makeText(SearchPostActivity.this, "finish", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -271,9 +270,9 @@ public class SearchPostActivity extends AppCompatActivity {
     //解析数据
     private void parseDatas(String result) {
         Gson gson = new Gson();
-        Type type = new TypeToken<List<SearchBean>>() {
+        Type type = new TypeToken<List<PostBean>>() {
         }.getType();
-        List<SearchBean> list = gson.fromJson(result, type);
+        List<PostBean> list = gson.fromJson(result, type);
         mList=new ArrayList<>();
         Log.e("result1",list.size()+"");
         for (int i = 0; i < list.size(); i++) {

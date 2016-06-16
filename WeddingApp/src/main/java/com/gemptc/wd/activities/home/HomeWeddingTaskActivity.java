@@ -197,7 +197,7 @@ public class HomeWeddingTaskActivity extends AppCompatActivity {
     private void getDatas() {
         RequestParams params = new RequestParams(UrlAddress.USER_Controller);
         params.addBodyParameter("userop", "taskList");
-        params.addBodyParameter("userid", String.valueOf(4));
+        params.addBodyParameter("userid", PrefUtils.getString(this,"user_self_id",null));
         x.http().post(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

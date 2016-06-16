@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.android.wedding.R;
 import com.bumptech.glide.Glide;
+import com.gemptc.wd.activities.home.SellerDetailActivity;
 import com.gemptc.wd.activities.mine.MineDetailActivity;
+import com.gemptc.wd.bean.Seller;
 import com.gemptc.wd.bean.SellerBean;
 import com.gemptc.wd.bean.UserBean;
 import com.gemptc.wd.utils.ToastUtils;
@@ -25,10 +27,10 @@ import java.util.List;
  */
 public class FocusSellerAdapter extends BaseAdapter{
 
-    private List<SellerBean> sellerList;
+    private List<Seller> sellerList;
     private Context context;
 
-    public FocusSellerAdapter(Context context, List<SellerBean> sellerList) {
+    public FocusSellerAdapter(Context context, List<Seller> sellerList) {
         this.context=context;
         this.sellerList = sellerList;
     }
@@ -70,7 +72,9 @@ public class FocusSellerAdapter extends BaseAdapter{
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.shortToast(context,"您点击进入了商家的详情页面");
+                Intent intent = new Intent(context, SellerDetailActivity.class);
+                intent.putExtra("sellerdata",sellerList.get(position));
+                context.startActivity(intent);
             }
         });
         return convertView;
